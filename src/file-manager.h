@@ -12,6 +12,8 @@ typedef struct{
 	uint8_t data[POI_BLOCK_SIZE];
 }poi_file_block;
 
+//spesifikasi getter dan setter jelas
+
 uint8_t get_poi_file_block_byte(const poi_file_block *, uint32_t offset);
 uint16_t get_poi_file_block_word_terurut(const poi_file_block *, uint32_t offset);
 uint16_t get_poi_file_block_word_little_endian(const poi_file_block *, uint32_t offset);
@@ -54,10 +56,25 @@ FILE * dotpoi_mounted_file;
 /* ------------------------------------------------ */
 /* PROSEDUR DAN FUNGSI UNTUK MEMULAI DAN MENGAKHIRI */
 
+
+
+//memeriksa apakah path menunjuk kepada berkas .poi yang valid
+//memeriksa ekstensi apakah sama dengan ".poi"
+//memeriksa ukuran berkas apakah sama dengan POI_FILE_SIZE
+//memeriksa apakah 4 byte pertama merupakan magic string "poi!"
+//keluar fungsi dalam keadaan file tertutup
+//mengembalikan 1 bila semua kondisi di atas terpenuhi
 int poi_file_verify (const char * path);
 
+
+
+//membuka file poi dan menyimpan pointer to file di dotpoi_mounted_file
+//prekondisi: poi_file_verify(path)==1
 int poi_file_open (const char * path);
 
+
+
+//menutup dotpoi_mounted_file
 int poi_file_close();
 
 
@@ -84,8 +101,10 @@ int poi_file_create_new ( const char * path);
 /* ------------------------------------------------ */
 /* ------- PROSEDUR PEMBACAAN DAN PENULISAN ------- */
 
+//mengambil blok ke-n dari file dotpoi_mounted_file
 poi_file_block poi_file_read_block(poi_file_block_num n);
 
+//menulis b.data ke blok ke-n dari file dotpoi_mounted_file
 int poi_file_write_block(poi_file_block b, poi_file_block_num n);
 
 /* ------------------------------------------------ */
