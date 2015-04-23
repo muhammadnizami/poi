@@ -33,7 +33,7 @@ void set_poi_file_block_dword_little_endian(poi_file_block *, uint32_t offset, u
 
 /* ------------------------------------------------ */
 /* -----------FILE POI----------------------------- */
-typedef uint32_t poi_file_block_num;
+typedef uint32_t poi_file_block_num_t;
 
 FILE * dotpoi_mounted_file;
 
@@ -101,10 +101,10 @@ int poi_file_create_new ( const char * path);
 /* ------- PROSEDUR PEMBACAAN DAN PENULISAN ------- */
 
 //mengambil blok ke-n dari file dotpoi_mounted_file
-poi_file_block poi_file_read_block(poi_file_block_num n);
+poi_file_block poi_file_read_block(poi_file_block_num_t n);
 
 //menulis b.data ke blok ke-n dari file dotpoi_mounted_file
-int poi_file_write_block(poi_file_block b, poi_file_block_num n);
+int poi_file_write_block(poi_file_block b, poi_file_block_num_t n);
 
 /* ------------------------------------------------ */
 
