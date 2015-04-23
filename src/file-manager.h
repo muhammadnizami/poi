@@ -59,7 +59,6 @@ FILE * dotpoi_mounted_file;
 
 
 //memeriksa apakah path menunjuk kepada berkas .poi yang valid
-//memeriksa ekstensi apakah sama dengan ".poi"
 //memeriksa ukuran berkas apakah sama dengan POI_FILE_SIZE
 //memeriksa apakah 4 byte pertama merupakan magic string "poi!"
 //keluar fungsi dalam keadaan file tertutup
