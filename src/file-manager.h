@@ -20,6 +20,8 @@ uint16_t get_poi_file_block_word_little_endian(const poi_file_block *, uint32_t 
 uint32_t get_poi_file_block_dword_terurut(const poi_file_block *, uint32_t offset);
 uint32_t get_poi_file_block_dword_little_endian(const poi_file_block *, uint32_t offset);
 
+uint8_t* get_pointer_to_data(const poi_file_pock *);
+
 void set_poi_file_block_byte(poi_file_block *, uint32_t offset, uint8_t data);
 void set_poi_file_block_word_terurut(poi_file_block *, uint32_t offset, uint16_t data);
 void set_poi_file_block_word_little_endian(poi_file_block *, uint32_t offset, uint16_t data);
