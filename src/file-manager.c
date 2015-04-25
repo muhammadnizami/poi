@@ -94,7 +94,7 @@ void set_poi_file_block_word_little_endian(poi_file_block * fb, uint32_t offset,
 void set_poi_file_block_dword_terurut(poi_file_block * fb, uint32_t offset, uint32_t data){
 	assert(0<=offset && offset<POI_BLOCK_SIZE/4);
 	int i;
-	for (i=0;i<4;i++){
+	for (i=3;i>=0;i--){
 		fb->data[offset*4+i]=data&0xff;
 		data=data>>8;
 	}
@@ -104,7 +104,7 @@ void set_poi_file_block_dword_terurut(poi_file_block * fb, uint32_t offset, uint
 void set_poi_file_block_dword_little_endian(poi_file_block * fb, uint32_t offset, uint32_t data){
 	assert(0<=offset && offset<POI_BLOCK_SIZE/4);
 	int i;
-	for (i=3;i>=0;i--){
+	for (i=0;i<4;i++){
 		fb->data[offset*4+i]=data&0xff;
 		data=data>>8;
 	}
@@ -203,8 +203,9 @@ int poi_file_create_new ( const char * path){
 	poi_file_block volinfo;
 	memcpy(volinfo.data,"poi!",4);
 	strcpy(volinfo.data+0X04,"POI!");
-	set_poi_file_block_dword_little_endian(&volinfo,6,POI_DATA_POOL_BLOCKS_NUM);
-	set_poi_file_block_dword_little_endian(&volinfo,7,POI_DATA_POOL_BLOCKS_NUM-1);
+	set_poi_file_block_dword_little_endian(&volinfo,9,POI_DATA_POOL_BLOCKS_NUM);
+	set_poi_file_block_dword_little_endian(&volinfo,10,POI_DATA_POOL_BLOCKS_NUM-1);
+	set_poi_file_block_dword_little_endian(&volinfo,11,0x0001);
 	poi_attr_t root_attr = {1,1,1,0};
 	WAKTU curTime = GetCurrentTime();
 	directory_entry e = makeEntry("",root_attr,GetJam(curTime),GetTanggal(curTime),0,0x0000);
@@ -214,11 +215,16 @@ int poi_file_create_new ( const char * path){
 	dotpoi_mounted_file = fopen(path,"r+");
 	if (dotpoi_mounted_file==NULL) return -errno;
 	poi_file_write_block(volinfo,0);
+	
 	poi_file_block zeroarr;
 	memset(zeroarr.data,0x00,POI_BLOCK_SIZE);
+	poi_file_block firstallocationblock = zeroarr;
+	set_poi_file_block_word_little_endian(&firstallocationblock,0,0xffff);
+	poi_file_write_block(firstallocationblock,1);
 	int i;
-	for (i=1;i<=POI_ALLOCATION_TABLE_BLOCKS_NUM;i++)
+	for (i=2;i<=POI_ALLOCATION_TABLE_BLOCKS_NUM;i++)
 		poi_file_write_block(zeroarr,i);
+
 	fclose(dotpoi_mounted_file);
 	return 1;
 }

@@ -103,7 +103,7 @@ void setLastModifTime(directory_entry* e, JAM J){
 	e->bytearr[0x16] = (word&0xff00) >> 8;
 	e->bytearr[0x17] = (word&0x00ff);
 	
-	return;//TODO implementasi
+	return;
 }
 
 
@@ -116,7 +116,7 @@ void setLastModifDate(directory_entry* e, TANGGAL T){
 	e->bytearr[0x18] = (word&0xff00) >> 8;
 	e->bytearr[0x19] = (word&0x00ff);
 
-	return;//TODO implementasi
+	return;
 }
 
 
