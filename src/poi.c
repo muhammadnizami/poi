@@ -61,7 +61,7 @@ int getEntryRecursive(const char * path, directory_entry r, directory_entry * ge
 	}
 	name[name_length]='\0';
 	
-	if (name_length==0 || path[0]=='\0') {fprintf(logfile,"\tsampai basis. nama:%s\n",getNama(buf,r));*getout = r; return 0;}
+	if (name_length==0 || path[0]=='\0') {*getout = r; return 0;}
 
 	uint16_t dataBlockIdx = getFirstDataBlockIdx(r);
 	uint32_t rsize = getFileSize(r);
@@ -140,9 +140,6 @@ int poi_getattr(const char *path, struct stat *statbuf)
 		//TODO cek lagi nanti
 	}
 	char buf[22];
-	fprintf(logfile,"\tcheck\n\tnama file: %s\n",getNama(buf,e));
-	fprintf(logfile,"\tattr %x%x%x%x\n",getattr(e).x,getattr(e).w,getattr(e).r,getattr(e).d);
-		fprintf(logfile,"\tfile size 0x%x\n",getFileSize(e));
 	return directory_entry_to_struct_stat(e,statbuf);//TODO implementasi
 }
 
