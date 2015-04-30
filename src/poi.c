@@ -2,11 +2,15 @@
 #include <fcntl.h>
 #include <string.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include "file-manager.h"
 #include "directory-entry.h"
 #include "volume-information.h"
 #include "data-pool-block-manager.h"
-int getEntryRecursive(const char * path, directory_entry r, directory_entry * getout){
+FILE * mkdirlog;
+int getEntryAndBlockOffset(const char * path, directory_entry r, directory_entry * getout, uint16_t * dataBlockIdx, uint32_t * offset){
+	char buf[22];
+	fprintf(mkdirlog,"getEntryAndBlockOffset path %s di entri dir %s\n",path,getNama(buf,r));
 	if (!strcmp(path,"/")){*getout = r; return 0;}
 	int name_length = 0;
 	char name[22];
@@ -17,7 +21,47 @@ int getEntryRecursive(const char * path, directory_entry r, directory_entry * ge
 	}
 	name[name_length]='\0';
 	
-	if (name_length==0) {*getout = r; return 0;}
+	if (name_length==0 || path[0]=='\0') {*getout = r; return 0;}
+
+	*dataBlockIdx = getFirstDataBlockIdx(r);
+	uint32_t rsize = getFileSize(r);
+
+	uint32_t totalread = 0;
+	*offset = 0;
+	char namaEntri[21];
+	directory_entry tmp;
+
+	poi_file_block blk = poi_data_pool_read_block(*dataBlockIdx);
+
+	while (totalread < rsize){
+		memcpy(tmp.bytearr,&blk.data[*offset],32);
+		if (!strncmp(name,getNama(namaEntri,tmp),21))
+			return getEntryAndBlockOffset(path+name_length+1,tmp,getout,dataBlockIdx,offset);
+		*offset += 32;
+		totalread += 32;
+		if (*offset>=POI_BLOCK_SIZE){
+			*offset=0;
+			*dataBlockIdx=getNextBlock(*dataBlockIdx);
+			blk = poi_data_pool_read_block(*dataBlockIdx);
+		}
+	}
+	return -ENOENT;
+}
+
+int getEntryRecursive(const char * path, directory_entry r, directory_entry * getout){
+	char buf[22];
+	fprintf(mkdirlog,"getEntryRecursive path %s di entri dir %s\n",path,getNama(buf,r));
+	if (!strcmp(path,"/")){*getout = r; return 0;}
+	int name_length = 0;
+	char name[22];
+	while (path[name_length+1]!='/' && path[name_length+1]!='\0'){
+		if (name_length>=21) return -ENOENT;
+		name[name_length]=path[name_length+1];
+		name_length++;
+	}
+	name[name_length]='\0';
+	
+	if (name_length==0 || path[0]=='\0') {*getout = r; return 0;}
 
 	uint16_t dataBlockIdx = getFirstDataBlockIdx(r);
 	uint32_t rsize = getFileSize(r);
@@ -32,11 +76,10 @@ int getEntryRecursive(const char * path, directory_entry r, directory_entry * ge
 	while (totalread < rsize){
 		memcpy(tmp.bytearr,&blk.data[offset],32);
 		if (!strncmp(name,getNama(namaEntri,tmp),21))
-			return getEntryRecursive(path+name_length,tmp,getout);
+			return getEntryRecursive(path+name_length+1,tmp,getout);
 		offset += 32;
 		totalread += 32;
 		if (offset>=POI_BLOCK_SIZE){
-			
 			offset=0;
 			dataBlockIdx=getNextBlock(dataBlockIdx);
 			blk = poi_data_pool_read_block(dataBlockIdx);
@@ -82,6 +125,7 @@ int directory_entry_to_struct_stat(directory_entry e, struct stat * statbuf){
  */
 int poi_getattr(const char *path, struct stat *statbuf)
 {
+	fprintf(mkdirlog,"getattr('%s')\n",path);
         memset(statbuf, 0, sizeof(struct stat));
 	FILE * f = fopen("test","r+");
 	directory_entry e;
@@ -120,6 +164,7 @@ int poi_getattr(const char *path, struct stat *statbuf)
  */
 int poi_readdir(const char *path, void *buf, fuse_fill_dir_t filler, off_t offset, struct fuse_file_info *fi)
 {
+	fprintf(mkdirlog,"readdir('%s')\n",path);
 	directory_entry e;
 	int a=getEntryRecursive(path,getRootDirEntry(),&e);
 	if (a!=0) return a;
@@ -224,19 +269,29 @@ poi_attr_t mode_t_to_poi_attr_t(mode_t mode){
  * bits set, i.e. S_ISDIR(mode) can be false.  To obtain the
  * correct directory type bits use  mode|S_IFDIR
  * */
+
 int poi_mkdir (const char * path, mode_t mode){
+	fprintf(mkdirlog,"mkdir('%s')\n",path);
 	directory_entry yangdimasuki;
 	if (getEntryRecursive(path,getRootDirEntry(),&yangdimasuki)==0) return -EEXIST;
 	mode = mode|S_IFDIR;
-	int n = strlen(path);
+	int path_length=strlen(path);
+	int n = path_length;
 	while (path[n]!='/') n--;
 
 	int status_op;
 
 	poi_attr_t attr = mode_t_to_poi_attr_t(mode);
 	WAKTU waktu_buat = GetCurrentTime();
+	if (strlen(path+n+1)>21) return -ENAMETOOLONG;
 	directory_entry yangdimasukkan = makeEntry(path+n+1, attr, GetJam(waktu_buat), GetTanggal(waktu_buat), getFirstFreeBlockIdx(), 0);
 	setFirstFreeBlockIdx(getNextEmpty(getFirstFreeBlockIdx()));
+	char * parentDir;
+
+	uint32_t offset;
+	poi_data_pool_block_idx_t dataBlockIdx;
+
+	poi_file_block blk;
 
 	if (n==0){
 		yangdimasuki=getRootDirEntry();
@@ -244,6 +299,21 @@ int poi_mkdir (const char * path, mode_t mode){
 		if (status_op!=0) return status_op;
 		setRootDirEntry(yangdimasuki);
 		savePoiVolinfoCache();
+		return 0;
+	}else{
+		parentDir = malloc(sizeof(char)*n);
+		if (parentDir==NULL) return -ENAMETOOLONG;
+		memcpy(parentDir,path,sizeof(char)*n); parentDir[n]='\0';
+		status_op = getEntryAndBlockOffset(parentDir,getRootDirEntry(),&yangdimasuki,&dataBlockIdx,&offset);
+		if (status_op!=0) return status_op;
+		status_op = poi_insertentry(&yangdimasuki,yangdimasukkan);
+		if (status_op!=0) return status_op;
+
+		//memperbarui entri direktori induknya
+		blk=poi_data_pool_read_block(dataBlockIdx);
+		memcpy(blk.data+offset,yangdimasuki.bytearr,32);
+		poi_data_pool_write_block(blk,dataBlockIdx);
+		free(parentDir);
 		return 0;
 	}
 	return -EPERM;//TODO implementasi
@@ -324,7 +394,7 @@ struct fuse_operations poi_oper = { //TODO tiap kali ada yang diimplementasi, di
 };
 
 int main(int argc, char *argv[]){
-
+	mkdirlog = fopen("mkdirlog","w");
 	if (argc==4)
 	if (!strcmp(argv[3],"-new")){
 		printf("%s",argv[2]);
