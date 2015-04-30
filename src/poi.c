@@ -6,8 +6,6 @@
 #include "directory-entry.h"
 #include "volume-information.h"
 #include "data-pool-block-manager.h"
-
-
 int getEntryRecursive(const char * path, directory_entry r, directory_entry * getout){
 	if (!strcmp(path,"/")){*getout = r; return 0;}
 	int name_length = 0;
@@ -18,7 +16,7 @@ int getEntryRecursive(const char * path, directory_entry r, directory_entry * ge
 		name_length++;
 	}
 	name[name_length]='\0';
-
+	
 	if (name_length==0) {*getout = r; return 0;}
 
 	uint16_t dataBlockIdx = getFirstDataBlockIdx(r);
@@ -34,7 +32,7 @@ int getEntryRecursive(const char * path, directory_entry r, directory_entry * ge
 	while (totalread < rsize){
 		memcpy(tmp.bytearr,&blk.data[offset],32);
 		if (!strncmp(name,getNama(namaEntri,tmp),21))
-			return getEntryRecursive(path+name_length+1,tmp,getout);
+			return getEntryRecursive(path+name_length,tmp,getout);
 		offset += 32;
 		totalread += 32;
 		if (offset>=POI_BLOCK_SIZE){
@@ -62,7 +60,7 @@ int directory_entry_to_struct_stat(directory_entry e, struct stat * statbuf){
 		statbuf->st_mode = statbuf->st_mode | S_IWRITE;
 	if (attr.d)
 		statbuf->st_mode = statbuf->st_mode | S_IFDIR;
-	statbuf->st_nlink = getFileSize(e)/32+1;
+	statbuf->st_nlink = (((unsigned long)getFileSize(e))/32)+1;
 	statbuf->st_uid = getuid();
 	statbuf->st_gid = getgid();
 	statbuf->st_size = getFileSize(e);
@@ -84,13 +82,14 @@ int directory_entry_to_struct_stat(directory_entry e, struct stat * statbuf){
  */
 int poi_getattr(const char *path, struct stat *statbuf)
 {
+        memset(statbuf, 0, sizeof(struct stat));
+	FILE * f = fopen("test","r+");
 	directory_entry e;
 	int a;
 	if (!strcmp(path,"/")){
 		e = getRootDirEntry();
 	}
 	else{
-		
 		a = getEntryRecursive(path,getRootDirEntry(),&e);
 		if (a!=0) return a;
 		//TODO cek lagi nanti
@@ -121,32 +120,67 @@ int poi_getattr(const char *path, struct stat *statbuf)
  */
 int poi_readdir(const char *path, void *buf, fuse_fill_dir_t filler, off_t offset, struct fuse_file_info *fi)
 {
-	return ;//TODO implementasi
+	directory_entry e;
+	int a=getEntryRecursive(path,getRootDirEntry(),&e);
+	if (a!=0) return a;
+
+	uint16_t dataBlockIdx = getFirstDataBlockIdx(e);
+	uint32_t rsize = getFileSize(e);
+
+	uint32_t totalread = 0;
+	uint32_t offsetread = 0;
+	char namaEntri[21];
+	directory_entry tmp;
+
+	poi_file_block blk = poi_data_pool_read_block(dataBlockIdx);
+
+	while (totalread < rsize){
+		memcpy(tmp.bytearr,&blk.data[offsetread],32);
+		filler(buf,getNama(namaEntri,tmp),NULL,0);
+		offsetread += 32;
+		totalread += 32;
+		if (offsetread>=POI_BLOCK_SIZE){
+			
+			offsetread=0;
+			dataBlockIdx=getNextBlock(dataBlockIdx);
+			blk = poi_data_pool_read_block(dataBlockIdx);
+		}
+	}
+	return a;//TODO implementasi
 }
 
 int poi_insertentry(directory_entry * dst, directory_entry val){
+	char buf1[22];
+	char buf2[22];
 	poi_attr_t attr = getattr(*dst);
 	if (!(attr.w)) return -EPERM;
 	if (!(attr.d)) return -ENOTDIR;
-
+		
 	int op_status;
 
 	uint16_t dataBlockIdx = getFirstDataBlockIdx(*dst);
+	uint16_t prev;
 	uint32_t rsize = getFileSize(*dst);
 
 	uint32_t totalread = 0;
 	uint32_t offset = 0;
-	directory_entry tmp;
 
-	poi_file_block blk;
+	poi_file_block blk = poi_data_pool_read_block(dataBlockIdx);
 
-	while (totalread-rsize >= POI_BLOCK_SIZE){
-		totalread+=POI_BLOCK_SIZE;
-		dataBlockIdx=getNextBlock(dataBlockIdx);
+	while (totalread < rsize){
+		offset += 32;
+		totalread += 32;
+		if (offset>=POI_BLOCK_SIZE){
+			offset=0;
+			prev=dataBlockIdx;
+			dataBlockIdx=getNextBlock(dataBlockIdx);
+			blk = poi_data_pool_read_block(dataBlockIdx);
+		}
 	}
-	if (totalread-rsize==0){
+
+	if (dataBlockIdx==0xFFFF){
 		if (getNumFreeBlocks()<1) return -ENOSPC;
-		setNextBlock(dataBlockIdx,getFirstFreeBlockIdx());
+		setNextBlock(prev,getFirstFreeBlockIdx());
 		dataBlockIdx=getFirstFreeBlockIdx();
 		setNextBlock(dataBlockIdx,0XFFFF);
 		memcpy(blk.data,val.bytearr,32);
@@ -157,13 +191,12 @@ int poi_insertentry(directory_entry * dst, directory_entry val){
 		setFirstFreeBlockIdx(getNextEmpty(dataBlockIdx));
 		savePoiVolinfoCache();
 	}else{
-		offset=totalread-rsize;
 		blk=poi_data_pool_read_block(dataBlockIdx);
-		op_status = poi_data_pool_write_block(blk,dataBlockIdx);
 		memcpy(blk.data+offset,val.bytearr,32);
+		op_status = poi_data_pool_write_block(blk,dataBlockIdx);
 		setFileSize(dst,getFileSize(*dst)+32);
+		if (op_status<0) return op_status;
 	}
-	if (op_status<0) return op_status;
 	return 0;
 
 }
@@ -207,8 +240,8 @@ int poi_mkdir (const char * path, mode_t mode){
 
 	if (n==0){
 		yangdimasuki=getRootDirEntry();
-		setFileSize(&yangdimasuki,32);
 		status_op=poi_insertentry(&yangdimasuki,yangdimasukkan);
+		if (status_op!=0) return status_op;
 		setRootDirEntry(yangdimasuki);
 		savePoiVolinfoCache();
 		return 0;
@@ -279,7 +312,7 @@ int poi_truncate (const char * path, off_t offset){
 
 struct fuse_operations poi_oper = { //TODO tiap kali ada yang diimplementasi, diubah jadi bukan komentar
 	.getattr = poi_getattr,
-//	.readdir = poi_readdir,
+	.readdir = poi_readdir,
 	.mkdir = poi_mkdir,
 //	.mknod = poi_mknod,
 //	.read = poi_read,
@@ -291,6 +324,7 @@ struct fuse_operations poi_oper = { //TODO tiap kali ada yang diimplementasi, di
 };
 
 int main(int argc, char *argv[]){
+
 	if (argc==4)
 	if (!strcmp(argv[3],"-new")){
 		printf("%s",argv[2]);
@@ -299,7 +333,7 @@ int main(int argc, char *argv[]){
 		argc--;
 	}
 	if (poi_file_validasi(argv[2])!=1){
-		fprintf(stderr,"file %s tidak dapat dibuka\n",argv[1]);
+		fprintf(stderr,"ada masalah dengan berkas %s\n",argv[2]);
 		return;
 	}
 	poi_file_open(argv[2]);
