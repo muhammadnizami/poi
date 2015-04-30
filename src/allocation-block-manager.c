@@ -28,10 +28,10 @@ void savePoiAllocationCache(){
 
 
 //true bila indeks blok data pool tersebut kosong, yaitu next = 0x00
-//prekondisi: DATA_POOL_BLOCK_MIN_NUM <= n <= DATA_POOL_BLOCK_MAX_NUM
+//prekondisi: DATA_POOL_BLOCK_MIN_IDX <= n <= DATA_POOL_BLOCK_MAX_IDX
 bool isEmpty(poi_data_pool_block_idx_t n){
-	assert(DATA_POOL_BLOCK_MIN_NUM <=n
-		&& DATA_POOL_BLOCK_MAX_NUM >=n);
+	assert(DATA_POOL_BLOCK_MIN_IDX <=n
+		&& DATA_POOL_BLOCK_MAX_IDX >=n);
 	return getNextBlock(n)==0x00;
 }
 
@@ -41,27 +41,35 @@ poi_file_block_num_t getPointerBlockLocation(poi_data_pool_block_idx_t n){
 
 //mengembalikan blok selanjutnya dari blok ke-n
 //yaitu word dengan indeks n dimulai dari word paling awal di blok allocation table paling awal
-//prekondisi: DATA_POOL_BLOCK_MIN_NUM <= n <= DATA_POOL_BLOCK_MAX_NUM
+//prekondisi: DATA_POOL_BLOCK_MIN_IDX <= n <= DATA_POOL_BLOCK_MAX_IDX
 poi_data_pool_block_idx_t getNextBlock(poi_data_pool_block_idx_t n){
-	assert(DATA_POOL_BLOCK_MIN_NUM <=n
-		&& DATA_POOL_BLOCK_MAX_NUM >=n);
+	assert(DATA_POOL_BLOCK_MIN_IDX <=n
+		&& DATA_POOL_BLOCK_MAX_IDX >=n);
 	if ((getPointerBlockLocation(n)) != poi_allocation_cache_file_block_num)
 		loadPoiAllocationCache(getPointerBlockLocation(n));
-	return get_poi_file_block_word_little_endian(&poi_allocation_cache,n%POI_BLOCK_WORD_NUM);
+	return get_poi_file_block_word_little_endian(&poi_allocation_cache,((unsigned long)n)%((unsigned long)POI_BLOCK_WORD_NUM));
 }
 
 
 //menetapkan next dari current menjadi next
 void setNextBlock(poi_data_pool_block_idx_t current, 
 			poi_data_pool_block_idx_t next){
-	assert(DATA_POOL_BLOCK_MIN_NUM <=current
-		&& DATA_POOL_BLOCK_MAX_NUM >=current
-		&& DATA_POOL_BLOCK_MIN_NUM <=next
-		&& DATA_POOL_BLOCK_MAX_NUM >=next);
+	assert(DATA_POOL_BLOCK_MIN_IDX <=current
+		&& DATA_POOL_BLOCK_MAX_IDX >=current
+		&& DATA_POOL_BLOCK_MIN_IDX <=next
+		&& DATA_POOL_BLOCK_MAX_IDX >=next);
 	if ((getPointerBlockLocation(current)) != poi_allocation_cache_file_block_num)
 		loadPoiAllocationCache(getPointerBlockLocation(current));
 	set_poi_file_block_word_little_endian(&poi_allocation_cache,current%POI_BLOCK_WORD_NUM,next);
 	return;
+}
+
+poi_data_pool_block_idx_t getNextEmpty(poi_data_pool_block_idx_t n){
+	assert(DATA_POOL_BLOCK_MIN_IDX <=n
+		&& DATA_POOL_BLOCK_MAX_IDX >=n);
+	int retval = n+1;
+	while (!isEmpty(retval) && retval<=DATA_POOL_BLOCK_MAX_IDX) retval++;
+	return retval;
 }
 
 

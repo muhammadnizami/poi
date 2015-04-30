@@ -18,4 +18,6 @@ poi_file_block poi_data_pool_read_block(poi_data_pool_block_idx_t n);
 //prekondisi: DATA_POOL_BLOCK_MIN_IDX <= n <= DATA_POOL_BLOCK_MAX_IDX
 int poi_data_pool_write_block(poi_file_block b, poi_data_pool_block_idx_t n);
 
+poi_data_pool_block_idx_t poi_data_pool_get_next_empty(poi_data_pool_block_idx_t n);
+
 #endif

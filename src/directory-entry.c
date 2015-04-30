@@ -6,7 +6,7 @@
 #include <string.h>
 
 char* getNama(char * dst, directory_entry e){
-	strcpy(dst,e.bytearr);
+	strncpy(dst,e.bytearr,21);
 	return dst;
 }
 
@@ -59,11 +59,13 @@ TANGGAL getLastModifDate(directory_entry e){
 	return MakeTANGGAL(dd,mm,yy);
 }
 
-
 WAKTU getLastModifDateTime(directory_entry e){
 	return MakeWAKTU(getLastModifDate(e),getLastModifTime(e));
 }
 
+time_t getLastModifTimetime_t(directory_entry e){
+	return totime_t( getLastModifDateTime(e));
+}
 
 uint16_t getFirstDataBlockIdx(directory_entry e){
 	return e.bytearr[0x1A]|(e.bytearr[0x1B]<<8);

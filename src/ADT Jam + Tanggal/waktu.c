@@ -46,5 +46,22 @@ void TulisWAKTU(WAKTU W){
 	TulisJam(GetJam(W));
 }
 
+time_t totime_t(WAKTU W){
+//mengubah format ke time_t
+	time_t T_t;
+	struct tm TM_t;
+	JAM J = GetJam(W);
+	TANGGAL T = GetTanggal(W);
+
+	TM_t.tm_hour=GetHour(J);
+	TM_t.tm_min=GetMinute(J);
+	TM_t.tm_sec=GetSecond(J);
+
+	TM_t.tm_mday=Day(T);
+	TM_t.tm_mon=Month(T);
+	TM_t.tm_year=Year(T)-1900;
+
+	return mktime(&TM_t);
+}
 
 #endif

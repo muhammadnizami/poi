@@ -151,6 +151,8 @@ int poi_file_validasi (const char * path){
 		return 0;
 
 	fseek(f, 0L, SEEK_END);
+	printf("check file size %lu. seharusnya %lu",ftell(f)+1, POI_FILE_SIZE);
+	fflush(stdout);
 	if (ftell(f)+1<POI_FILE_SIZE)
 		return 0;
 
@@ -200,19 +202,20 @@ int poi_file_close(){
 //keluar fungsi dalam keadaan file tertutup
 //melempar nilai 1 bila sukses, melempar -errno bila tidak sukses
 int poi_file_create_new ( const char * path){	
+	printf("creating file\n");
 	poi_file_block volinfo;
 	memcpy(volinfo.data,"poi!",4);
 	strcpy(volinfo.data+0X04,"POI!");
 	set_poi_file_block_dword_little_endian(&volinfo,9,POI_DATA_POOL_BLOCKS_NUM);
 	set_poi_file_block_dword_little_endian(&volinfo,10,POI_DATA_POOL_BLOCKS_NUM-1);
 	set_poi_file_block_dword_little_endian(&volinfo,11,0x0001);
-	poi_attr_t root_attr = {1,1,1,0};
+	poi_attr_t root_attr = {.x=0,.w=1,.r=1,.d=1};
 	WAKTU curTime = GetCurrentTime();
 	directory_entry e = makeEntry("",root_attr,GetJam(curTime),GetTanggal(curTime),0,0x0000);
 	memcpy(volinfo.data+0x30,e.bytearr,32);
 	memset(volinfo.data+0x50,'\0',428);
 	memcpy(volinfo.data+0x1FC,"!iop",4);
-	dotpoi_mounted_file = fopen(path,"r+");
+	dotpoi_mounted_file = fopen(path,"w");
 	if (dotpoi_mounted_file==NULL) return -errno;
 	poi_file_write_block(volinfo,0);
 	
@@ -224,7 +227,11 @@ int poi_file_create_new ( const char * path){
 	int i;
 	for (i=2;i<=POI_ALLOCATION_TABLE_BLOCKS_NUM;i++)
 		poi_file_write_block(zeroarr,i);
-
+	for (;i<POI_TOTAL_BLOCKS_NUM;i++)
+		poi_file_write_block(zeroarr,i);
+	printf("check\n");
+	fflush(stdout);
+	fflush(dotpoi_mounted_file);
 	fclose(dotpoi_mounted_file);
 	return 1;
 }
@@ -252,6 +259,7 @@ poi_file_block poi_file_read_block(poi_file_block_num_t n){
 int poi_file_write_block(poi_file_block b, poi_file_block_num_t n){
 	fseek(dotpoi_mounted_file,n*POI_BLOCK_SIZE,SEEK_SET);
 	fwrite(b.data,sizeof(uint8_t),POI_BLOCK_SIZE,dotpoi_mounted_file);
+	fflush(dotpoi_mounted_file);
 	return;
 }
 

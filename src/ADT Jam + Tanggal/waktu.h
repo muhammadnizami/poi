@@ -27,5 +27,7 @@ void TulisWAKTU(WAKTU W);
 /*I.S. W terdefinisi*/
 /*F.S. W ditulis ke layar dengan format tanggal diikuti jam*/
 
+time_t totime_t(WAKTU W);
+//mengubah format ke time_t
 
 #endif

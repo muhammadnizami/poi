@@ -10,7 +10,7 @@ typedef struct{
 	uint8_t bytearr[32];
 } directory_entry;
 
-//prekondisi: dst berkapasitas 7
+//prekondisi: dst berkapasitas 21 byte
 char* getNama(char * dst, directory_entry e);
 
 typedef struct {
@@ -27,6 +27,8 @@ JAM getLastModifTime(directory_entry e);
 TANGGAL getLastModifDate(directory_entry e);
 
 WAKTU getLastModifDateTime(directory_entry e);
+
+time_t getLastModifTimetime_t(directory_entry e);
 
 uint16_t getFirstDataBlockIdx(directory_entry e);
 

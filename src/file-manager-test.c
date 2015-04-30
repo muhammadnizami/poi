@@ -1,5 +1,6 @@
 #include "file-manager.h"
 #include <assert.h>
+#include <stdlib.h>
 
 void test_get_poi_file_block_byte(){
 	poi_file_block test;
@@ -141,6 +142,7 @@ void test_poi_file_validasi(){
 void test_poi_file_create_new(){
 	int i,j;
 	poi_file_block pfb;
+	system("rm testfile.poi");
 	poi_file_create_new("testfile.poi");
 	poi_file_open("testfile.poi");
 	assert(poi_file_validasi("testfile.poi")==1);

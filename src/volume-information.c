@@ -102,7 +102,7 @@ void setFirstFreeBlockIdx(uint32_t i){
 void setRootDirEntry(directory_entry e){
 	if (!poi_volinfo_cache_file_block_loaded)
 		loadPoiVolinfoCache();
-	memcpy(&poi_volinfo_cache.data+0x30,e.bytearr,32);
+	memcpy(poi_volinfo_cache.data+0x30,e.bytearr,32);
 	return;
 }
 
