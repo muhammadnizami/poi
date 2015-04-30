@@ -328,7 +328,52 @@ int poi_mkdir (const char * path, mode_t mode){
  * regular files that will be called instead.
  */
 int poi_mknod (const char *path, mode_t mode, dev_t dev){
-	return ;//TODO implementasi
+
+	directory_entry yangdimasuki;
+	if (getEntryRecursive(path,getRootDirEntry(),&yangdimasuki)==0) return -EEXIST;
+	int path_length=strlen(path);
+	int n = path_length;
+	while (path[n]!='/') n--;
+
+	int status_op;
+
+	poi_attr_t attr = mode_t_to_poi_attr_t(mode);
+	WAKTU waktu_buat = GetCurrentTime();
+	if (strlen(path+n+1)>21) return -ENAMETOOLONG;
+	directory_entry yangdimasukkan = makeEntry(path+n+1, attr, GetJam(waktu_buat), GetTanggal(waktu_buat), getFirstFreeBlockIdx(), 0);
+	setFirstFreeBlockIdx(getNextEmpty(getFirstFreeBlockIdx()));
+	char * parentDir;
+
+	uint32_t offset;
+	poi_data_pool_block_idx_t dataBlockIdx;
+
+	poi_file_block blk;
+
+	if (n==0){
+		yangdimasuki=getRootDirEntry();
+		status_op=poi_insertentry(&yangdimasuki,yangdimasukkan);
+		if (status_op!=0) return status_op;
+		setRootDirEntry(yangdimasuki);
+		savePoiVolinfoCache();
+		return 0;
+	}else{
+		parentDir = malloc(sizeof(char)*n);
+		if (parentDir==NULL) return -ENAMETOOLONG;
+		memcpy(parentDir,path,sizeof(char)*n); parentDir[n]='\0';
+		status_op = getEntryAndBlockOffset(parentDir,getRootDirEntry(),&yangdimasuki,&dataBlockIdx,&offset);
+		if (status_op!=0) return status_op;
+		status_op = poi_insertentry(&yangdimasuki,yangdimasukkan);
+		if (status_op!=0) return status_op;
+
+		//memperbarui entri direktori induknya
+		blk=poi_data_pool_read_block(dataBlockIdx);
+		memcpy(blk.data+offset,yangdimasuki.bytearr,32);
+		poi_data_pool_write_block(blk,dataBlockIdx);
+		free(parentDir);
+		return 0;
+	}
+	return -EPERM;//TODO implementasi
+		//TODO dev_t
 }
 
 /** Read data from an open file
@@ -384,7 +429,7 @@ struct fuse_operations poi_oper = { //TODO tiap kali ada yang diimplementasi, di
 	.getattr = poi_getattr,
 	.readdir = poi_readdir,
 	.mkdir = poi_mkdir,
-//	.mknod = poi_mknod,
+	.mknod = poi_mknod,
 //	.read = poi_read,
 //	.rmdir = poi_rmdir,
 //	.unlink = poi_unlink,
