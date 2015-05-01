@@ -518,9 +518,8 @@ int poi_write (const char *path, const char *buf, size_t size, off_t offset,
 	while (totalwritten<size){
 		fprintf(logfile,"\tappend. dataBlockIdx: 0x%x, in_block_offset: %x\n",dataBlockIdx,in_block_offset);
 		if (in_block_offset>=POI_BLOCK_SIZE){
-			setNextBlock(dataBlockIdx,getFirstFreeBlockIdx());
-			setNextBlock(getFirstFreeBlockIdx(),0xffff);
-			setFirstFreeBlockIdx(getNextEmpty(getNextBlock(dataBlockIdx)));
+			int opstat = allocateAfter(dataBlockIdx);
+			if (opstat<0) return opstat;
 			dataBlockIdx=getNextBlock(dataBlockIdx);
 			in_block_offset=0;
 			if (dataBlockIdx==0xFFFF){
