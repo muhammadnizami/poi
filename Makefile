@@ -1,5 +1,5 @@
-bin/poifs: src/poi.c src/file-manager.h obj/file-manager.o src/ADT\ Jam\ +\ Tanggal/waktu.h src/ADT\ Jam\ +\ Tanggal/jam.h src/ADT\ Jam\ +\ Tanggal/tanggal.h obj/ADT\ Jam\ +\ Tanggal/waktu.o obj/ADT\ Jam\ +\ Tanggal/jam.o obj/ADT\ Jam\ +\ Tanggal/tanggal.o obj/directory-entry.o src/volume-information.h obj/volume-information.o src/data-pool-block-manager.h obj/data-pool-block-manager.o src/allocation-block-manager.h obj/allocation-block-manager.o
-	gcc src/poi.c obj/file-manager.o obj/ADT\ Jam\ +\ Tanggal/jam.o obj/ADT\ Jam\ +\ Tanggal/tanggal.o obj/ADT\ Jam\ +\ Tanggal/waktu.o obj/directory-entry.o obj/volume-information.o obj/data-pool-block-manager.o obj/allocation-block-manager.o -o bin/poifs -D_FILE_OFFSET_BITS=64 -lfuse -DFUSE_USE_VERSION=22
+bin/poifs: src/poi.c src/file-manager.h obj/file-manager.o src/ADT\ Jam\ +\ Tanggal/waktu.h src/ADT\ Jam\ +\ Tanggal/jam.h src/ADT\ Jam\ +\ Tanggal/tanggal.h obj/ADT\ Jam\ +\ Tanggal/waktu.o obj/ADT\ Jam\ +\ Tanggal/jam.o obj/ADT\ Jam\ +\ Tanggal/tanggal.o obj/directory-entry.o src/volume-information.h obj/volume-information.o src/data-pool-block-manager.h obj/data-pool-block-manager.o src/allocation-block-manager.h obj/allocation-block-manager.o src/allocation-table.h obj/allocation-table.o
+	gcc src/poi.c obj/file-manager.o obj/ADT\ Jam\ +\ Tanggal/jam.o obj/ADT\ Jam\ +\ Tanggal/tanggal.o obj/ADT\ Jam\ +\ Tanggal/waktu.o obj/directory-entry.o obj/volume-information.o obj/data-pool-block-manager.o obj/allocation-block-manager.o obj/allocation-table.o -o bin/poifs -D_FILE_OFFSET_BITS=64 -lfuse -DFUSE_USE_VERSION=22
 
 obj/file-manager.o: obj src/file-manager.h src/file-manager.c src/ADT\ Jam\ +\ Tanggal/waktu.h src/ADT\ Jam\ +\ Tanggal/jam.h src/ADT\ Jam\ +\ Tanggal/tanggal.h src/directory-entry.h
 	gcc -c src/file-manager.c -o obj/file-manager.o
@@ -30,3 +30,6 @@ obj/data-pool-block-manager.o: src/data-pool-block-manager.h src/data-pool-block
 
 obj/allocation-block-manager.o: src/allocation-block-manager.h src/allocation-block-manager.c
 	gcc -c src/allocation-block-manager.c -o obj/allocation-block-manager.o
+
+obj/allocation-table.o: src/allocation-table.h src/allocation-table.c
+	gcc -c src/allocation-table.c -o obj/allocation-table.o

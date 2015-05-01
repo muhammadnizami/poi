@@ -80,6 +80,7 @@ int getEntryRecursive(const char * path, directory_entry r, directory_entry * ge
 	poi_file_block blk = poi_data_pool_read_block(dataBlockIdx);
 
 	while (totalread < rsize){
+		fprintf(logfile,"\t\takses blok 0x%x\n",dataBlockIdx);
 		memcpy(tmp.bytearr,&blk.data[offset],32);
 		if (!strncmp(name,getNama(namaEntri,tmp),21))
 			return getEntryRecursive(path+name_length+1,tmp,getout);
@@ -186,6 +187,7 @@ int poi_readdir(const char *path, void *buf, fuse_fill_dir_t filler, off_t offse
 	directory_entry tmp;
 
 	poi_file_block blk = poi_data_pool_read_block(dataBlockIdx);
+	fprintf(logfile,"\t\takses blok 0x%x\n",dataBlockIdx);
 
 	while (totalread < rsize){
 		memcpy(tmp.bytearr,&blk.data[offsetread],32);
@@ -197,6 +199,7 @@ int poi_readdir(const char *path, void *buf, fuse_fill_dir_t filler, off_t offse
 			offsetread=0;
 			dataBlockIdx=getNextBlock(dataBlockIdx);
 			blk = poi_data_pool_read_block(dataBlockIdx);
+			fprintf(logfile,"\t\takses blok 0x%x\n",dataBlockIdx);
 		}
 	}
 	return a;//TODO implementasi
@@ -230,20 +233,20 @@ int poi_insertentry(directory_entry * dst, directory_entry val){
 			blk = poi_data_pool_read_block(dataBlockIdx);
 		}
 	}
-
-	if (dataBlockIdx==0xFFFF){
+	fprintf(logfile,"\t\takses blok 0x%x\n",dataBlockIdx);
+	if (dataBlockIdx==0xffff){
 		if (getNumFreeBlocks()<1) return -ENOSPC;
-		setNextBlock(prev,getFirstFreeBlockIdx());
-		dataBlockIdx=getFirstFreeBlockIdx();
-		setNextBlock(dataBlockIdx,0XFFFF);
+
+		allocateAfter(prev);
+		dataBlockIdx=getNextBlock(prev);
+		fprintf(logfile,"\t\takses blok 0x%x\n",dataBlockIdx);
+		blk = poi_data_pool_read_block(dataBlockIdx);
 		memcpy(blk.data,val.bytearr,32);
 		op_status = poi_data_pool_write_block(blk,dataBlockIdx);
-		if (op_status!=1) return op_status;
+		if (op_status<0) return op_status;
 		setFileSize(dst,getFileSize(*dst)+32);
-		setNumFreeBlocks(getNumFreeBlocks()-1);
-		setFirstFreeBlockIdx(getNextEmpty(dataBlockIdx));
-		savePoiVolinfoCache();
-		savePoiAllocationCache();
+		saveAllocTableCaches();
+		
 	}else{
 		blk=poi_data_pool_read_block(dataBlockIdx);
 		memcpy(blk.data+offset,val.bytearr,32);
@@ -295,6 +298,7 @@ int poi_mkdir (const char * path, mode_t mode){
 	WAKTU waktu_buat = GetCurrentTime();
 	if (strlen(path+n+1)>21) return -ENAMETOOLONG;
 	directory_entry yangdimasukkan = makeEntry(path+n+1, attr, GetJam(waktu_buat), GetTanggal(waktu_buat), getFirstFreeBlockIdx(), 0);
+	setNextBlock(getFirstFreeBlockIdx(),0xffff);
 	setFirstFreeBlockIdx(getNextEmpty(getFirstFreeBlockIdx()));
 	char * parentDir;
 
@@ -351,6 +355,7 @@ int poi_mknod (const char *path, mode_t mode, dev_t dev){
 	WAKTU waktu_buat = GetCurrentTime();
 	if (strlen(path+n+1)>21) return -ENAMETOOLONG;
 	directory_entry yangdimasukkan = makeEntry(path+n+1, attr, GetJam(waktu_buat), GetTanggal(waktu_buat), getFirstFreeBlockIdx(), 0);
+	setNextBlock(getFirstFreeBlockIdx(),0xffff);
 	setFirstFreeBlockIdx(getNextEmpty(getFirstFreeBlockIdx()));
 	char * parentDir;
 
@@ -513,9 +518,15 @@ int poi_write (const char *path, const char *buf, size_t size, off_t offset,
 	while (totalwritten<size){
 		fprintf(logfile,"\tappend. dataBlockIdx: 0x%x, in_block_offset: %x\n",dataBlockIdx,in_block_offset);
 		if (in_block_offset>=POI_BLOCK_SIZE){
-			//TODO buat blok baru
-			opstat=-ENOSPC;
-			break; //TODO masih belum bisa nambah blok
+			setNextBlock(dataBlockIdx,getFirstFreeBlockIdx());
+			setNextBlock(getFirstFreeBlockIdx(),0xffff);
+			setFirstFreeBlockIdx(getNextEmpty(getNextBlock(dataBlockIdx)));
+			dataBlockIdx=getNextBlock(dataBlockIdx);
+			in_block_offset=0;
+			if (dataBlockIdx==0xFFFF){
+				opstat=-ENOSPC;
+				break;
+			}
 		}
 		blk = poi_data_pool_read_block(dataBlockIdx);
 		if (in_block_offset+(size-totalwritten)>POI_BLOCK_SIZE){
@@ -540,6 +551,10 @@ int poi_write (const char *path, const char *buf, size_t size, off_t offset,
 	setFileSize(&e,totalskipped+totalwritten);
 	setLastModifDateTime(&e,GetCurrentTime());
 	replaceEntry(e,entryblockidx,entryblockoff);
+
+	//simpan yang diubah
+	savePoiVolinfoCache();
+	savePoiAllocationCache();
 	return totalwritten;
 
 
@@ -594,9 +609,7 @@ int main(int argc, char *argv[]){
 		return;
 	}
 	poi_file_open(argv[2]);
-	poi_attr_t  attr = getattr(getRootDirEntry());
-	printf("\n%x%x%x%x\n",attr.x,attr.r,attr.w,attr.d);
-	fflush(stdout);
+	printf("first free block: 0x%x\n",getFirstFreeBlockIdx());
 	argc--;
 	int a = fuse_main(argc,argv,&poi_oper);
 }

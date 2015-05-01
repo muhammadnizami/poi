@@ -44,8 +44,6 @@ uint32_t getNumFreeBlocks(){
 	if (!poi_volinfo_cache_file_block_loaded)
 		loadPoiVolinfoCache();
 	int i;
-	for (i=0x28;i<0x2C;i++)
-		printf("%x\n",poi_volinfo_cache.data[i]);
 	return get_poi_file_block_dword_little_endian(&poi_volinfo_cache,10);
 }
 

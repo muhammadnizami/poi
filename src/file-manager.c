@@ -151,8 +151,8 @@ int poi_file_validasi (const char * path){
 		return 0;
 
 	fseek(f, 0L, SEEK_END);
-	printf("check file size %lu. seharusnya %lu",ftell(f)+1, POI_FILE_SIZE);
-	fflush(stdout);
+
+
 	if (ftell(f)+1<POI_FILE_SIZE)
 		return 0;
 
@@ -202,7 +202,6 @@ int poi_file_close(){
 //keluar fungsi dalam keadaan file tertutup
 //melempar nilai 1 bila sukses, melempar -errno bila tidak sukses
 int poi_file_create_new ( const char * path){	
-	printf("creating file\n");
 	poi_file_block volinfo;
 	memcpy(volinfo.data,"poi!",4);
 	strcpy(volinfo.data+0X04,"POI!");
@@ -229,8 +228,6 @@ int poi_file_create_new ( const char * path){
 		poi_file_write_block(zeroarr,i);
 	for (;i<POI_TOTAL_BLOCKS_NUM;i++)
 		poi_file_write_block(zeroarr,i);
-	printf("check\n");
-	fflush(stdout);
 	fflush(dotpoi_mounted_file);
 	fclose(dotpoi_mounted_file);
 	return 1;
@@ -260,7 +257,7 @@ int poi_file_write_block(poi_file_block b, poi_file_block_num_t n){
 	fseek(dotpoi_mounted_file,n*POI_BLOCK_SIZE,SEEK_SET);
 	fwrite(b.data,sizeof(uint8_t),POI_BLOCK_SIZE,dotpoi_mounted_file);
 	fflush(dotpoi_mounted_file);
-	return;
+	return 0;
 }
 
 
