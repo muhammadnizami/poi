@@ -86,5 +86,12 @@ void deleteListOfBlock(poi_data_pool_block_idx_t n){
 }
 
 
+//'memotong' list: n dijadikan list yang tidak punya seterusnya, dan
+//lanjutannya dihapus
+void truncateList(poi_data_pool_block_idx_t n){
+	deleteListOfBlock(getNextBlock(n));
+	setNextBlock(n,0xffff);
+}
+
 
 #endif

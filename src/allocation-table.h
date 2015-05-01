@@ -46,5 +46,10 @@ int32_t insertAfter(poi_data_pool_block_idx_t n, poi_file_block blk);
 void deleteListOfBlock(poi_data_pool_block_idx_t n);
 
 
+//'memotong' list: n dijadikan list yang tidak punya seterusnya, dan
+//lanjutannya dihapus
+void truncateList(poi_data_pool_block_idx_t n);
+
+
 
 #endif

@@ -443,15 +443,12 @@ int poi_mknod (const char *path, mode_t mode, dev_t dev){
 			//TODO
 		}
 		dataBlockIdx=getNextBlock(dataBlockIdx);
-		fprintf(logfile,"\tread, blk: %.*s\n",totalread,blk.data);
 		in_block_offset=0;
-		fprintf(logfile,"\tread, buf: %.*s\n",totalread,buf);
 	}
 	fprintf(logfile,"\ttotalread: 0x%x\n",totalread);
 	if (totalread<size) memset(buf+totalread,0x00,size-totalread);
 	return totalread;
-	return -ENOSYS;//TODO implementasi
-}
+	}
 
 /** Write data to an open file
  *
@@ -512,8 +509,7 @@ int poi_write (const char *path, const char *buf, size_t size, off_t offset,
 		}
 		opstat = poi_data_pool_write_block(blk,dataBlockIdx);
 		if (opstat<0) return opstat;
-		fprintf(logfile,"\twrite, buf: %.*s\n",totalwritten,buf);
-		fprintf(logfile,"\twrite, blk: %.*s\n",in_block_offset,blk.data);
+
 	}
 	while (totalwritten<size){
 		fprintf(logfile,"\tappend. dataBlockIdx: 0x%x, in_block_offset: %x\n",dataBlockIdx,in_block_offset);
@@ -541,9 +537,6 @@ int poi_write (const char *path, const char *buf, size_t size, off_t offset,
 		}
 		opstat = poi_data_pool_write_block(blk,dataBlockIdx);
 		if (opstat<0) return opstat;		
-		fprintf(logfile,"\twrite, buf: %.*s\n",totalwritten,buf);
-		fprintf(logfile,"\twrite, blk: %.*s\n",in_block_offset,blk.data);
-		fprintf(logfile,"\twrite, rld: %.*s\n",in_block_offset,poi_data_pool_read_block(dataBlockIdx).data);
 	}
 
 	//update file entry
@@ -560,9 +553,93 @@ int poi_write (const char *path, const char *buf, size_t size, off_t offset,
 	return -ENOSYS;//TODO implementasi
 }
 
+int deleteEntry(uint16_t dataBlockIdx, uint32_t offset){
+	poi_file_block blk,blknxt;
+	blknxt=poi_data_pool_read_block(dataBlockIdx);
+	do{
+		blk = blknxt;
+		while (offset+32<POI_BLOCK_SIZE){
+			memcpy(&blk.data[offset],&blk.data[offset+32],32);
+			offset += 32;
+		}
+		dataBlockIdx=getNextBlock(dataBlockIdx);
+		if (dataBlockIdx!=0xffff){
+			blknxt = poi_data_pool_read_block(dataBlockIdx);
+			memcpy(&blk.data[offset],&blknxt.data,32);
+			offset=0;
+		}
+
+	}while(dataBlockIdx!=0xffff);
+	return 0;
+}
+
 /** Remove a file */
 int poi_unlink (const char * path){
-	return ;//TODO implementasi
+
+	fprintf(logfile,"mkdir('%s')\n",path);
+	directory_entry yangdimasuki;
+	if (getEntryRecursive(path,getRootDirEntry(),&yangdimasuki)!=0) return -ENOENT;
+	int path_length=strlen(path);
+	int n = path_length;
+	while (path[n]!='/') n--;
+
+	int status_op;
+
+
+	if (strlen(path+n+1)>21) return -ENOENT;
+
+	const char * name = path+n+1;
+	
+	setNextBlock(getFirstFreeBlockIdx(),0xffff);
+	setFirstFreeBlockIdx(getNextEmpty(getFirstFreeBlockIdx()));
+	char * parentDir;
+
+	uint32_t offset;
+	poi_data_pool_block_idx_t dataBlockIdx;
+
+	poi_file_block blk;
+
+	directory_entry yangdihapus;
+	uint32_t yangdihapusoff;
+	poi_data_pool_block_idx_t yangdihapusidx;
+
+	poi_data_pool_block_idx_t iter;
+
+	if (n==0){
+		yangdimasuki=getRootDirEntry();
+		status_op = getEntryAndBlockOffset(name,yangdimasuki,&yangdihapus,&yangdihapusidx,&yangdihapusoff);
+		if (status_op!=0) return status_op;
+		deleteEntry(yangdihapusidx,yangdihapusoff);
+		deleteListOfBlock(getFirstDataBlockIdx(yangdihapus));
+		setFileSize(&yangdimasuki,getFileSize(yangdimasuki)-32);
+		if ((unsigned long)getFileSize(yangdimasuki)%POI_FILE_SIZE==0){
+			//TODO bebaskan blok terakhir
+		}
+		setRootDirEntry(yangdimasuki);
+		savePoiVolinfoCache();
+		return 0;
+	}else{
+		parentDir = malloc(sizeof(char)*n);
+		if (parentDir==NULL) return -ENAMETOOLONG;
+		memcpy(parentDir,path,sizeof(char)*n); parentDir[n]='\0';
+		status_op = getEntryAndBlockOffset(parentDir,getRootDirEntry(),&yangdimasuki,&dataBlockIdx,&offset);
+		if (status_op!=0) return status_op;
+
+		status_op = getEntryAndBlockOffset(name,yangdimasuki,&yangdihapus,&yangdihapusidx,&yangdihapusoff);
+		if (status_op!=0) return status_op;
+		deleteEntry(yangdihapusidx,yangdihapusoff);
+		deleteListOfBlock(getFirstDataBlockIdx(yangdihapus));
+		setFileSize(&yangdimasuki,getFileSize(yangdimasuki)-32);
+		//TODO
+
+		//memperbarui entri direktori induknya
+		blk=poi_data_pool_read_block(dataBlockIdx);
+		memcpy(blk.data+offset,yangdimasuki.bytearr,32);
+		poi_data_pool_write_block(blk,dataBlockIdx);
+		free(parentDir);
+		return 0;
+	}
+	return -ENOSYS;
 }
 
 /** Remove a directory */
@@ -609,6 +686,7 @@ int main(int argc, char *argv[]){
 	}
 	poi_file_open(argv[2]);
 	printf("first free block: 0x%x\n",getFirstFreeBlockIdx());
+	printf("num free blocks: 0x%x\n",getNumFreeBlocks());
 	argc--;
 	int a = fuse_main(argc,argv,&poi_oper);
 }
