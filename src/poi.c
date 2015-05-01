@@ -514,8 +514,10 @@ int poi_write (const char *path, const char *buf, size_t size, off_t offset,
 		fprintf(logfile,"\tappend. dataBlockIdx: 0x%x, in_block_offset: %x\n",dataBlockIdx,in_block_offset);
 		if (in_block_offset>=POI_BLOCK_SIZE){
 			//TODO buat blok baru
+			opstat=-ENOSPC;
 			break; //TODO masih belum bisa nambah blok
 		}
+		blk = poi_data_pool_read_block(dataBlockIdx);
 		if (in_block_offset+(size-totalwritten)>POI_BLOCK_SIZE){
 			memcpy(blk.data+in_block_offset,buf+totalwritten,POI_BLOCK_SIZE-in_block_offset);
 			totalwritten+=POI_BLOCK_SIZE-in_block_offset;
