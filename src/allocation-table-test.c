@@ -88,6 +88,17 @@ void deleteListOfBlockTest(){
 	printf("ffb: 0x%x,\tnfb: 0x%x\n",getFirstFreeBlockIdx(),getNumFreeBlocks());
 }
 
+void allocateAfterBanyakTest(){
+	int i;
+	for (i=0;i<0xfe;i++){
+		allocateAfter(n);
+		printf("allocate after 0x%x: 0x%x\n",n,getNextBlock(n));
+		printf("ffb: 0x%x,\tnfb: 0x%x\n",getFirstFreeBlockIdx(),getNumFreeBlocks());
+		n=getNextBlock(n);
+	}
+
+}
+
 int main(){
 	poi_file_create_new("testfile.poi");
 	poi_file_open("testfile.poi");
@@ -95,4 +106,5 @@ int main(){
 	allocateAfterTest();
 	insertAfterTest();
 	deleteListOfBlockTest();
+	allocateAfterBanyakTest();
 }

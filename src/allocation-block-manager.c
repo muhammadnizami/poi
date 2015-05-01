@@ -10,7 +10,7 @@ poi_file_block poi_allocation_cache;
 int poi_allocation_cache_file_block_num = 0;
 
 void loadPoiAllocationCache(poi_file_block_num_t n){
-	assert(1>=n && n<=POI_ALLOCATION_TABLE_BLOCKS_NUM);
+	assert(1<=n && n<=POI_ALLOCATION_TABLE_BLOCKS_NUM);
 	if (poi_allocation_cache_file_block_num>0)
 		savePoiAllocationCache();
 
@@ -36,6 +36,7 @@ bool isEmpty(poi_data_pool_block_idx_t n){
 }
 
 poi_file_block_num_t getPointerBlockLocation(poi_data_pool_block_idx_t n){
+
 	return n/POI_BLOCK_WORD_NUM+1;
 }
 
@@ -45,7 +46,6 @@ poi_file_block_num_t getPointerBlockLocation(poi_data_pool_block_idx_t n){
 poi_data_pool_block_idx_t getNextBlock(poi_data_pool_block_idx_t n){
 	assert(DATA_POOL_BLOCK_MIN_IDX <=n
 		&& DATA_POOL_BLOCK_MAX_IDX >=n);
-	////printf("\t\tpoi_allocation_cache_file_block_num: %x\n",poi_allocation_cache_file_block_num);
 	if ((getPointerBlockLocation(n)) != poi_allocation_cache_file_block_num)
 		loadPoiAllocationCache(getPointerBlockLocation(n));
 	return get_poi_file_block_word_little_endian(&poi_allocation_cache,((unsigned long)n)%((unsigned long)POI_BLOCK_WORD_NUM));
