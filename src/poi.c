@@ -8,9 +8,15 @@
 #include "volume-information.h"
 #include "data-pool-block-manager.h"
 FILE * logfile;
+int replaceEntry(directory_entry e, uint16_t dataBlockIdx, uint32_t offset){
+	poi_file_block blk=poi_data_pool_read_block(dataBlockIdx);
+	memcpy(blk.data+offset,e.bytearr,32);
+	int ret = poi_data_pool_write_block(blk,dataBlockIdx);
+	return (ret<0)?ret:0;
+}
 int getEntryAndBlockOffset(const char * path, directory_entry r, directory_entry * getout, uint16_t * dataBlockIdx, uint32_t * offset){
 	char buf[22];
-	fprintf(logfile,"getEntryAndBlockOffset path %s di entri dir %s\n",path,getNama(buf,r));
+	fprintf(logfile,"\tgetEntryAndBlockOffset path %s di entri dir %s\n",path,getNama(buf,r));
 	if (!strcmp(path,"/")){*getout = r; return 0;}
 	int name_length = 0;
 	char name[22];
@@ -50,7 +56,7 @@ int getEntryAndBlockOffset(const char * path, directory_entry r, directory_entry
 
 int getEntryRecursive(const char * path, directory_entry r, directory_entry * getout){
 	char buf[22];
-	fprintf(logfile,"getEntryRecursive path %s di entri dir %s\n",path,getNama(buf,r));
+	fprintf(logfile,"\tgetEntryRecursive path %s di entri dir %s\n",path,getNama(buf,r));
 	if (!strcmp(path,"/")){*getout = r; return 0;}
 	int name_length = 0;
 	char name[22];
@@ -237,6 +243,7 @@ int poi_insertentry(directory_entry * dst, directory_entry val){
 		setNumFreeBlocks(getNumFreeBlocks()-1);
 		setFirstFreeBlockIdx(getNextEmpty(dataBlockIdx));
 		savePoiVolinfoCache();
+		savePoiAllocationCache();
 	}else{
 		blk=poi_data_pool_read_block(dataBlockIdx);
 		memcpy(blk.data+offset,val.bytearr,32);
@@ -392,6 +399,52 @@ int poi_mknod (const char *path, mode_t mode, dev_t dev){
  */
  poi_read (const char *path, char *buf, size_t size, off_t offset, struct fuse_file_info *fi){
 	fprintf(logfile,"read('%s')\n",path);
+
+	directory_entry e;
+	int opstat = getEntryRecursive(path,getRootDirEntry(),&e);
+	if (opstat!=0) return opstat;
+
+	uint16_t dataBlockIdx = getFirstDataBlockIdx(e);
+	uint16_t prev;
+	uint32_t fsize = getFileSize(e);
+
+	uint32_t totalskipped = 0;
+
+	fprintf(logfile,"\tdataBlockIdx: 0x%x\n",dataBlockIdx);
+
+	while (totalskipped < (long)offset-(long)POI_BLOCK_SIZE && totalskipped < fsize){
+		totalskipped += POI_BLOCK_SIZE;
+		dataBlockIdx=getNextBlock(dataBlockIdx);
+	}
+
+	uint32_t in_block_offset = offset-totalskipped;
+	totalskipped = offset;
+
+	uint32_t totalread=0;
+
+	poi_file_block blk;
+	
+	uint32_t mustbereadsize = (fsize-totalskipped<size)?fsize-totalskipped:size;
+	while (totalread<mustbereadsize){
+		blk = poi_data_pool_read_block(dataBlockIdx);
+		fprintf(logfile,"\tdataBlockIdx: 0x%x, in_block_offset: %x\n",dataBlockIdx,in_block_offset);
+		if (in_block_offset+(mustbereadsize-totalread)>POI_BLOCK_SIZE){
+			memcpy(buf+totalread,blk.data+in_block_offset,POI_BLOCK_SIZE-in_block_offset);
+			totalread+=POI_BLOCK_SIZE-in_block_offset;
+			//TODO
+		}else{
+			memcpy(buf+totalread,blk.data+in_block_offset,mustbereadsize-totalread);
+			totalread=mustbereadsize;
+			//TODO
+		}
+		dataBlockIdx=getNextBlock(dataBlockIdx);
+		fprintf(logfile,"\tread, blk: %.*s\n",totalread,blk.data);
+		in_block_offset=0;
+		fprintf(logfile,"\tread, buf: %.*s\n",totalread,buf);
+	}
+	fprintf(logfile,"\ttotalread: 0x%x\n",totalread);
+	if (totalread<size) memset(buf+totalread,0x00,size-totalread);
+	return totalread;
 	return -ENOSYS;//TODO implementasi
 }
 
@@ -405,7 +458,89 @@ int poi_mknod (const char *path, mode_t mode, dev_t dev){
  */
 int poi_write (const char *path, const char *buf, size_t size, off_t offset,
 	     struct fuse_file_info *fi){
-	fprintf(logfile,"write('%s')\n",path);
+	fprintf(logfile,"write('%s'). size: 0x%x\n",path,size);
+
+	uint16_t entryblockidx;
+	uint32_t entryblockoff;
+	directory_entry e;
+	int opstat = getEntryAndBlockOffset(path,getRootDirEntry(),&e,&entryblockidx,&entryblockoff);
+	if (opstat!=0) return opstat;
+
+	uint16_t dataBlockIdx = getFirstDataBlockIdx(e);
+	uint16_t prev;
+	uint32_t fsize = getFileSize(e);
+
+	uint32_t totalskipped = 0;
+
+	fprintf(logfile,"\tdataBlockIdx: 0x%x\n",dataBlockIdx);
+
+	while (totalskipped < (long)offset-(long)POI_BLOCK_SIZE && totalskipped < fsize){
+		totalskipped += POI_BLOCK_SIZE;
+		dataBlockIdx=getNextBlock(dataBlockIdx);
+	}
+
+	uint32_t in_block_offset = offset-totalskipped;
+	totalskipped = offset;
+
+	uint32_t totalwritten=0;
+
+	poi_file_block blk;
+	
+	uint32_t mustbereplacedsize = (fsize-totalskipped<size)?fsize-totalskipped:size;
+	while (totalwritten<mustbereplacedsize){
+		fprintf(logfile,"\treplace. dataBlockIdx: 0x%x, in_block_offset: %x\n",dataBlockIdx,in_block_offset);
+		if (in_block_offset>=POI_BLOCK_SIZE){
+			dataBlockIdx=getNextBlock(dataBlockIdx);
+			in_block_offset=0;
+		}
+		blk = poi_data_pool_read_block(dataBlockIdx);
+		if (in_block_offset+(mustbereplacedsize-totalwritten)>POI_BLOCK_SIZE){
+			memcpy(blk.data+in_block_offset,buf+totalwritten,POI_BLOCK_SIZE-in_block_offset);
+			totalwritten+=POI_BLOCK_SIZE-in_block_offset;
+			in_block_offset=POI_BLOCK_SIZE;
+			//TODO
+		}else{
+			memcpy(blk.data+in_block_offset,buf+totalwritten,mustbereplacedsize-totalwritten);
+			in_block_offset+=mustbereplacedsize-totalwritten;
+			totalwritten=mustbereplacedsize;
+			//TODO
+		}
+		opstat = poi_data_pool_write_block(blk,dataBlockIdx);
+		if (opstat<0) return opstat;
+		fprintf(logfile,"\twrite, buf: %.*s\n",totalwritten,buf);
+		fprintf(logfile,"\twrite, blk: %.*s\n",in_block_offset,blk.data);
+	}
+	while (totalwritten<size){
+		fprintf(logfile,"\tappend. dataBlockIdx: 0x%x, in_block_offset: %x\n",dataBlockIdx,in_block_offset);
+		if (in_block_offset>=POI_BLOCK_SIZE){
+			//TODO buat blok baru
+			break; //TODO masih belum bisa nambah blok
+		}
+		if (in_block_offset+(size-totalwritten)>POI_BLOCK_SIZE){
+			memcpy(blk.data+in_block_offset,buf+totalwritten,POI_BLOCK_SIZE-in_block_offset);
+			totalwritten+=POI_BLOCK_SIZE-in_block_offset;
+			in_block_offset=POI_BLOCK_SIZE;
+			//TODO
+		}else{
+			memcpy(blk.data+in_block_offset,buf+totalwritten,size-totalwritten);
+			in_block_offset+=size-totalwritten;
+			totalwritten=size;
+			//TODO
+		}
+		opstat = poi_data_pool_write_block(blk,dataBlockIdx);
+		if (opstat<0) return opstat;		
+		fprintf(logfile,"\twrite, buf: %.*s\n",totalwritten,buf);
+		fprintf(logfile,"\twrite, blk: %.*s\n",in_block_offset,blk.data);
+		fprintf(logfile,"\twrite, rld: %.*s\n",in_block_offset,poi_data_pool_read_block(dataBlockIdx).data);
+	}
+
+	//update file entry
+	setFileSize(&e,totalskipped+totalwritten);
+	setLastModifDateTime(&e,GetCurrentTime());
+	replaceEntry(e,entryblockidx,entryblockoff);
+	return totalwritten;
+
+
 	return -ENOSYS;//TODO implementasi
 }
 
