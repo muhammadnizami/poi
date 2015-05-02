@@ -58,7 +58,6 @@ poi_data_pool_block_idx_t getNextBlock(poi_data_pool_block_idx_t n){
 //menetapkan next dari current menjadi next
 void setNextBlock(poi_data_pool_block_idx_t current, 
 			poi_data_pool_block_idx_t next){
-	//printf("s 0x%x\n",current);
 	assert(DATA_POOL_BLOCK_MIN_IDX <=current
 		&& DATA_POOL_BLOCK_MAX_IDX >=current
 		&& DATA_POOL_BLOCK_MIN_IDX <=next

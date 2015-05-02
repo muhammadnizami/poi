@@ -16,7 +16,7 @@ int replaceEntry(directory_entry e, uint16_t dataBlockIdx, uint32_t offset){
 }
 int getEntryAndBlockOffset(const char * path, directory_entry r, directory_entry * getout, uint16_t * dataBlockIdx, uint32_t * offset){
 	char buf[22];
-	fprintf(logfile,"\tgetEntryAndBlockOffset path %s di entri dir %s\n",path,getNama(buf,r));
+
 	if (!strcmp(path,"/")){*getout = r; return 0;}
 	int name_length = 0;
 	char name[22];
@@ -56,7 +56,7 @@ int getEntryAndBlockOffset(const char * path, directory_entry r, directory_entry
 
 int getEntryRecursive(const char * path, directory_entry r, directory_entry * getout){
 	char buf[22];
-	fprintf(logfile,"\tgetEntryRecursive path %s di entri dir %s\n",path,getNama(buf,r));
+
 	if (!strcmp(path,"/")){*getout = r; return 0;}
 	int name_length = 0;
 	char name[22];
@@ -80,7 +80,6 @@ int getEntryRecursive(const char * path, directory_entry r, directory_entry * ge
 	poi_file_block blk = poi_data_pool_read_block(dataBlockIdx);
 
 	while (totalread < rsize){
-		fprintf(logfile,"\t\takses blok 0x%x\n",dataBlockIdx);
 		memcpy(tmp.bytearr,&blk.data[offset],32);
 		if (!strncmp(name,getNama(namaEntri,tmp),21))
 			return getEntryRecursive(path+name_length+1,tmp,getout);
@@ -187,7 +186,7 @@ int poi_readdir(const char *path, void *buf, fuse_fill_dir_t filler, off_t offse
 	directory_entry tmp;
 
 	poi_file_block blk = poi_data_pool_read_block(dataBlockIdx);
-	fprintf(logfile,"\t\takses blok 0x%x\n",dataBlockIdx);
+
 
 	while (totalread < rsize){
 		memcpy(tmp.bytearr,&blk.data[offsetread],32);
@@ -199,7 +198,7 @@ int poi_readdir(const char *path, void *buf, fuse_fill_dir_t filler, off_t offse
 			offsetread=0;
 			dataBlockIdx=getNextBlock(dataBlockIdx);
 			blk = poi_data_pool_read_block(dataBlockIdx);
-			fprintf(logfile,"\t\takses blok 0x%x\n",dataBlockIdx);
+
 		}
 	}
 	return a;//TODO implementasi
@@ -233,13 +232,13 @@ int poi_insertentry(directory_entry * dst, directory_entry val){
 			blk = poi_data_pool_read_block(dataBlockIdx);
 		}
 	}
-	fprintf(logfile,"\t\takses blok 0x%x\n",dataBlockIdx);
+
 	if (dataBlockIdx==0xffff){
 		if (getNumFreeBlocks()<1) return -ENOSPC;
 
 		allocateAfter(prev);
 		dataBlockIdx=getNextBlock(prev);
-		fprintf(logfile,"\t\takses blok 0x%x\n",dataBlockIdx);
+
 		blk = poi_data_pool_read_block(dataBlockIdx);
 		memcpy(blk.data,val.bytearr,32);
 		op_status = poi_data_pool_write_block(blk,dataBlockIdx);
@@ -342,7 +341,7 @@ int poi_mkdir (const char * path, mode_t mode){
  * regular files that will be called instead.
  */
 int poi_mknod (const char *path, mode_t mode, dev_t dev){
-	fprintf(logfile,"mkdir('%s')\n",path);
+	fprintf(logfile,"mknod('%s')\n",path);
 	directory_entry yangdimasuki;
 	if (getEntryRecursive(path,getRootDirEntry(),&yangdimasuki)==0) return -EEXIST;
 	int path_length=strlen(path);
@@ -415,7 +414,6 @@ int poi_mknod (const char *path, mode_t mode, dev_t dev){
 
 	uint32_t totalskipped = 0;
 
-	fprintf(logfile,"\tdataBlockIdx: 0x%x\n",dataBlockIdx);
 
 	while (totalskipped < (long)offset-(long)POI_BLOCK_SIZE && totalskipped < fsize){
 		totalskipped += POI_BLOCK_SIZE;
@@ -432,7 +430,7 @@ int poi_mknod (const char *path, mode_t mode, dev_t dev){
 	uint32_t mustbereadsize = (fsize-totalskipped<size)?fsize-totalskipped:size;
 	while (totalread<mustbereadsize){
 		blk = poi_data_pool_read_block(dataBlockIdx);
-		fprintf(logfile,"\tdataBlockIdx: 0x%x, in_block_offset: %x\n",dataBlockIdx,in_block_offset);
+
 		if (in_block_offset+(mustbereadsize-totalread)>POI_BLOCK_SIZE){
 			memcpy(buf+totalread,blk.data+in_block_offset,POI_BLOCK_SIZE-in_block_offset);
 			totalread+=POI_BLOCK_SIZE-in_block_offset;
@@ -445,7 +443,7 @@ int poi_mknod (const char *path, mode_t mode, dev_t dev){
 		dataBlockIdx=getNextBlock(dataBlockIdx);
 		in_block_offset=0;
 	}
-	fprintf(logfile,"\ttotalread: 0x%x\n",totalread);
+
 	if (totalread<size) memset(buf+totalread,0x00,size-totalread);
 	return totalread;
 	}
@@ -475,7 +473,6 @@ int poi_write (const char *path, const char *buf, size_t size, off_t offset,
 
 	uint32_t totalskipped = 0;
 
-	fprintf(logfile,"\tdataBlockIdx: 0x%x\n",dataBlockIdx);
 
 	while (totalskipped < (long)offset-(long)POI_BLOCK_SIZE && totalskipped < fsize){
 		totalskipped += POI_BLOCK_SIZE;
@@ -491,7 +488,7 @@ int poi_write (const char *path, const char *buf, size_t size, off_t offset,
 	
 	uint32_t mustbereplacedsize = (fsize-totalskipped<size)?fsize-totalskipped:size;
 	while (totalwritten<mustbereplacedsize){
-		fprintf(logfile,"\treplace. dataBlockIdx: 0x%x, in_block_offset: %x\n",dataBlockIdx,in_block_offset);
+
 		if (in_block_offset>=POI_BLOCK_SIZE){
 			dataBlockIdx=getNextBlock(dataBlockIdx);
 			in_block_offset=0;
@@ -513,7 +510,7 @@ int poi_write (const char *path, const char *buf, size_t size, off_t offset,
 
 	}
 	while (totalwritten<size){
-		fprintf(logfile,"\tappend. dataBlockIdx: 0x%x, in_block_offset: %x\n",dataBlockIdx,in_block_offset);
+
 		if (in_block_offset>=POI_BLOCK_SIZE){
 			int opstat = allocateAfter(dataBlockIdx);
 			if (opstat<0) return opstat;
@@ -577,7 +574,7 @@ int deleteEntry(uint16_t dataBlockIdx, uint32_t offset){
 /** Remove a file */
 int poi_unlink (const char * path){
 
-	fprintf(logfile,"mkdir('%s')\n",path);
+	fprintf(logfile,"unlink('%s')\n",path);
 	directory_entry yangdimasuki;
 	if (getEntryRecursive(path,getRootDirEntry(),&yangdimasuki)!=0) return -ENOENT;
 	int path_length=strlen(path);
