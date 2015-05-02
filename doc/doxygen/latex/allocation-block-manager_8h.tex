@@ -1,19 +1,22 @@
-\hypertarget{allocation-block-manager_8h}{\section{src/allocation-\/block-\/manager.h File Reference}
-\label{allocation-block-manager_8h}\index{src/allocation-\/block-\/manager.\-h@{src/allocation-\/block-\/manager.\-h}}
+\hypertarget{allocation-block-manager_8h}{\section{/home/nim\-\_\-13512501/\-Documents/tubes 2 O\-S/poi/src/allocation-\/block-\/manager.h File Reference}
+\label{allocation-block-manager_8h}\index{/home/nim\-\_\-13512501/\-Documents/tubes 2 O\-S/poi/src/allocation-\/block-\/manager.\-h@{/home/nim\-\_\-13512501/\-Documents/tubes 2 O\-S/poi/src/allocation-\/block-\/manager.\-h}}
 }
+
+
+mengambil dan menyimpan pointer to next di allocation table.  
+
+
 {\ttfamily \#include \char`\"{}file-\/manager.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}data-\/pool-\/block-\/manager.\-h\char`\"{}}\\*
 {\ttfamily \#include $<$stdbool.\-h$>$}\\*
-Include dependency graph for allocation-\/block-\/manager.h\-:
-\nopagebreak
+Include dependency graph for allocation-\/block-\/manager.h\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{allocation-block-manager_8h__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\-:
-\nopagebreak
+This graph shows which files directly or indirectly include this file\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -37,6 +40,12 @@ void \hyperlink{allocation-block-manager_8h_a7387272862663d2af1af9d5c21cddc84}{s
 \end{DoxyCompactItemize}
 
 
+\subsection{Detailed Description}
+mengambil dan menyimpan pointer to next di allocation table. \begin{DoxyAuthor}{Author}
+jang berikoetnja Tidak memperhitungkan free space. Memiliki cache. Setiap akhir manipulasi harus memanggil \hyperlink{allocation-block-manager_8h_aa62c7923af0be489b52b1dcdd7c04e23}{save\-Poi\-Allocation\-Cache()} 
+\end{DoxyAuthor}
+
+
 \subsection{Function Documentation}
 \hypertarget{allocation-block-manager_8h_a0843a74a7e1cc7c50dbfa521e4ea1cc8}{\index{allocation-\/block-\/manager.\-h@{allocation-\/block-\/manager.\-h}!get\-Next\-Block@{get\-Next\-Block}}
 \index{get\-Next\-Block@{get\-Next\-Block}!allocation-block-manager.h@{allocation-\/block-\/manager.\-h}}
@@ -47,12 +56,7 @@ void \hyperlink{allocation-block-manager_8h_a7387272862663d2af1af9d5c21cddc84}{s
 )}}\label{allocation-block-manager_8h_a0843a74a7e1cc7c50dbfa521e4ea1cc8}
 
 
-Definition at line 47 of file allocation-\/block-\/manager.\-c.
-
-
-
-Here is the call graph for this function\-:
-\nopagebreak
+Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -63,8 +67,7 @@ Here is the call graph for this function\-:
 
 
 
-Here is the caller graph for this function\-:
-\nopagebreak
+Here is the caller graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -82,12 +85,7 @@ Here is the caller graph for this function\-:
 )}}\label{allocation-block-manager_8h_ab352dc84382d70f0044e92c52165c2cc}
 
 
-Definition at line 74 of file allocation-\/block-\/manager.\-c.
-
-
-
-Here is the call graph for this function\-:
-\nopagebreak
+Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -98,8 +96,7 @@ Here is the call graph for this function\-:
 
 
 
-Here is the caller graph for this function\-:
-\nopagebreak
+Here is the caller graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -117,12 +114,7 @@ Here is the caller graph for this function\-:
 )}}\label{allocation-block-manager_8h_a4b553c2a61827a60738c9323e6082903}
 
 
-Definition at line 34 of file allocation-\/block-\/manager.\-c.
-
-
-
-Here is the call graph for this function\-:
-\nopagebreak
+Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -133,8 +125,7 @@ Here is the call graph for this function\-:
 
 
 
-Here is the caller graph for this function\-:
-\nopagebreak
+Here is the caller graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -152,12 +143,7 @@ Here is the caller graph for this function\-:
 )}}\label{allocation-block-manager_8h_a2d77f886ffa0a0d025a6a521cc6cf294}
 
 
-Definition at line 12 of file allocation-\/block-\/manager.\-c.
-
-
-
-Here is the call graph for this function\-:
-\nopagebreak
+Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -168,8 +154,7 @@ Here is the call graph for this function\-:
 
 
 
-Here is the caller graph for this function\-:
-\nopagebreak
+Here is the caller graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -187,12 +172,7 @@ Here is the caller graph for this function\-:
 )}}\label{allocation-block-manager_8h_aa62c7923af0be489b52b1dcdd7c04e23}
 
 
-Definition at line 25 of file allocation-\/block-\/manager.\-c.
-
-
-
-Here is the call graph for this function\-:
-\nopagebreak
+Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -203,8 +183,7 @@ Here is the call graph for this function\-:
 
 
 
-Here is the caller graph for this function\-:
-\nopagebreak
+Here is the caller graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -223,12 +202,7 @@ Here is the caller graph for this function\-:
 )}}\label{allocation-block-manager_8h_a7387272862663d2af1af9d5c21cddc84}
 
 
-Definition at line 59 of file allocation-\/block-\/manager.\-c.
-
-
-
-Here is the call graph for this function\-:
-\nopagebreak
+Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -239,8 +213,7 @@ Here is the call graph for this function\-:
 
 
 
-Here is the caller graph for this function\-:
-\nopagebreak
+Here is the caller graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode

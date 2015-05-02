@@ -1,8 +1,8 @@
-<map id="src/volume&#45;information.h" name="src/volume&#45;information.h">
-<area shape="rect" id="node2" href="$allocation-table_8h.html" title="src/allocation&#45;table.h" alt="" coords="79,88,221,115"/>
-<area shape="rect" id="node5" href="$poi_8c.html" title="src/poi.c" alt="" coords="247,88,319,115"/>
-<area shape="rect" id="node6" href="$volume-information-test_8c.html" title="src/volume&#45;information\l&#45;test.c" alt="" coords="343,81,496,122"/>
-<area shape="rect" id="node7" href="$volume-information_8c.html" title="src/volume&#45;information.c" alt="" coords="521,88,685,115"/>
-<area shape="rect" id="node3" href="$allocation-table-test_8c.html" title="src/allocation&#45;table\l&#45;test.c" alt="" coords="5,171,135,213"/>
-<area shape="rect" id="node4" href="$allocation-table_8c.html" title="src/allocation&#45;table.c" alt="" coords="159,179,301,205"/>
+<map id="/home/nim_13512501/Documents/tubes 2 OS/poi/src/volume&#45;information.h" name="/home/nim_13512501/Documents/tubes 2 OS/poi/src/volume&#45;information.h">
+<area shape="rect" id="node2" href="$allocation-table_8h.html" title="mengatur seluruh senarai berkait alokasi berkas. " alt="" coords="98,117,264,173"/>
+<area shape="rect" id="node5" href="$poi_8c.html" title="berisi implementasi inerface ke fuse dan main program " alt="" coords="289,117,452,173"/>
+<area shape="rect" id="node6" href="$volume-information-test_8c.html" title="poros penggerak uji untuk volume&#45;information " alt="" coords="476,110,655,181"/>
+<area shape="rect" id="node7" href="$volume-information_8c.html" title="/home/nim_13512501\l/Documents/tubes 2 OS\l/poi/src/volume&#45;information.c" alt="" coords="679,117,869,173"/>
+<area shape="rect" id="node3" href="$allocation-table-test_8c.html" title="berkas penggerak uji untuk allocation&#45;table&#45;test.c " alt="" coords="5,230,168,301"/>
+<area shape="rect" id="node4" href="$allocation-table_8c.html" title="mengatur seluruh senarai berkait alokasi berkas. " alt="" coords="193,237,359,293"/>
 </map>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>My Project: src/poi.c File Reference</title>
+<title>POI-FS: /home/nim_13512501/Documents/tubes 2 OS/poi/src/poi.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">POI-FS
    </div>
   </td>
  </tr>
@@ -84,12 +84,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">poi.c File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>berisi implementasi inerface ke fuse dan main program  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;fuse.h&gt;</code><br/>
 <code>#include &lt;fcntl.h&gt;</code><br/>
 <code>#include &lt;string.h&gt;</code><br/>
@@ -103,13 +107,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for poi.c:</div>
 <div class="dyncontent">
-<div class="center"><img src="poi_8c__incl.png" border="0" usemap="#src_2poi_8c" alt=""/></div>
-<map name="src_2poi_8c" id="src_2poi_8c">
-<area shape="rect" id="node8" href="file-manager_8h.html" title="file&#45;manager.h" alt="" coords="579,155,683,181"/><area shape="rect" id="node11" href="directory-entry_8h.html" title="directory&#45;entry.h" alt="" coords="778,155,893,181"/><area shape="rect" id="node15" href="volume-information_8h.html" title="volume&#45;information.h" alt="" coords="754,80,896,107"/><area shape="rect" id="node16" href="data-pool-block-manager_8h.html" title="data&#45;pool&#45;block&#45;manager.h" alt="" coords="555,80,729,107"/></map>
+<div class="center"><img src="poi_8c__incl.png" border="0" usemap="#_2home_2nim__13512501_2_documents_2tubes_012_01_o_s_2poi_2src_2poi_8c" alt=""/></div>
+<map name="_2home_2nim__13512501_2_documents_2tubes_012_01_o_s_2poi_2src_2poi_8c" id="_2home_2nim__13512501_2_documents_2tubes_012_01_o_s_2poi_2src_2poi_8c">
+<area shape="rect" id="node8" href="file-manager_8h.html" title="manajer berkas dan blok " alt="" coords="579,184,683,211"/><area shape="rect" id="node11" href="directory-entry_8h.html" title="struktur data entri direktori " alt="" coords="778,184,893,211"/><area shape="rect" id="node15" href="volume-information_8h.html" title="mengatur informasi volume " alt="" coords="754,109,896,136"/><area shape="rect" id="node16" href="data-pool-block-manager_8h.html" title="mengatur pembacaan dan penulisan blok kantong data " alt="" coords="555,109,729,136"/></map>
 </div>
-</div>
-<p><a href="poi_8c_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a5c301473d32c067ae8db6c41b76a2502"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="poi_8c.html#a5c301473d32c067ae8db6c41b76a2502">NLOG</a></td></tr>
+<tr class="separator:a5c301473d32c067ae8db6c41b76a2502"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a83b4c69641adb1fa9fa0b25375cbe851"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="poi_8c.html#a83b4c69641adb1fa9fa0b25375cbe851">replaceEntry</a> (<a class="el" href="structdirectory__entry.html">directory_entry</a> e, uint16_t dataBlockIdx, uint32_t offset)</td></tr>
@@ -151,11 +158,25 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:ab25a3625a8efbaa3d81ef27bbb51c9c5"><td class="memItemLeft" align="right" valign="top">FILE *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="poi_8c.html#ab25a3625a8efbaa3d81ef27bbb51c9c5">logfile</a></td></tr>
-<tr class="separator:ab25a3625a8efbaa3d81ef27bbb51c9c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad485a2f502944a99d0c6d0c2290249a2"><td class="memItemLeft" align="right" valign="top">struct fuse_operations&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="poi_8c.html#ad485a2f502944a99d0c6d0c2290249a2">poi_oper</a></td></tr>
 <tr class="separator:ad485a2f502944a99d0c6d0c2290249a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>berisi implementasi inerface ke fuse dan main program </p>
+<dl class="section author"><dt>Author</dt><dd>jang berikoetnja </dd></dl>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="a5c301473d32c067ae8db6c41b76a2502"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define NLOG</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Function Documentation</h2>
 <a class="anchor" id="a96b89d677157c352c2a9ed48fcc617cf"></a>
 <div class="memitem">
@@ -180,8 +201,6 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="poi_8c_source.html#l00556">556</a> of file <a class="el" href="poi_8c_source.html">poi.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -226,8 +245,6 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="poi_8c_source.html#l00101">101</a> of file <a class="el" href="poi_8c_source.html">poi.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -291,8 +308,6 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="poi_8c_source.html#l00018">18</a> of file <a class="el" href="poi_8c_source.html">poi.c</a>.</p>
-
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -343,8 +358,6 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="poi_8c_source.html#l00058">58</a> of file <a class="el" href="poi_8c_source.html">poi.c</a>.</p>
-
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -389,14 +402,12 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="poi_8c_source.html#l00839">839</a> of file <a class="el" href="poi_8c_source.html">poi.c</a>.</p>
-
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="poi_8c_a0ddf1224851353fc92bfbff6f499fa97_cgraph.png" border="0" usemap="#poi_8c_a0ddf1224851353fc92bfbff6f499fa97_cgraph" alt=""/></div>
 <map name="poi_8c_a0ddf1224851353fc92bfbff6f499fa97_cgraph" id="poi_8c_a0ddf1224851353fc92bfbff6f499fa97_cgraph">
-<area shape="rect" id="node2" href="file-manager_8c.html#a9a8111f4e7948ad43fef393e0e4e3247" title="poi_file_create_new" alt="" coords="107,136,245,163"/><area shape="rect" id="node13" href="file-manager_8c.html#af091ab9b6704b6affa17ea12fd51e628" title="poi_file_validasi" alt="" coords="311,237,425,264"/><area shape="rect" id="node14" href="file-manager_8c.html#ac286b940c82432a07288c7a9afdc884a" title="poi_file_open" alt="" coords="127,195,225,221"/><area shape="rect" id="node15" href="volume-information_8c.html#aff9dadb573d07c60c0281c3441ba3881" title="getFirstFreeBlockIdx" alt="" coords="105,347,247,373"/><area shape="rect" id="node19" href="volume-information_8c.html#ae397a4a9fdd9cc21529262cfe1597e50" title="getNumFreeBlocks" alt="" coords="109,296,243,323"/><area shape="rect" id="node3" href="file-manager_8c.html#aa4d2e01426a89fe14e8c3a9fac2b61a0" title="set_poi_file_block\l_dword_little_endian" alt="" coords="298,70,438,111"/><area shape="rect" id="node4" href="directory-entry_8c.html#a9316a7dff46a87f98e3471031896670f" title="makeEntry" alt="" coords="325,136,411,163"/><area shape="rect" id="node11" href="file-manager_8c.html#aafd8b089a2a7b6c25cec6ec8c9504e5a" title="poi_file_write_block" alt="" coords="300,187,436,213"/><area shape="rect" id="node12" href="file-manager_8c.html#a8af78372c29561516b35df699039b85f" title="set_poi_file_block\l_word_little_endian" alt="" coords="301,5,435,46"/><area shape="rect" id="node5" href="directory-entry_8c.html#aaf2d59e38899c1a88c878a113355e68e" title="setNama" alt="" coords="524,161,599,188"/><area shape="rect" id="node6" href="directory-entry_8c.html#ab707665b70d7b489fea00097a365302b" title="setattr" alt="" coords="532,212,591,239"/><area shape="rect" id="node7" href="directory-entry_8c.html#a0dbc96b3055551072fccce217082e16a" title="setLastModifTime" alt="" coords="498,263,625,289"/><area shape="rect" id="node8" href="directory-entry_8c.html#a0d6184c06efca3bd8ee3e3314de4013d" title="setLastModifDate" alt="" coords="499,9,624,36"/><area shape="rect" id="node9" href="directory-entry_8c.html#a4275d4bb22d8095e6319637119694d9a" title="setFirstDataBlockIdx" alt="" coords="489,60,634,87"/><area shape="rect" id="node10" href="directory-entry_8c.html#a602a8f906599cd997e73640df620a514" title="setFileSize" alt="" coords="518,111,605,137"/><area shape="rect" id="node16" href="volume-information_8c.html#af6d08c2f02ba561e21c8aeef199e20f2" title="loadPoiVolinfoCache" alt="" coords="297,355,439,381"/><area shape="rect" id="node18" href="file-manager_8c.html#a9b3a4e41531820c25e3d2d9019c39cba" title="get_poi_file_block\l_dword_little_endian" alt="" coords="298,289,438,330"/><area shape="rect" id="node17" href="file-manager_8c.html#ac995e99a526073da84cd4fb1dab93a0a" title="poi_file_read_block" alt="" coords="495,355,628,381"/></map>
+<area shape="rect" id="node2" href="file-manager_8c.html#a9a8111f4e7948ad43fef393e0e4e3247" title="poi_file_create_new" alt="" coords="105,183,242,209"/><area shape="rect" id="node13" href="file-manager_8c.html#af091ab9b6704b6affa17ea12fd51e628" title="poi_file_validasi" alt="" coords="304,300,419,327"/><area shape="rect" id="node14" href="file-manager_8c.html#ac286b940c82432a07288c7a9afdc884a" title="poi_file_open" alt="" coords="124,300,223,327"/><area shape="rect" id="node3" href="file-manager_8c.html#aa4d2e01426a89fe14e8c3a9fac2b61a0" title="set_poi_file_block\l_dword_little_endian" alt="" coords="291,66,431,107"/><area shape="rect" id="node4" href="directory-entry_8c.html#a9316a7dff46a87f98e3471031896670f" title="makeEntry" alt="" coords="319,132,404,159"/><area shape="rect" id="node11" href="file-manager_8c.html#aafd8b089a2a7b6c25cec6ec8c9504e5a" title="poi_file_write_block" alt="" coords="293,183,429,209"/><area shape="rect" id="node12" href="file-manager_8c.html#a8af78372c29561516b35df699039b85f" title="set_poi_file_block\l_word_little_endian" alt="" coords="295,234,428,275"/><area shape="rect" id="node5" href="directory-entry_8c.html#aaf2d59e38899c1a88c878a113355e68e" title="setNama" alt="" coords="516,5,591,32"/><area shape="rect" id="node6" href="directory-entry_8c.html#ab707665b70d7b489fea00097a365302b" title="setattr" alt="" coords="524,56,583,83"/><area shape="rect" id="node7" href="directory-entry_8c.html#a0dbc96b3055551072fccce217082e16a" title="setLastModifTime" alt="" coords="490,107,617,133"/><area shape="rect" id="node8" href="directory-entry_8c.html#a0d6184c06efca3bd8ee3e3314de4013d" title="setLastModifDate" alt="" coords="491,157,616,184"/><area shape="rect" id="node9" href="directory-entry_8c.html#a4275d4bb22d8095e6319637119694d9a" title="setFirstDataBlockIdx" alt="" coords="481,208,626,235"/><area shape="rect" id="node10" href="directory-entry_8c.html#a602a8f906599cd997e73640df620a514" title="setFileSize" alt="" coords="510,259,597,285"/></map>
 </div>
 </p>
 
@@ -415,8 +426,6 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="poi_8c_source.html#l00263">263</a> of file <a class="el" href="poi_8c_source.html">poi.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -455,8 +464,6 @@ Here is the caller graph for this function:</div>
 <p>Get file attributes.</p>
 <p>Similar to stat(). The 'st_dev' and 'st_blksize' fields are ignored. The 'st_ino' field is ignored except if the 'use_ino' mount option is given. </p>
 
-<p>Definition at line <a class="el" href="poi_8c_source.html#l00135">135</a> of file <a class="el" href="poi_8c_source.html">poi.c</a>.</p>
-
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -491,8 +498,6 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="poi_8c_source.html#l00209">209</a> of file <a class="el" href="poi_8c_source.html">poi.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -540,8 +545,6 @@ Here is the caller graph for this function:</div>
 <p>Create a directory</p>
 <p>Note that the mode argument may not have the type specification bits set, i.e. S_ISDIR(mode) can be false. To obtain the correct directory type bits use mode|S_IFDIR </p>
 
-<p>Definition at line <a class="el" href="poi_8c_source.html#l00287">287</a> of file <a class="el" href="poi_8c_source.html">poi.c</a>.</p>
-
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -584,8 +587,6 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 <p>Create a file node</p>
 <p>This is called for creation of all non-directory, non-symlink nodes. If the filesystem defines a create() method, then for regular files that will be called instead. </p>
-
-<p>Definition at line <a class="el" href="poi_8c_source.html#l00345">345</a> of file <a class="el" href="poi_8c_source.html">poi.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -642,8 +643,6 @@ Here is the call graph for this function:</div>
 <p>Read data from an open file</p>
 <p>Read should return exactly the number of bytes requested except on EOF or error, otherwise the rest of the data will be substituted with zeroes. An exception to this is when the 'direct_io' mount option is specified, in which case the return value of the read system call will reflect the return value of this operation.</p>
 <p>Changed in version 2.2 </p>
-
-<p>Definition at line <a class="el" href="poi_8c_source.html#l00406">406</a> of file <a class="el" href="poi_8c_source.html">poi.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -704,8 +703,6 @@ Here is the call graph for this function:</div>
 <p>2) The readdir implementation keeps track of the offsets of the directory entries. It uses the offset parameter and always passes non-zero offset to the filler function. When the buffer is full (or an error happens) the filler function will return '1'.</p>
 <p>Introduced in version 2.3 </p>
 
-<p>Definition at line <a class="el" href="poi_8c_source.html#l00175">175</a> of file <a class="el" href="poi_8c_source.html">poi.c</a>.</p>
-
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -742,8 +739,6 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 <p>Rename a file </p>
 
-<p>Definition at line <a class="el" href="poi_8c_source.html#l00640">640</a> of file <a class="el" href="poi_8c_source.html">poi.c</a>.</p>
-
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -769,8 +764,6 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 <p>Remove a directory </p>
-
-<p>Definition at line <a class="el" href="poi_8c_source.html#l00817">817</a> of file <a class="el" href="poi_8c_source.html">poi.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -808,8 +801,6 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 <p>Change the size of a file </p>
 
-<p>Definition at line <a class="el" href="poi_8c_source.html#l00584">584</a> of file <a class="el" href="poi_8c_source.html">poi.c</a>.</p>
-
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -835,8 +826,6 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 <p>Remove a file </p>
-
-<p>Definition at line <a class="el" href="poi_8c_source.html#l00743">743</a> of file <a class="el" href="poi_8c_source.html">poi.c</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -903,8 +892,6 @@ Here is the caller graph for this function:</div>
 <p>Write should return exactly the number of bytes requested except on error. An exception to this is when the 'direct_io' mount option is specified (see read operation).</p>
 <p>Changed in version 2.2 </p>
 
-<p>Definition at line <a class="el" href="poi_8c_source.html#l00461">461</a> of file <a class="el" href="poi_8c_source.html">poi.c</a>.</p>
-
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -946,8 +933,6 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="poi_8c_source.html#l00012">12</a> of file <a class="el" href="poi_8c_source.html">poi.c</a>.</p>
-
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -969,20 +954,6 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
-<a class="anchor" id="ab25a3625a8efbaa3d81ef27bbb51c9c5"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FILE* logfile</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="poi_8c_source.html#l00011">11</a> of file <a class="el" href="poi_8c_source.html">poi.c</a>.</p>
-
-</div>
-</div>
 <a class="anchor" id="ad485a2f502944a99d0c6d0c2290249a2"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1004,25 +975,23 @@ Here is the caller graph for this function:</div>
 <div class="line">    .write = <a class="code" href="poi_8c.html#a4015d7cbf472a666a5afec6a3cabbb35">poi_write</a>,</div>
 <div class="line">    .truncate = <a class="code" href="poi_8c.html#a916c54fa22cdda50d516a667840bc957">poi_truncate</a>,</div>
 <div class="line">}</div>
-<div class="ttc" id="poi_8c_html_a2780aa1096e4e171abbd079fed25bd97"><div class="ttname"><a href="poi_8c.html#a2780aa1096e4e171abbd079fed25bd97">poi_readdir</a></div><div class="ttdeci">int poi_readdir(const char *path, void *buf, fuse_fill_dir_t filler, off_t offset, struct fuse_file_info *fi)</div><div class="ttdef"><b>Definition:</b> <a href="poi_8c_source.html#l00175">poi.c:175</a></div></div>
-<div class="ttc" id="poi_8c_html_a6097c210a3653eaaaa28821de8cad867"><div class="ttname"><a href="poi_8c.html#a6097c210a3653eaaaa28821de8cad867">poi_rmdir</a></div><div class="ttdeci">int poi_rmdir(const char *path)</div><div class="ttdef"><b>Definition:</b> <a href="poi_8c_source.html#l00817">poi.c:817</a></div></div>
-<div class="ttc" id="poi_8c_html_a916c54fa22cdda50d516a667840bc957"><div class="ttname"><a href="poi_8c.html#a916c54fa22cdda50d516a667840bc957">poi_truncate</a></div><div class="ttdeci">int poi_truncate(const char *path, off_t offset)</div><div class="ttdef"><b>Definition:</b> <a href="poi_8c_source.html#l00584">poi.c:584</a></div></div>
-<div class="ttc" id="poi_8c_html_a33a24f79f8f6eeda031f59ecfb10c9b4"><div class="ttname"><a href="poi_8c.html#a33a24f79f8f6eeda031f59ecfb10c9b4">poi_read</a></div><div class="ttdeci">poi_read(const char *path, char *buf, size_t size, off_t offset, struct fuse_file_info *fi)</div><div class="ttdef"><b>Definition:</b> <a href="poi_8c_source.html#l00406">poi.c:406</a></div></div>
-<div class="ttc" id="poi_8c_html_a2da6e63134c6ca1cf467a8cb81460dad"><div class="ttname"><a href="poi_8c.html#a2da6e63134c6ca1cf467a8cb81460dad">poi_mknod</a></div><div class="ttdeci">int poi_mknod(const char *path, mode_t mode, dev_t dev)</div><div class="ttdef"><b>Definition:</b> <a href="poi_8c_source.html#l00345">poi.c:345</a></div></div>
-<div class="ttc" id="poi_8c_html_a4015d7cbf472a666a5afec6a3cabbb35"><div class="ttname"><a href="poi_8c.html#a4015d7cbf472a666a5afec6a3cabbb35">poi_write</a></div><div class="ttdeci">int poi_write(const char *path, const char *buf, size_t size, off_t offset, struct fuse_file_info *fi)</div><div class="ttdef"><b>Definition:</b> <a href="poi_8c_source.html#l00461">poi.c:461</a></div></div>
-<div class="ttc" id="poi_8c_html_ad5142050bb36b094a9d752f4459d8884"><div class="ttname"><a href="poi_8c.html#ad5142050bb36b094a9d752f4459d8884">poi_mkdir</a></div><div class="ttdeci">int poi_mkdir(const char *path, mode_t mode)</div><div class="ttdef"><b>Definition:</b> <a href="poi_8c_source.html#l00287">poi.c:287</a></div></div>
-<div class="ttc" id="poi_8c_html_a5ad740416ca293699d847841c7f2e2de"><div class="ttname"><a href="poi_8c.html#a5ad740416ca293699d847841c7f2e2de">poi_getattr</a></div><div class="ttdeci">int poi_getattr(const char *path, struct stat *statbuf)</div><div class="ttdef"><b>Definition:</b> <a href="poi_8c_source.html#l00135">poi.c:135</a></div></div>
-<div class="ttc" id="poi_8c_html_aa04c342fe153226c224be62aae9075c5"><div class="ttname"><a href="poi_8c.html#aa04c342fe153226c224be62aae9075c5">poi_rename</a></div><div class="ttdeci">int poi_rename(const char *path, const char *newpath)</div><div class="ttdef"><b>Definition:</b> <a href="poi_8c_source.html#l00640">poi.c:640</a></div></div>
-<div class="ttc" id="poi_8c_html_a6d1c73ddb2c9e75dd516f2995a121c84"><div class="ttname"><a href="poi_8c.html#a6d1c73ddb2c9e75dd516f2995a121c84">poi_unlink</a></div><div class="ttdeci">int poi_unlink(const char *path)</div><div class="ttdef"><b>Definition:</b> <a href="poi_8c_source.html#l00743">poi.c:743</a></div></div>
+<div class="ttc" id="poi_8c_html_a2780aa1096e4e171abbd079fed25bd97"><div class="ttname"><a href="poi_8c.html#a2780aa1096e4e171abbd079fed25bd97">poi_readdir</a></div><div class="ttdeci">int poi_readdir(const char *path, void *buf, fuse_fill_dir_t filler, off_t offset, struct fuse_file_info *fi)</div><div class="ttdef"><b>Definition:</b> poi.c:192</div></div>
+<div class="ttc" id="poi_8c_html_a6097c210a3653eaaaa28821de8cad867"><div class="ttname"><a href="poi_8c.html#a6097c210a3653eaaaa28821de8cad867">poi_rmdir</a></div><div class="ttdeci">int poi_rmdir(const char *path)</div><div class="ttdef"><b>Definition:</b> poi.c:854</div></div>
+<div class="ttc" id="poi_8c_html_a916c54fa22cdda50d516a667840bc957"><div class="ttname"><a href="poi_8c.html#a916c54fa22cdda50d516a667840bc957">poi_truncate</a></div><div class="ttdeci">int poi_truncate(const char *path, off_t offset)</div><div class="ttdef"><b>Definition:</b> poi.c:614</div></div>
+<div class="ttc" id="poi_8c_html_a33a24f79f8f6eeda031f59ecfb10c9b4"><div class="ttname"><a href="poi_8c.html#a33a24f79f8f6eeda031f59ecfb10c9b4">poi_read</a></div><div class="ttdeci">poi_read(const char *path, char *buf, size_t size, off_t offset, struct fuse_file_info *fi)</div><div class="ttdef"><b>Definition:</b> poi.c:429</div></div>
+<div class="ttc" id="poi_8c_html_a2da6e63134c6ca1cf467a8cb81460dad"><div class="ttname"><a href="poi_8c.html#a2da6e63134c6ca1cf467a8cb81460dad">poi_mknod</a></div><div class="ttdeci">int poi_mknod(const char *path, mode_t mode, dev_t dev)</div><div class="ttdef"><b>Definition:</b> poi.c:366</div></div>
+<div class="ttc" id="poi_8c_html_a4015d7cbf472a666a5afec6a3cabbb35"><div class="ttname"><a href="poi_8c.html#a4015d7cbf472a666a5afec6a3cabbb35">poi_write</a></div><div class="ttdeci">int poi_write(const char *path, const char *buf, size_t size, off_t offset, struct fuse_file_info *fi)</div><div class="ttdef"><b>Definition:</b> poi.c:486</div></div>
+<div class="ttc" id="poi_8c_html_ad5142050bb36b094a9d752f4459d8884"><div class="ttname"><a href="poi_8c.html#ad5142050bb36b094a9d752f4459d8884">poi_mkdir</a></div><div class="ttdeci">int poi_mkdir(const char *path, mode_t mode)</div><div class="ttdef"><b>Definition:</b> poi.c:306</div></div>
+<div class="ttc" id="poi_8c_html_a5ad740416ca293699d847841c7f2e2de"><div class="ttname"><a href="poi_8c.html#a5ad740416ca293699d847841c7f2e2de">poi_getattr</a></div><div class="ttdeci">int poi_getattr(const char *path, struct stat *statbuf)</div><div class="ttdef"><b>Definition:</b> poi.c:150</div></div>
+<div class="ttc" id="poi_8c_html_aa04c342fe153226c224be62aae9075c5"><div class="ttname"><a href="poi_8c.html#aa04c342fe153226c224be62aae9075c5">poi_rename</a></div><div class="ttdeci">int poi_rename(const char *path, const char *newpath)</div><div class="ttdef"><b>Definition:</b> poi.c:672</div></div>
+<div class="ttc" id="poi_8c_html_a6d1c73ddb2c9e75dd516f2995a121c84"><div class="ttname"><a href="poi_8c.html#a6d1c73ddb2c9e75dd516f2995a121c84">poi_unlink</a></div><div class="ttdeci">int poi_unlink(const char *path)</div><div class="ttdef"><b>Definition:</b> poi.c:780</div></div>
 </div><!-- fragment -->
-<p>Definition at line <a class="el" href="poi_8c_source.html#l00826">826</a> of file <a class="el" href="poi_8c_source.html">poi.c</a>.</p>
-
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat May 2 2015 20:31:00 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 3 2015 06:30:46 for POI-FS by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

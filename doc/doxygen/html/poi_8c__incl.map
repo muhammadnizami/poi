@@ -1,6 +1,6 @@
-<map id="src/poi.c" name="src/poi.c">
-<area shape="rect" id="node8" href="$file-manager_8h.html" title="file&#45;manager.h" alt="" coords="579,155,683,181"/>
-<area shape="rect" id="node11" href="$directory-entry_8h.html" title="directory&#45;entry.h" alt="" coords="778,155,893,181"/>
-<area shape="rect" id="node15" href="$volume-information_8h.html" title="volume&#45;information.h" alt="" coords="754,80,896,107"/>
-<area shape="rect" id="node16" href="$data-pool-block-manager_8h.html" title="data&#45;pool&#45;block&#45;manager.h" alt="" coords="555,80,729,107"/>
+<map id="/home/nim_13512501/Documents/tubes 2 OS/poi/src/poi.c" name="/home/nim_13512501/Documents/tubes 2 OS/poi/src/poi.c">
+<area shape="rect" id="node8" href="$file-manager_8h.html" title="manajer berkas dan blok " alt="" coords="579,184,683,211"/>
+<area shape="rect" id="node11" href="$directory-entry_8h.html" title="struktur data entri direktori " alt="" coords="778,184,893,211"/>
+<area shape="rect" id="node15" href="$volume-information_8h.html" title="mengatur informasi volume " alt="" coords="754,109,896,136"/>
+<area shape="rect" id="node16" href="$data-pool-block-manager_8h.html" title="mengatur pembacaan dan penulisan blok kantong data " alt="" coords="555,109,729,136"/>
 </map>

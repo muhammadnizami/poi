@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['r',['r',['../structpoi__attr__t.html#a904fc9328a7095487716875e4a892851',1,'poi_attr_t']]]
+  ['w',['w',['../structpoi__attr__t.html#ac2e5f3b10af22c39ed83be143a508b80',1,'poi_attr_t']]]
 ];

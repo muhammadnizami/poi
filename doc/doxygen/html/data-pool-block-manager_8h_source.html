@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>My Project: src/data-pool-block-manager.h Source File</title>
+<title>POI-FS: /home/nim_13512501/Documents/tubes 2 OS/poi/src/data-pool-block-manager.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">POI-FS
    </div>
   </td>
  </tr>
@@ -87,40 +87,41 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">data-pool-block-manager.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="data-pool-block-manager_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef data_pool_block_manager_h</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define data_pool_block_manager_h</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="file-manager_8h.html">file-manager.h</a>&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="data-pool-block-manager_8h.html#ab249bb14ed04381809b0cfeffaa6e01d">    6</a></span>&#160;<span class="preprocessor">#define DATA_POOL_BLOCK_MIN_IDX 0</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="data-pool-block-manager_8h.html#a7d56b75785e6fcf7a7e48cf1e0597fce">    7</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define DATA_POOL_BLOCK_MAX_IDX (POI_DATA_POOL_BLOCKS_NUM-1)</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="data-pool-block-manager_8h.html#ae9bd339a611ae2c33781964f7337dff5">    8</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define DATA_POOL_BLOCK_MIN_NUM (POI_VOLUME_INFORMATION_BLOCKS_NUM + POI_ALLOCATION_TABLE_BLOCKS_NUM)</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="data-pool-block-manager_8h.html#a7154b2941bf1144d8886fdbafc64a1ff">    9</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define DATA_POOL_BLOCK_MAX_NUM (DATA_POOL_BLOCK_MIN_NUM+DATA_POOL_BLOCK_MAX_IDX)</span></div>
+<a href="data-pool-block-manager_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef data_pool_block_manager_h</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define data_pool_block_manager_h</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="data-pool-block-manager_8h.html#a87e19ab8290bcd76be1c7db1e90cc6f6">   11</a></span>&#160;<span class="keyword">typedef</span> uint16_t <a class="code" href="data-pool-block-manager_8h.html#a87e19ab8290bcd76be1c7db1e90cc6f6">poi_data_pool_block_idx_t</a>;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="file-manager_8h.html">file-manager.h</a>&quot;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">//mengambil blok data pool dengan indeks n dari file dotpoi_mounted_file</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">//prekondisi: DATA_POOL_BLOCK_MIN_IDX &lt;= n &lt;= DATA_POOL_BLOCK_MAX_IDX</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<a class="code" href="structpoi__file__block.html">poi_file_block</a> <a class="code" href="data-pool-block-manager_8h.html#ac930ae4a4b3ca65a49d45c7654f15149">poi_data_pool_read_block</a>(<a class="code" href="data-pool-block-manager_8h.html#a87e19ab8290bcd76be1c7db1e90cc6f6">poi_data_pool_block_idx_t</a> <a class="code" href="allocation-table-test_8c.html#a24010dade8ebab3f87a48022772cd975">n</a>);</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">//menulis b.data ke blok data pool dengan indeks n dari file dotpoi_mounted_file</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">//prekondisi: DATA_POOL_BLOCK_MIN_IDX &lt;= n &lt;= DATA_POOL_BLOCK_MAX_IDX</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keywordtype">int</span> <a class="code" href="data-pool-block-manager_8h.html#a10624f1cbc61dd0a8a03aa94d8502567">poi_data_pool_write_block</a>(<a class="code" href="structpoi__file__block.html">poi_file_block</a> b, <a class="code" href="data-pool-block-manager_8h.html#a87e19ab8290bcd76be1c7db1e90cc6f6">poi_data_pool_block_idx_t</a> <a class="code" href="allocation-table-test_8c.html#a24010dade8ebab3f87a48022772cd975">n</a>);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<a class="code" href="data-pool-block-manager_8h.html#a87e19ab8290bcd76be1c7db1e90cc6f6">poi_data_pool_block_idx_t</a> <a class="code" href="data-pool-block-manager_8h.html#ae02f040d4e0f458f0d63751bc09f55b7">poi_data_pool_get_next_empty</a>(<a class="code" href="data-pool-block-manager_8h.html#a87e19ab8290bcd76be1c7db1e90cc6f6">poi_data_pool_block_idx_t</a> <a class="code" href="allocation-table-test_8c.html#a24010dade8ebab3f87a48022772cd975">n</a>);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="data-pool-block-manager_8h_html_a87e19ab8290bcd76be1c7db1e90cc6f6"><div class="ttname"><a href="data-pool-block-manager_8h.html#a87e19ab8290bcd76be1c7db1e90cc6f6">poi_data_pool_block_idx_t</a></div><div class="ttdeci">uint16_t poi_data_pool_block_idx_t</div><div class="ttdef"><b>Definition:</b> <a href="data-pool-block-manager_8h_source.html#l00011">data-pool-block-manager.h:11</a></div></div>
-<div class="ttc" id="structpoi__file__block_html"><div class="ttname"><a href="structpoi__file__block.html">poi_file_block</a></div><div class="ttdef"><b>Definition:</b> <a href="file-manager_8h_source.html#l00015">file-manager.h:15</a></div></div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="data-pool-block-manager_8h.html#ab249bb14ed04381809b0cfeffaa6e01d">   13</a></span>&#160;<span class="preprocessor">#define DATA_POOL_BLOCK_MIN_IDX 0</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="data-pool-block-manager_8h.html#a7d56b75785e6fcf7a7e48cf1e0597fce">   14</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define DATA_POOL_BLOCK_MAX_IDX (POI_DATA_POOL_BLOCKS_NUM-1)</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="data-pool-block-manager_8h.html#ae9bd339a611ae2c33781964f7337dff5">   15</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define DATA_POOL_BLOCK_MIN_NUM (POI_VOLUME_INFORMATION_BLOCKS_NUM + POI_ALLOCATION_TABLE_BLOCKS_NUM)</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="data-pool-block-manager_8h.html#a7154b2941bf1144d8886fdbafc64a1ff">   16</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define DATA_POOL_BLOCK_MAX_NUM (DATA_POOL_BLOCK_MIN_NUM+DATA_POOL_BLOCK_MAX_IDX)</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="data-pool-block-manager_8h.html#a87e19ab8290bcd76be1c7db1e90cc6f6">   18</a></span>&#160;<span class="keyword">typedef</span> uint16_t <a class="code" href="data-pool-block-manager_8h.html#a87e19ab8290bcd76be1c7db1e90cc6f6">poi_data_pool_block_idx_t</a>;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">//mengambil blok data pool dengan indeks n dari file dotpoi_mounted_file</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">//prekondisi: DATA_POOL_BLOCK_MIN_IDX &lt;= n &lt;= DATA_POOL_BLOCK_MAX_IDX</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<a class="code" href="structpoi__file__block.html">poi_file_block</a> <a class="code" href="data-pool-block-manager_8h.html#ac930ae4a4b3ca65a49d45c7654f15149">poi_data_pool_read_block</a>(<a class="code" href="data-pool-block-manager_8h.html#a87e19ab8290bcd76be1c7db1e90cc6f6">poi_data_pool_block_idx_t</a> <a class="code" href="allocation-table-test_8c.html#a24010dade8ebab3f87a48022772cd975">n</a>);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">//menulis b.data ke blok data pool dengan indeks n dari file dotpoi_mounted_file</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">//prekondisi: DATA_POOL_BLOCK_MIN_IDX &lt;= n &lt;= DATA_POOL_BLOCK_MAX_IDX</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keywordtype">int</span> <a class="code" href="data-pool-block-manager_8h.html#a10624f1cbc61dd0a8a03aa94d8502567">poi_data_pool_write_block</a>(<a class="code" href="structpoi__file__block.html">poi_file_block</a> b, <a class="code" href="data-pool-block-manager_8h.html#a87e19ab8290bcd76be1c7db1e90cc6f6">poi_data_pool_block_idx_t</a> <a class="code" href="allocation-table-test_8c.html#a24010dade8ebab3f87a48022772cd975">n</a>);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<a class="code" href="data-pool-block-manager_8h.html#a87e19ab8290bcd76be1c7db1e90cc6f6">poi_data_pool_block_idx_t</a> <a class="code" href="data-pool-block-manager_8h.html#ae02f040d4e0f458f0d63751bc09f55b7">poi_data_pool_get_next_empty</a>(<a class="code" href="data-pool-block-manager_8h.html#a87e19ab8290bcd76be1c7db1e90cc6f6">poi_data_pool_block_idx_t</a> <a class="code" href="allocation-table-test_8c.html#a24010dade8ebab3f87a48022772cd975">n</a>);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="data-pool-block-manager_8h_html_a87e19ab8290bcd76be1c7db1e90cc6f6"><div class="ttname"><a href="data-pool-block-manager_8h.html#a87e19ab8290bcd76be1c7db1e90cc6f6">poi_data_pool_block_idx_t</a></div><div class="ttdeci">uint16_t poi_data_pool_block_idx_t</div><div class="ttdef"><b>Definition:</b> data-pool-block-manager.h:18</div></div>
+<div class="ttc" id="structpoi__file__block_html"><div class="ttname"><a href="structpoi__file__block.html">poi_file_block</a></div><div class="ttdef"><b>Definition:</b> file-manager.h:24</div></div>
 <div class="ttc" id="data-pool-block-manager_8h_html_ae02f040d4e0f458f0d63751bc09f55b7"><div class="ttname"><a href="data-pool-block-manager_8h.html#ae02f040d4e0f458f0d63751bc09f55b7">poi_data_pool_get_next_empty</a></div><div class="ttdeci">poi_data_pool_block_idx_t poi_data_pool_get_next_empty(poi_data_pool_block_idx_t n)</div></div>
-<div class="ttc" id="allocation-table-test_8c_html_a24010dade8ebab3f87a48022772cd975"><div class="ttname"><a href="allocation-table-test_8c.html#a24010dade8ebab3f87a48022772cd975">n</a></div><div class="ttdeci">poi_data_pool_block_idx_t n</div><div class="ttdef"><b>Definition:</b> <a href="allocation-table-test_8c_source.html#l00012">allocation-table-test.c:12</a></div></div>
-<div class="ttc" id="file-manager_8h_html"><div class="ttname"><a href="file-manager_8h.html">file-manager.h</a></div></div>
-<div class="ttc" id="data-pool-block-manager_8h_html_ac930ae4a4b3ca65a49d45c7654f15149"><div class="ttname"><a href="data-pool-block-manager_8h.html#ac930ae4a4b3ca65a49d45c7654f15149">poi_data_pool_read_block</a></div><div class="ttdeci">poi_file_block poi_data_pool_read_block(poi_data_pool_block_idx_t n)</div><div class="ttdef"><b>Definition:</b> <a href="data-pool-block-manager_8c_source.html#l00010">data-pool-block-manager.c:10</a></div></div>
-<div class="ttc" id="data-pool-block-manager_8h_html_a10624f1cbc61dd0a8a03aa94d8502567"><div class="ttname"><a href="data-pool-block-manager_8h.html#a10624f1cbc61dd0a8a03aa94d8502567">poi_data_pool_write_block</a></div><div class="ttdeci">int poi_data_pool_write_block(poi_file_block b, poi_data_pool_block_idx_t n)</div><div class="ttdef"><b>Definition:</b> <a href="data-pool-block-manager_8c_source.html#l00017">data-pool-block-manager.c:17</a></div></div>
+<div class="ttc" id="allocation-table-test_8c_html_a24010dade8ebab3f87a48022772cd975"><div class="ttname"><a href="allocation-table-test_8c.html#a24010dade8ebab3f87a48022772cd975">n</a></div><div class="ttdeci">poi_data_pool_block_idx_t n</div><div class="ttdef"><b>Definition:</b> allocation-table-test.c:19</div></div>
+<div class="ttc" id="file-manager_8h_html"><div class="ttname"><a href="file-manager_8h.html">file-manager.h</a></div><div class="ttdoc">manajer berkas dan blok </div></div>
+<div class="ttc" id="data-pool-block-manager_8h_html_ac930ae4a4b3ca65a49d45c7654f15149"><div class="ttname"><a href="data-pool-block-manager_8h.html#ac930ae4a4b3ca65a49d45c7654f15149">poi_data_pool_read_block</a></div><div class="ttdeci">poi_file_block poi_data_pool_read_block(poi_data_pool_block_idx_t n)</div><div class="ttdef"><b>Definition:</b> data-pool-block-manager.c:17</div></div>
+<div class="ttc" id="data-pool-block-manager_8h_html_a10624f1cbc61dd0a8a03aa94d8502567"><div class="ttname"><a href="data-pool-block-manager_8h.html#a10624f1cbc61dd0a8a03aa94d8502567">poi_data_pool_write_block</a></div><div class="ttdeci">int poi_data_pool_write_block(poi_file_block b, poi_data_pool_block_idx_t n)</div><div class="ttdef"><b>Definition:</b> data-pool-block-manager.c:24</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat May 2 2015 20:31:00 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 3 2015 06:30:43 for POI-FS by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -11,9 +11,9 @@ var indexSectionsWithContent =
   1: "dp",
   2: "adfpv",
   3: "adgilmnprst",
-  4: "bdlmnprwx",
+  4: "bdmnprwx",
   5: "p",
-  6: "adfpv"
+  6: "adfnpv"
 };
 
 var indexSectionNames =

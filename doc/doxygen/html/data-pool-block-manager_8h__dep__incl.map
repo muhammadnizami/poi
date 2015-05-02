@@ -1,12 +1,12 @@
-<map id="src/data&#45;pool&#45;block&#45;manager.h" name="src/data&#45;pool&#45;block&#45;manager.h">
-<area shape="rect" id="node2" href="$allocation-block-manager_8h.html" title="src/allocation&#45;block\l&#45;manager.h" alt="" coords="178,97,312,138"/>
-<area shape="rect" id="node5" href="$allocation-table_8h.html" title="src/allocation&#45;table.h" alt="" coords="322,195,464,221"/>
-<area shape="rect" id="node8" href="$allocation-manager_8h.html" title="src/allocation&#45;manager.h" alt="" coords="417,104,580,131"/>
-<area shape="rect" id="node9" href="$data-pool-block-manager-test_8c.html" title="src/data&#45;pool&#45;block\l&#45;manager&#45;test.c" alt="" coords="605,97,736,138"/>
-<area shape="rect" id="node10" href="$data-pool-block-manager_8c.html" title="src/data&#45;pool&#45;block\l&#45;manager.c" alt="" coords="761,97,892,138"/>
-<area shape="rect" id="node11" href="$poi_8c.html" title="src/poi.c" alt="" coords="917,104,989,131"/>
-<area shape="rect" id="node3" href="$allocation-block-manager-test_8c.html" title="src/allocation&#45;block\l&#45;manager&#45;test.c" alt="" coords="5,187,139,229"/>
-<area shape="rect" id="node4" href="$allocation-block-manager_8c.html" title="src/allocation&#45;block\l&#45;manager.c" alt="" coords="163,187,297,229"/>
-<area shape="rect" id="node6" href="$allocation-table-test_8c.html" title="src/allocation&#45;table\l&#45;test.c" alt="" coords="248,278,377,319"/>
-<area shape="rect" id="node7" href="$allocation-table_8c.html" title="src/allocation&#45;table.c" alt="" coords="402,285,544,312"/>
+<map id="/home/nim_13512501/Documents/tubes 2 OS/poi/src/data&#45;pool&#45;block&#45;manager.h" name="/home/nim_13512501/Documents/tubes 2 OS/poi/src/data&#45;pool&#45;block&#45;manager.h">
+<area shape="rect" id="node2" href="$allocation-block-manager_8h.html" title="mengambil dan menyimpan pointer to next di allocation table. " alt="" coords="209,126,372,197"/>
+<area shape="rect" id="node5" href="$allocation-table_8h.html" title="mengatur seluruh senarai berkait alokasi berkas. " alt="" coords="379,253,545,309"/>
+<area shape="rect" id="node8" href="$allocation-manager_8h.html" title="berkas sampah " alt="" coords="481,133,671,189"/>
+<area shape="rect" id="node9" href="$data-pool-block-manager-test_8c.html" title="poros penggerak uji untuk data&#45;pool&#45;block&#45;manager " alt="" coords="695,126,857,197"/>
+<area shape="rect" id="node10" href="$data-pool-block-manager_8c.html" title="mengatur pembacaan dan penulisan blok kantong data " alt="" coords="881,126,1044,197"/>
+<area shape="rect" id="node11" href="$poi_8c.html" title="berisi implementasi inerface ke fuse dan main program " alt="" coords="1068,133,1231,189"/>
+<area shape="rect" id="node3" href="$allocation-block-manager-test_8c.html" title="berkas driver uji untuk allocation&#45;block&#45;manager.c " alt="" coords="5,246,168,317"/>
+<area shape="rect" id="node4" href="$allocation-block-manager_8c.html" title="mengambil dan menyimpan pointer to next di allocation table. " alt="" coords="192,246,355,317"/>
+<area shape="rect" id="node6" href="$allocation-table-test_8c.html" title="berkas penggerak uji untuk allocation&#45;table&#45;test.c " alt="" coords="287,366,449,437"/>
+<area shape="rect" id="node7" href="$allocation-table_8c.html" title="mengatur seluruh senarai berkait alokasi berkas. " alt="" coords="474,373,640,429"/>
 </map>

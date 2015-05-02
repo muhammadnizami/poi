@@ -1,11 +1,15 @@
-\hypertarget{file-manager_8h}{\section{src/file-\/manager.h File Reference}
-\label{file-manager_8h}\index{src/file-\/manager.\-h@{src/file-\/manager.\-h}}
+\hypertarget{file-manager_8h}{\section{/home/nim\-\_\-13512501/\-Documents/tubes 2 O\-S/poi/src/file-\/manager.h File Reference}
+\label{file-manager_8h}\index{/home/nim\-\_\-13512501/\-Documents/tubes 2 O\-S/poi/src/file-\/manager.\-h@{/home/nim\-\_\-13512501/\-Documents/tubes 2 O\-S/poi/src/file-\/manager.\-h}}
 }
+
+
+manajer berkas dan blok  
+
+
 {\ttfamily \#include $<$stdio.\-h$>$}\\*
 {\ttfamily \#include $<$stdint.\-h$>$}\\*
 {\ttfamily \#include $<$errno.\-h$>$}\\*
-Include dependency graph for file-\/manager.h\-:
-\nopagebreak
+Include dependency graph for file-\/manager.h\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -99,94 +103,52 @@ F\-I\-L\-E $\ast$ \hyperlink{file-manager_8h_a45917dedb770baeed00c159332c7e736}{
 \end{DoxyCompactItemize}
 
 
+\subsection{Detailed Description}
+manajer berkas dan blok \begin{DoxyAuthor}{Author}
+jang berikoetnja Modul ini mengatur seluruh masukan-\/luaran (i/o) langsung kepada berkas .poi yang ditunggangi. Seluruh modul lain H\-A\-R\-U\-S menggunakan modul ini untuk masukan-\/luaran ke berkas .poi yang ditunggangi 
+\end{DoxyAuthor}
+
+
 \subsection{Macro Definition Documentation}
 \hypertarget{file-manager_8h_a555a4a22088989bb446cc085f19844ec}{\index{file-\/manager.\-h@{file-\/manager.\-h}!P\-O\-I\-\_\-\-A\-L\-L\-O\-C\-A\-T\-I\-O\-N\-\_\-\-T\-A\-B\-L\-E\-\_\-\-B\-L\-O\-C\-K\-S\-\_\-\-N\-U\-M@{P\-O\-I\-\_\-\-A\-L\-L\-O\-C\-A\-T\-I\-O\-N\-\_\-\-T\-A\-B\-L\-E\-\_\-\-B\-L\-O\-C\-K\-S\-\_\-\-N\-U\-M}}
 \index{P\-O\-I\-\_\-\-A\-L\-L\-O\-C\-A\-T\-I\-O\-N\-\_\-\-T\-A\-B\-L\-E\-\_\-\-B\-L\-O\-C\-K\-S\-\_\-\-N\-U\-M@{P\-O\-I\-\_\-\-A\-L\-L\-O\-C\-A\-T\-I\-O\-N\-\_\-\-T\-A\-B\-L\-E\-\_\-\-B\-L\-O\-C\-K\-S\-\_\-\-N\-U\-M}!file-manager.h@{file-\/manager.\-h}}
 \subsubsection[{P\-O\-I\-\_\-\-A\-L\-L\-O\-C\-A\-T\-I\-O\-N\-\_\-\-T\-A\-B\-L\-E\-\_\-\-B\-L\-O\-C\-K\-S\-\_\-\-N\-U\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-O\-I\-\_\-\-A\-L\-L\-O\-C\-A\-T\-I\-O\-N\-\_\-\-T\-A\-B\-L\-E\-\_\-\-B\-L\-O\-C\-K\-S\-\_\-\-N\-U\-M~256}}\label{file-manager_8h_a555a4a22088989bb446cc085f19844ec}
-
-
-Definition at line 52 of file file-\/manager.\-h.
-
 \hypertarget{file-manager_8h_ab4ee8ff3b1aa134fa74304c47f767131}{\index{file-\/manager.\-h@{file-\/manager.\-h}!P\-O\-I\-\_\-\-B\-L\-O\-C\-K\-\_\-\-B\-Y\-T\-E\-\_\-\-N\-U\-M@{P\-O\-I\-\_\-\-B\-L\-O\-C\-K\-\_\-\-B\-Y\-T\-E\-\_\-\-N\-U\-M}}
 \index{P\-O\-I\-\_\-\-B\-L\-O\-C\-K\-\_\-\-B\-Y\-T\-E\-\_\-\-N\-U\-M@{P\-O\-I\-\_\-\-B\-L\-O\-C\-K\-\_\-\-B\-Y\-T\-E\-\_\-\-N\-U\-M}!file-manager.h@{file-\/manager.\-h}}
 \subsubsection[{P\-O\-I\-\_\-\-B\-L\-O\-C\-K\-\_\-\-B\-Y\-T\-E\-\_\-\-N\-U\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-O\-I\-\_\-\-B\-L\-O\-C\-K\-\_\-\-B\-Y\-T\-E\-\_\-\-N\-U\-M~{\bf P\-O\-I\-\_\-\-B\-L\-O\-C\-K\-\_\-\-S\-I\-Z\-E}}}\label{file-manager_8h_ab4ee8ff3b1aa134fa74304c47f767131}
-
-
-Definition at line 9 of file file-\/manager.\-h.
-
 \hypertarget{file-manager_8h_a6a84ee9ea421e70befc839ad31498909}{\index{file-\/manager.\-h@{file-\/manager.\-h}!P\-O\-I\-\_\-\-B\-L\-O\-C\-K\-\_\-\-D\-W\-O\-R\-D\-\_\-\-N\-U\-M@{P\-O\-I\-\_\-\-B\-L\-O\-C\-K\-\_\-\-D\-W\-O\-R\-D\-\_\-\-N\-U\-M}}
 \index{P\-O\-I\-\_\-\-B\-L\-O\-C\-K\-\_\-\-D\-W\-O\-R\-D\-\_\-\-N\-U\-M@{P\-O\-I\-\_\-\-B\-L\-O\-C\-K\-\_\-\-D\-W\-O\-R\-D\-\_\-\-N\-U\-M}!file-manager.h@{file-\/manager.\-h}}
 \subsubsection[{P\-O\-I\-\_\-\-B\-L\-O\-C\-K\-\_\-\-D\-W\-O\-R\-D\-\_\-\-N\-U\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-O\-I\-\_\-\-B\-L\-O\-C\-K\-\_\-\-D\-W\-O\-R\-D\-\_\-\-N\-U\-M~({\bf P\-O\-I\-\_\-\-B\-L\-O\-C\-K\-\_\-\-S\-I\-Z\-E}/4)}}\label{file-manager_8h_a6a84ee9ea421e70befc839ad31498909}
-
-
-Definition at line 11 of file file-\/manager.\-h.
-
 \hypertarget{file-manager_8h_a361dba6c3d2ccf0d9ec032bca995ac0f}{\index{file-\/manager.\-h@{file-\/manager.\-h}!P\-O\-I\-\_\-\-B\-L\-O\-C\-K\-\_\-\-N\-U\-M\-\_\-\-M\-A\-X@{P\-O\-I\-\_\-\-B\-L\-O\-C\-K\-\_\-\-N\-U\-M\-\_\-\-M\-A\-X}}
 \index{P\-O\-I\-\_\-\-B\-L\-O\-C\-K\-\_\-\-N\-U\-M\-\_\-\-M\-A\-X@{P\-O\-I\-\_\-\-B\-L\-O\-C\-K\-\_\-\-N\-U\-M\-\_\-\-M\-A\-X}!file-manager.h@{file-\/manager.\-h}}
 \subsubsection[{P\-O\-I\-\_\-\-B\-L\-O\-C\-K\-\_\-\-N\-U\-M\-\_\-\-M\-A\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-O\-I\-\_\-\-B\-L\-O\-C\-K\-\_\-\-N\-U\-M\-\_\-\-M\-A\-X~(T\-O\-T\-A\-L\-\_\-\-B\-L\-O\-C\-K\-S\-\_\-\-N\-U\-M+{\bf P\-O\-I\-\_\-\-B\-L\-O\-C\-K\-\_\-\-N\-U\-M\-\_\-\-M\-I\-N}-\/1)}}\label{file-manager_8h_a361dba6c3d2ccf0d9ec032bca995ac0f}
-
-
-Definition at line 59 of file file-\/manager.\-h.
-
 \hypertarget{file-manager_8h_ab2fc50553048b34a8582e052c6aa916f}{\index{file-\/manager.\-h@{file-\/manager.\-h}!P\-O\-I\-\_\-\-B\-L\-O\-C\-K\-\_\-\-N\-U\-M\-\_\-\-M\-I\-N@{P\-O\-I\-\_\-\-B\-L\-O\-C\-K\-\_\-\-N\-U\-M\-\_\-\-M\-I\-N}}
 \index{P\-O\-I\-\_\-\-B\-L\-O\-C\-K\-\_\-\-N\-U\-M\-\_\-\-M\-I\-N@{P\-O\-I\-\_\-\-B\-L\-O\-C\-K\-\_\-\-N\-U\-M\-\_\-\-M\-I\-N}!file-manager.h@{file-\/manager.\-h}}
 \subsubsection[{P\-O\-I\-\_\-\-B\-L\-O\-C\-K\-\_\-\-N\-U\-M\-\_\-\-M\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-O\-I\-\_\-\-B\-L\-O\-C\-K\-\_\-\-N\-U\-M\-\_\-\-M\-I\-N~0}}\label{file-manager_8h_ab2fc50553048b34a8582e052c6aa916f}
-
-
-Definition at line 58 of file file-\/manager.\-h.
-
 \hypertarget{file-manager_8h_afb59af7070cf0cd010913eef940ffbbd}{\index{file-\/manager.\-h@{file-\/manager.\-h}!P\-O\-I\-\_\-\-B\-L\-O\-C\-K\-\_\-\-S\-I\-Z\-E@{P\-O\-I\-\_\-\-B\-L\-O\-C\-K\-\_\-\-S\-I\-Z\-E}}
 \index{P\-O\-I\-\_\-\-B\-L\-O\-C\-K\-\_\-\-S\-I\-Z\-E@{P\-O\-I\-\_\-\-B\-L\-O\-C\-K\-\_\-\-S\-I\-Z\-E}!file-manager.h@{file-\/manager.\-h}}
 \subsubsection[{P\-O\-I\-\_\-\-B\-L\-O\-C\-K\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-O\-I\-\_\-\-B\-L\-O\-C\-K\-\_\-\-S\-I\-Z\-E~512}}\label{file-manager_8h_afb59af7070cf0cd010913eef940ffbbd}
-
-
-Definition at line 8 of file file-\/manager.\-h.
-
 \hypertarget{file-manager_8h_a1323091f8cdc771e2fc912aa8168bd39}{\index{file-\/manager.\-h@{file-\/manager.\-h}!P\-O\-I\-\_\-\-B\-L\-O\-C\-K\-\_\-\-W\-O\-R\-D\-\_\-\-N\-U\-M@{P\-O\-I\-\_\-\-B\-L\-O\-C\-K\-\_\-\-W\-O\-R\-D\-\_\-\-N\-U\-M}}
 \index{P\-O\-I\-\_\-\-B\-L\-O\-C\-K\-\_\-\-W\-O\-R\-D\-\_\-\-N\-U\-M@{P\-O\-I\-\_\-\-B\-L\-O\-C\-K\-\_\-\-W\-O\-R\-D\-\_\-\-N\-U\-M}!file-manager.h@{file-\/manager.\-h}}
 \subsubsection[{P\-O\-I\-\_\-\-B\-L\-O\-C\-K\-\_\-\-W\-O\-R\-D\-\_\-\-N\-U\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-O\-I\-\_\-\-B\-L\-O\-C\-K\-\_\-\-W\-O\-R\-D\-\_\-\-N\-U\-M~({\bf P\-O\-I\-\_\-\-B\-L\-O\-C\-K\-\_\-\-S\-I\-Z\-E}/2)}}\label{file-manager_8h_a1323091f8cdc771e2fc912aa8168bd39}
-
-
-Definition at line 10 of file file-\/manager.\-h.
-
 \hypertarget{file-manager_8h_a6e4b52d19d492676f83a8576aba19a34}{\index{file-\/manager.\-h@{file-\/manager.\-h}!P\-O\-I\-\_\-\-D\-A\-T\-A\-\_\-\-P\-O\-O\-L\-\_\-\-B\-L\-O\-C\-K\-S\-\_\-\-N\-U\-M@{P\-O\-I\-\_\-\-D\-A\-T\-A\-\_\-\-P\-O\-O\-L\-\_\-\-B\-L\-O\-C\-K\-S\-\_\-\-N\-U\-M}}
 \index{P\-O\-I\-\_\-\-D\-A\-T\-A\-\_\-\-P\-O\-O\-L\-\_\-\-B\-L\-O\-C\-K\-S\-\_\-\-N\-U\-M@{P\-O\-I\-\_\-\-D\-A\-T\-A\-\_\-\-P\-O\-O\-L\-\_\-\-B\-L\-O\-C\-K\-S\-\_\-\-N\-U\-M}!file-manager.h@{file-\/manager.\-h}}
 \subsubsection[{P\-O\-I\-\_\-\-D\-A\-T\-A\-\_\-\-P\-O\-O\-L\-\_\-\-B\-L\-O\-C\-K\-S\-\_\-\-N\-U\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-O\-I\-\_\-\-D\-A\-T\-A\-\_\-\-P\-O\-O\-L\-\_\-\-B\-L\-O\-C\-K\-S\-\_\-\-N\-U\-M~65536}}\label{file-manager_8h_a6e4b52d19d492676f83a8576aba19a34}
-
-
-Definition at line 53 of file file-\/manager.\-h.
-
 \hypertarget{file-manager_8h_a658dce617c9d4f4d337c99b2efac8dfb}{\index{file-\/manager.\-h@{file-\/manager.\-h}!P\-O\-I\-\_\-\-F\-I\-L\-E\-\_\-\-S\-I\-Z\-E@{P\-O\-I\-\_\-\-F\-I\-L\-E\-\_\-\-S\-I\-Z\-E}}
 \index{P\-O\-I\-\_\-\-F\-I\-L\-E\-\_\-\-S\-I\-Z\-E@{P\-O\-I\-\_\-\-F\-I\-L\-E\-\_\-\-S\-I\-Z\-E}!file-manager.h@{file-\/manager.\-h}}
 \subsubsection[{P\-O\-I\-\_\-\-F\-I\-L\-E\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-O\-I\-\_\-\-F\-I\-L\-E\-\_\-\-S\-I\-Z\-E~(({\bf P\-O\-I\-\_\-\-T\-O\-T\-A\-L\-\_\-\-B\-L\-O\-C\-K\-S\-\_\-\-N\-U\-M})$\ast${\bf P\-O\-I\-\_\-\-B\-L\-O\-C\-K\-\_\-\-S\-I\-Z\-E})}}\label{file-manager_8h_a658dce617c9d4f4d337c99b2efac8dfb}
-
-
-Definition at line 62 of file file-\/manager.\-h.
-
 \hypertarget{file-manager_8h_aab5f281daf18993acf5f25ae7fecef0d}{\index{file-\/manager.\-h@{file-\/manager.\-h}!P\-O\-I\-\_\-\-T\-O\-T\-A\-L\-\_\-\-B\-L\-O\-C\-K\-S\-\_\-\-N\-U\-M@{P\-O\-I\-\_\-\-T\-O\-T\-A\-L\-\_\-\-B\-L\-O\-C\-K\-S\-\_\-\-N\-U\-M}}
 \index{P\-O\-I\-\_\-\-T\-O\-T\-A\-L\-\_\-\-B\-L\-O\-C\-K\-S\-\_\-\-N\-U\-M@{P\-O\-I\-\_\-\-T\-O\-T\-A\-L\-\_\-\-B\-L\-O\-C\-K\-S\-\_\-\-N\-U\-M}!file-manager.h@{file-\/manager.\-h}}
 \subsubsection[{P\-O\-I\-\_\-\-T\-O\-T\-A\-L\-\_\-\-B\-L\-O\-C\-K\-S\-\_\-\-N\-U\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-O\-I\-\_\-\-T\-O\-T\-A\-L\-\_\-\-B\-L\-O\-C\-K\-S\-\_\-\-N\-U\-M~({\bf P\-O\-I\-\_\-\-V\-O\-L\-U\-M\-E\-\_\-\-I\-N\-F\-O\-R\-M\-A\-T\-I\-O\-N\-\_\-\-B\-L\-O\-C\-K\-S\-\_\-\-N\-U\-M}+{\bf P\-O\-I\-\_\-\-A\-L\-L\-O\-C\-A\-T\-I\-O\-N\-\_\-\-T\-A\-B\-L\-E\-\_\-\-B\-L\-O\-C\-K\-S\-\_\-\-N\-U\-M}+{\bf P\-O\-I\-\_\-\-D\-A\-T\-A\-\_\-\-P\-O\-O\-L\-\_\-\-B\-L\-O\-C\-K\-S\-\_\-\-N\-U\-M})}}\label{file-manager_8h_aab5f281daf18993acf5f25ae7fecef0d}
-
-
-Definition at line 55 of file file-\/manager.\-h.
-
 \hypertarget{file-manager_8h_a87ede160157563bbccc56097d4c431d7}{\index{file-\/manager.\-h@{file-\/manager.\-h}!P\-O\-I\-\_\-\-V\-O\-L\-U\-M\-E\-\_\-\-I\-N\-F\-O\-R\-M\-A\-T\-I\-O\-N\-\_\-\-B\-L\-O\-C\-K\-S\-\_\-\-N\-U\-M@{P\-O\-I\-\_\-\-V\-O\-L\-U\-M\-E\-\_\-\-I\-N\-F\-O\-R\-M\-A\-T\-I\-O\-N\-\_\-\-B\-L\-O\-C\-K\-S\-\_\-\-N\-U\-M}}
 \index{P\-O\-I\-\_\-\-V\-O\-L\-U\-M\-E\-\_\-\-I\-N\-F\-O\-R\-M\-A\-T\-I\-O\-N\-\_\-\-B\-L\-O\-C\-K\-S\-\_\-\-N\-U\-M@{P\-O\-I\-\_\-\-V\-O\-L\-U\-M\-E\-\_\-\-I\-N\-F\-O\-R\-M\-A\-T\-I\-O\-N\-\_\-\-B\-L\-O\-C\-K\-S\-\_\-\-N\-U\-M}!file-manager.h@{file-\/manager.\-h}}
 \subsubsection[{P\-O\-I\-\_\-\-V\-O\-L\-U\-M\-E\-\_\-\-I\-N\-F\-O\-R\-M\-A\-T\-I\-O\-N\-\_\-\-B\-L\-O\-C\-K\-S\-\_\-\-N\-U\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-O\-I\-\_\-\-V\-O\-L\-U\-M\-E\-\_\-\-I\-N\-F\-O\-R\-M\-A\-T\-I\-O\-N\-\_\-\-B\-L\-O\-C\-K\-S\-\_\-\-N\-U\-M~1}}\label{file-manager_8h_a87ede160157563bbccc56097d4c431d7}
-
-
-Definition at line 51 of file file-\/manager.\-h.
-
 
 
 \subsection{Typedef Documentation}
 \hypertarget{file-manager_8h_aef709af8fc6566dcaf55b656bb9f8881}{\index{file-\/manager.\-h@{file-\/manager.\-h}!poi\-\_\-file\-\_\-block\-\_\-num\-\_\-t@{poi\-\_\-file\-\_\-block\-\_\-num\-\_\-t}}
 \index{poi\-\_\-file\-\_\-block\-\_\-num\-\_\-t@{poi\-\_\-file\-\_\-block\-\_\-num\-\_\-t}!file-manager.h@{file-\/manager.\-h}}
 \subsubsection[{poi\-\_\-file\-\_\-block\-\_\-num\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef uint32\-\_\-t {\bf poi\-\_\-file\-\_\-block\-\_\-num\-\_\-t}}}\label{file-manager_8h_aef709af8fc6566dcaf55b656bb9f8881}
-
-
-Definition at line 47 of file file-\/manager.\-h.
-
 
 
 \subsection{Function Documentation}
@@ -200,12 +162,7 @@ Definition at line 47 of file file-\/manager.\-h.
 )}}\label{file-manager_8h_a7583daf78dde7ba0c00ebd4f71e567c8}
 
 
-Definition at line 19 of file file-\/manager.\-c.
-
-
-
-Here is the caller graph for this function\-:
-\nopagebreak
+Here is the caller graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -222,10 +179,6 @@ Here is the caller graph for this function\-:
 \item[{uint32\-\_\-t}]{offset}
 \end{DoxyParamCaption}
 )}}\label{file-manager_8h_a8484d7ddf9453ad231f2e981d8b65205}
-
-
-Definition at line 54 of file file-\/manager.\-c.
-
 
 
 Here is the caller graph for this function\-:
@@ -248,12 +201,7 @@ Here is the caller graph for this function\-:
 )}}\label{file-manager_8h_a1773530a1d5426887ae2fb624c1af210}
 
 
-Definition at line 40 of file file-\/manager.\-c.
-
-
-
-Here is the caller graph for this function\-:
-\nopagebreak
+Here is the caller graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -272,12 +220,7 @@ Here is the caller graph for this function\-:
 )}}\label{file-manager_8h_a359659add1dc2b5b76a93188eb0a1808}
 
 
-Definition at line 32 of file file-\/manager.\-c.
-
-
-
-Here is the caller graph for this function\-:
-\nopagebreak
+Here is the caller graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -296,12 +239,7 @@ Here is the caller graph for this function\-:
 )}}\label{file-manager_8h_af304d02f29847f8e3cb2ba0f4d1a73e2}
 
 
-Definition at line 24 of file file-\/manager.\-c.
-
-
-
-Here is the caller graph for this function\-:
-\nopagebreak
+Here is the caller graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -319,12 +257,7 @@ Here is the caller graph for this function\-:
 )}}\label{file-manager_8h_a8dc1f7e8d407d95f94fd36545d5c1cd7}
 
 
-Definition at line 68 of file file-\/manager.\-c.
-
-
-
-Here is the caller graph for this function\-:
-\nopagebreak
+Here is the caller graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -342,12 +275,7 @@ Here is the caller graph for this function\-:
 )}}\label{file-manager_8h_a873cfe2d99ac7a57ff0a391d87c825dd}
 
 
-Definition at line 186 of file file-\/manager.\-c.
-
-
-
-Here is the caller graph for this function\-:
-\nopagebreak
+Here is the caller graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -365,12 +293,7 @@ Here is the caller graph for this function\-:
 )}}\label{file-manager_8h_a9a8111f4e7948ad43fef393e0e4e3247}
 
 
-Definition at line 205 of file file-\/manager.\-c.
-
-
-
-Here is the call graph for this function\-:
-\nopagebreak
+Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -381,8 +304,7 @@ Here is the call graph for this function\-:
 
 
 
-Here is the caller graph for this function\-:
-\nopagebreak
+Here is the caller graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -400,12 +322,7 @@ Here is the caller graph for this function\-:
 )}}\label{file-manager_8h_ac286b940c82432a07288c7a9afdc884a}
 
 
-Definition at line 173 of file file-\/manager.\-c.
-
-
-
-Here is the call graph for this function\-:
-\nopagebreak
+Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -416,8 +333,7 @@ Here is the call graph for this function\-:
 
 
 
-Here is the caller graph for this function\-:
-\nopagebreak
+Here is the caller graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -433,10 +349,6 @@ Here is the caller graph for this function\-:
 \item[{{\bf poi\-\_\-file\-\_\-block\-\_\-num\-\_\-t}}]{n}
 \end{DoxyParamCaption}
 )}}\label{file-manager_8h_ac995e99a526073da84cd4fb1dab93a0a}
-
-
-Definition at line 248 of file file-\/manager.\-c.
-
 
 
 Here is the caller graph for this function\-:
@@ -458,12 +370,7 @@ Here is the caller graph for this function\-:
 )}}\label{file-manager_8h_af091ab9b6704b6affa17ea12fd51e628}
 
 
-Definition at line 139 of file file-\/manager.\-c.
-
-
-
-Here is the caller graph for this function\-:
-\nopagebreak
+Here is the caller graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -482,12 +389,7 @@ Here is the caller graph for this function\-:
 )}}\label{file-manager_8h_aafd8b089a2a7b6c25cec6ec8c9504e5a}
 
 
-Definition at line 257 of file file-\/manager.\-c.
-
-
-
-Here is the caller graph for this function\-:
-\nopagebreak
+Here is the caller graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -507,12 +409,7 @@ Here is the caller graph for this function\-:
 )}}\label{file-manager_8h_a7a384897a233c03c2064472009b1ab05}
 
 
-Definition at line 73 of file file-\/manager.\-c.
-
-
-
-Here is the caller graph for this function\-:
-\nopagebreak
+Here is the caller graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -532,12 +429,7 @@ Here is the caller graph for this function\-:
 )}}\label{file-manager_8h_a3e138c2766b909a90fd280bc5e899bfe}
 
 
-Definition at line 105 of file file-\/manager.\-c.
-
-
-
-Here is the caller graph for this function\-:
-\nopagebreak
+Here is the caller graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -557,12 +449,7 @@ Here is the caller graph for this function\-:
 )}}\label{file-manager_8h_a0dc02398a042528d16e54822f1543742}
 
 
-Definition at line 95 of file file-\/manager.\-c.
-
-
-
-Here is the caller graph for this function\-:
-\nopagebreak
+Here is the caller graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -582,12 +469,7 @@ Here is the caller graph for this function\-:
 )}}\label{file-manager_8h_a535133ef3416b4274cd1846c954e6193}
 
 
-Definition at line 87 of file file-\/manager.\-c.
-
-
-
-Here is the caller graph for this function\-:
-\nopagebreak
+Here is the caller graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -607,12 +489,7 @@ Here is the caller graph for this function\-:
 )}}\label{file-manager_8h_aa63a6ad191dc36138e35c8bf669d6098}
 
 
-Definition at line 79 of file file-\/manager.\-c.
-
-
-
-Here is the caller graph for this function\-:
-\nopagebreak
+Here is the caller graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -627,7 +504,3 @@ Here is the caller graph for this function\-:
 \hypertarget{file-manager_8h_a45917dedb770baeed00c159332c7e736}{\index{file-\/manager.\-h@{file-\/manager.\-h}!dotpoi\-\_\-mounted\-\_\-file@{dotpoi\-\_\-mounted\-\_\-file}}
 \index{dotpoi\-\_\-mounted\-\_\-file@{dotpoi\-\_\-mounted\-\_\-file}!file-manager.h@{file-\/manager.\-h}}
 \subsubsection[{dotpoi\-\_\-mounted\-\_\-file}]{\setlength{\rightskip}{0pt plus 5cm}F\-I\-L\-E$\ast$ dotpoi\-\_\-mounted\-\_\-file}}\label{file-manager_8h_a45917dedb770baeed00c159332c7e736}
-
-
-Definition at line 49 of file file-\/manager.\-h.
-

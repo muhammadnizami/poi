@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>My Project: src/allocation-block-manager.h Source File</title>
+<title>POI-FS: /home/nim_13512501/Documents/tubes 2 OS/poi/src/allocation-block-manager.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">POI-FS
    </div>
   </td>
  </tr>
@@ -87,48 +87,49 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">allocation-block-manager.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="allocation-block-manager_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef allocation_manager_h</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define allocation_manager_h</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="file-manager_8h.html">file-manager.h</a>&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="data-pool-block-manager_8h.html">data-pool-block-manager.h</a>&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keywordtype">void</span> <a class="code" href="allocation-block-manager_8h.html#a2d77f886ffa0a0d025a6a521cc6cf294">loadPoiAllocationCache</a>(<a class="code" href="file-manager_8h.html#aef709af8fc6566dcaf55b656bb9f8881">poi_file_block_num_t</a> <a class="code" href="allocation-table-test_8c.html#a24010dade8ebab3f87a48022772cd975">n</a>);</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">//harus dipanggil setiap selesai urut-urutan setNextBlock</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keywordtype">void</span> <a class="code" href="allocation-block-manager_8h.html#aa62c7923af0be489b52b1dcdd7c04e23">savePoiAllocationCache</a>();</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">//true bila indeks blok data pool tersebut kosong, yaitu next = 0x00</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">//prekondisi: DATA_POOL_BLOCK_MIN_IDX &lt;= n &lt;= DATA_POOL_BLOCK_MAX_IDX</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="allocation-block-manager_8h.html#a4b553c2a61827a60738c9323e6082903">isEmpty</a>(<a class="code" href="data-pool-block-manager_8h.html#a87e19ab8290bcd76be1c7db1e90cc6f6">poi_data_pool_block_idx_t</a> <a class="code" href="allocation-table-test_8c.html#a24010dade8ebab3f87a48022772cd975">n</a>);</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">//mengembalikan blok selanjutnya dari blok ke-n</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">//yaitu word dengan indeks n dimulai dari word paling awal di blok allocation table paling awal</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">//prekondisi: DATA_POOL_BLOCK_MIN_IDX &lt;= n &lt;= DATA_POOL_BLOCK_MAX_IDX</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<a class="code" href="data-pool-block-manager_8h.html#a87e19ab8290bcd76be1c7db1e90cc6f6">poi_data_pool_block_idx_t</a> <a class="code" href="allocation-block-manager_8h.html#a0843a74a7e1cc7c50dbfa521e4ea1cc8">getNextBlock</a>(<a class="code" href="data-pool-block-manager_8h.html#a87e19ab8290bcd76be1c7db1e90cc6f6">poi_data_pool_block_idx_t</a> <a class="code" href="allocation-table-test_8c.html#a24010dade8ebab3f87a48022772cd975">n</a>);</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">//menetapkan next dari current menjadi next</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keywordtype">void</span> <a class="code" href="allocation-block-manager_8h.html#a7387272862663d2af1af9d5c21cddc84">setNextBlock</a>(<a class="code" href="data-pool-block-manager_8h.html#a87e19ab8290bcd76be1c7db1e90cc6f6">poi_data_pool_block_idx_t</a> current, <a class="code" href="data-pool-block-manager_8h.html#a87e19ab8290bcd76be1c7db1e90cc6f6">poi_data_pool_block_idx_t</a> next);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<a class="code" href="data-pool-block-manager_8h.html#a87e19ab8290bcd76be1c7db1e90cc6f6">poi_data_pool_block_idx_t</a> <a class="code" href="allocation-block-manager_8h.html#ab352dc84382d70f0044e92c52165c2cc">getNextEmpty</a>(<a class="code" href="data-pool-block-manager_8h.html#a87e19ab8290bcd76be1c7db1e90cc6f6">poi_data_pool_block_idx_t</a> <a class="code" href="allocation-table-test_8c.html#a24010dade8ebab3f87a48022772cd975">n</a>);</div>
+<a href="allocation-block-manager_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#ifndef allocation_manager_h</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define allocation_manager_h</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="file-manager_8h.html">file-manager.h</a>&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="data-pool-block-manager_8h.html">data-pool-block-manager.h</a>&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keywordtype">void</span> <a class="code" href="allocation-block-manager_8h.html#a2d77f886ffa0a0d025a6a521cc6cf294">loadPoiAllocationCache</a>(<a class="code" href="file-manager_8h.html#aef709af8fc6566dcaf55b656bb9f8881">poi_file_block_num_t</a> <a class="code" href="allocation-table-test_8c.html#a24010dade8ebab3f87a48022772cd975">n</a>);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">//harus dipanggil setiap selesai urut-urutan setNextBlock</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keywordtype">void</span> <a class="code" href="allocation-block-manager_8h.html#aa62c7923af0be489b52b1dcdd7c04e23">savePoiAllocationCache</a>();</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">//true bila indeks blok data pool tersebut kosong, yaitu next = 0x00</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">//prekondisi: DATA_POOL_BLOCK_MIN_IDX &lt;= n &lt;= DATA_POOL_BLOCK_MAX_IDX</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="allocation-block-manager_8h.html#a4b553c2a61827a60738c9323e6082903">isEmpty</a>(<a class="code" href="data-pool-block-manager_8h.html#a87e19ab8290bcd76be1c7db1e90cc6f6">poi_data_pool_block_idx_t</a> <a class="code" href="allocation-table-test_8c.html#a24010dade8ebab3f87a48022772cd975">n</a>);</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="data-pool-block-manager_8h_html_a87e19ab8290bcd76be1c7db1e90cc6f6"><div class="ttname"><a href="data-pool-block-manager_8h.html#a87e19ab8290bcd76be1c7db1e90cc6f6">poi_data_pool_block_idx_t</a></div><div class="ttdeci">uint16_t poi_data_pool_block_idx_t</div><div class="ttdef"><b>Definition:</b> <a href="data-pool-block-manager_8h_source.html#l00011">data-pool-block-manager.h:11</a></div></div>
-<div class="ttc" id="data-pool-block-manager_8h_html"><div class="ttname"><a href="data-pool-block-manager_8h.html">data-pool-block-manager.h</a></div></div>
-<div class="ttc" id="allocation-block-manager_8h_html_aa62c7923af0be489b52b1dcdd7c04e23"><div class="ttname"><a href="allocation-block-manager_8h.html#aa62c7923af0be489b52b1dcdd7c04e23">savePoiAllocationCache</a></div><div class="ttdeci">void savePoiAllocationCache()</div><div class="ttdef"><b>Definition:</b> <a href="allocation-block-manager_8c_source.html#l00025">allocation-block-manager.c:25</a></div></div>
-<div class="ttc" id="file-manager_8h_html_aef709af8fc6566dcaf55b656bb9f8881"><div class="ttname"><a href="file-manager_8h.html#aef709af8fc6566dcaf55b656bb9f8881">poi_file_block_num_t</a></div><div class="ttdeci">uint32_t poi_file_block_num_t</div><div class="ttdef"><b>Definition:</b> <a href="file-manager_8h_source.html#l00047">file-manager.h:47</a></div></div>
-<div class="ttc" id="allocation-block-manager_8h_html_a4b553c2a61827a60738c9323e6082903"><div class="ttname"><a href="allocation-block-manager_8h.html#a4b553c2a61827a60738c9323e6082903">isEmpty</a></div><div class="ttdeci">bool isEmpty(poi_data_pool_block_idx_t n)</div><div class="ttdef"><b>Definition:</b> <a href="allocation-block-manager_8c_source.html#l00034">allocation-block-manager.c:34</a></div></div>
-<div class="ttc" id="allocation-block-manager_8h_html_ab352dc84382d70f0044e92c52165c2cc"><div class="ttname"><a href="allocation-block-manager_8h.html#ab352dc84382d70f0044e92c52165c2cc">getNextEmpty</a></div><div class="ttdeci">poi_data_pool_block_idx_t getNextEmpty(poi_data_pool_block_idx_t n)</div><div class="ttdef"><b>Definition:</b> <a href="allocation-block-manager_8c_source.html#l00074">allocation-block-manager.c:74</a></div></div>
-<div class="ttc" id="allocation-table-test_8c_html_a24010dade8ebab3f87a48022772cd975"><div class="ttname"><a href="allocation-table-test_8c.html#a24010dade8ebab3f87a48022772cd975">n</a></div><div class="ttdeci">poi_data_pool_block_idx_t n</div><div class="ttdef"><b>Definition:</b> <a href="allocation-table-test_8c_source.html#l00012">allocation-table-test.c:12</a></div></div>
-<div class="ttc" id="file-manager_8h_html"><div class="ttname"><a href="file-manager_8h.html">file-manager.h</a></div></div>
-<div class="ttc" id="allocation-block-manager_8h_html_a0843a74a7e1cc7c50dbfa521e4ea1cc8"><div class="ttname"><a href="allocation-block-manager_8h.html#a0843a74a7e1cc7c50dbfa521e4ea1cc8">getNextBlock</a></div><div class="ttdeci">poi_data_pool_block_idx_t getNextBlock(poi_data_pool_block_idx_t n)</div><div class="ttdef"><b>Definition:</b> <a href="allocation-block-manager_8c_source.html#l00047">allocation-block-manager.c:47</a></div></div>
-<div class="ttc" id="allocation-block-manager_8h_html_a7387272862663d2af1af9d5c21cddc84"><div class="ttname"><a href="allocation-block-manager_8h.html#a7387272862663d2af1af9d5c21cddc84">setNextBlock</a></div><div class="ttdeci">void setNextBlock(poi_data_pool_block_idx_t current, poi_data_pool_block_idx_t next)</div><div class="ttdef"><b>Definition:</b> <a href="allocation-block-manager_8c_source.html#l00059">allocation-block-manager.c:59</a></div></div>
-<div class="ttc" id="allocation-block-manager_8h_html_a2d77f886ffa0a0d025a6a521cc6cf294"><div class="ttname"><a href="allocation-block-manager_8h.html#a2d77f886ffa0a0d025a6a521cc6cf294">loadPoiAllocationCache</a></div><div class="ttdeci">void loadPoiAllocationCache(poi_file_block_num_t n)</div><div class="ttdef"><b>Definition:</b> <a href="allocation-block-manager_8c_source.html#l00012">allocation-block-manager.c:12</a></div></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">//mengembalikan blok selanjutnya dari blok ke-n</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">//yaitu word dengan indeks n dimulai dari word paling awal di blok allocation table paling awal</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">//prekondisi: DATA_POOL_BLOCK_MIN_IDX &lt;= n &lt;= DATA_POOL_BLOCK_MAX_IDX</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<a class="code" href="data-pool-block-manager_8h.html#a87e19ab8290bcd76be1c7db1e90cc6f6">poi_data_pool_block_idx_t</a> <a class="code" href="allocation-block-manager_8h.html#a0843a74a7e1cc7c50dbfa521e4ea1cc8">getNextBlock</a>(<a class="code" href="data-pool-block-manager_8h.html#a87e19ab8290bcd76be1c7db1e90cc6f6">poi_data_pool_block_idx_t</a> <a class="code" href="allocation-table-test_8c.html#a24010dade8ebab3f87a48022772cd975">n</a>);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">//menetapkan next dari current menjadi next</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keywordtype">void</span> <a class="code" href="allocation-block-manager_8h.html#a7387272862663d2af1af9d5c21cddc84">setNextBlock</a>(<a class="code" href="data-pool-block-manager_8h.html#a87e19ab8290bcd76be1c7db1e90cc6f6">poi_data_pool_block_idx_t</a> current, <a class="code" href="data-pool-block-manager_8h.html#a87e19ab8290bcd76be1c7db1e90cc6f6">poi_data_pool_block_idx_t</a> next);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<a class="code" href="data-pool-block-manager_8h.html#a87e19ab8290bcd76be1c7db1e90cc6f6">poi_data_pool_block_idx_t</a> <a class="code" href="allocation-block-manager_8h.html#ab352dc84382d70f0044e92c52165c2cc">getNextEmpty</a>(<a class="code" href="data-pool-block-manager_8h.html#a87e19ab8290bcd76be1c7db1e90cc6f6">poi_data_pool_block_idx_t</a> <a class="code" href="allocation-table-test_8c.html#a24010dade8ebab3f87a48022772cd975">n</a>);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="data-pool-block-manager_8h_html_a87e19ab8290bcd76be1c7db1e90cc6f6"><div class="ttname"><a href="data-pool-block-manager_8h.html#a87e19ab8290bcd76be1c7db1e90cc6f6">poi_data_pool_block_idx_t</a></div><div class="ttdeci">uint16_t poi_data_pool_block_idx_t</div><div class="ttdef"><b>Definition:</b> data-pool-block-manager.h:18</div></div>
+<div class="ttc" id="data-pool-block-manager_8h_html"><div class="ttname"><a href="data-pool-block-manager_8h.html">data-pool-block-manager.h</a></div><div class="ttdoc">mengatur pembacaan dan penulisan blok kantong data </div></div>
+<div class="ttc" id="allocation-block-manager_8h_html_aa62c7923af0be489b52b1dcdd7c04e23"><div class="ttname"><a href="allocation-block-manager_8h.html#aa62c7923af0be489b52b1dcdd7c04e23">savePoiAllocationCache</a></div><div class="ttdeci">void savePoiAllocationCache()</div><div class="ttdef"><b>Definition:</b> allocation-block-manager.c:35</div></div>
+<div class="ttc" id="file-manager_8h_html_aef709af8fc6566dcaf55b656bb9f8881"><div class="ttname"><a href="file-manager_8h.html#aef709af8fc6566dcaf55b656bb9f8881">poi_file_block_num_t</a></div><div class="ttdeci">uint32_t poi_file_block_num_t</div><div class="ttdef"><b>Definition:</b> file-manager.h:56</div></div>
+<div class="ttc" id="allocation-block-manager_8h_html_a4b553c2a61827a60738c9323e6082903"><div class="ttname"><a href="allocation-block-manager_8h.html#a4b553c2a61827a60738c9323e6082903">isEmpty</a></div><div class="ttdeci">bool isEmpty(poi_data_pool_block_idx_t n)</div><div class="ttdef"><b>Definition:</b> allocation-block-manager.c:44</div></div>
+<div class="ttc" id="allocation-block-manager_8h_html_ab352dc84382d70f0044e92c52165c2cc"><div class="ttname"><a href="allocation-block-manager_8h.html#ab352dc84382d70f0044e92c52165c2cc">getNextEmpty</a></div><div class="ttdeci">poi_data_pool_block_idx_t getNextEmpty(poi_data_pool_block_idx_t n)</div><div class="ttdef"><b>Definition:</b> allocation-block-manager.c:84</div></div>
+<div class="ttc" id="allocation-table-test_8c_html_a24010dade8ebab3f87a48022772cd975"><div class="ttname"><a href="allocation-table-test_8c.html#a24010dade8ebab3f87a48022772cd975">n</a></div><div class="ttdeci">poi_data_pool_block_idx_t n</div><div class="ttdef"><b>Definition:</b> allocation-table-test.c:19</div></div>
+<div class="ttc" id="file-manager_8h_html"><div class="ttname"><a href="file-manager_8h.html">file-manager.h</a></div><div class="ttdoc">manajer berkas dan blok </div></div>
+<div class="ttc" id="allocation-block-manager_8h_html_a0843a74a7e1cc7c50dbfa521e4ea1cc8"><div class="ttname"><a href="allocation-block-manager_8h.html#a0843a74a7e1cc7c50dbfa521e4ea1cc8">getNextBlock</a></div><div class="ttdeci">poi_data_pool_block_idx_t getNextBlock(poi_data_pool_block_idx_t n)</div><div class="ttdef"><b>Definition:</b> allocation-block-manager.c:57</div></div>
+<div class="ttc" id="allocation-block-manager_8h_html_a7387272862663d2af1af9d5c21cddc84"><div class="ttname"><a href="allocation-block-manager_8h.html#a7387272862663d2af1af9d5c21cddc84">setNextBlock</a></div><div class="ttdeci">void setNextBlock(poi_data_pool_block_idx_t current, poi_data_pool_block_idx_t next)</div><div class="ttdef"><b>Definition:</b> allocation-block-manager.c:69</div></div>
+<div class="ttc" id="allocation-block-manager_8h_html_a2d77f886ffa0a0d025a6a521cc6cf294"><div class="ttname"><a href="allocation-block-manager_8h.html#a2d77f886ffa0a0d025a6a521cc6cf294">loadPoiAllocationCache</a></div><div class="ttdeci">void loadPoiAllocationCache(poi_file_block_num_t n)</div><div class="ttdef"><b>Definition:</b> allocation-block-manager.c:22</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat May 2 2015 20:31:00 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 3 2015 06:30:43 for POI-FS by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

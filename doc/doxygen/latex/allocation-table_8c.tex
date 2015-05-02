@@ -1,9 +1,13 @@
-\hypertarget{allocation-table_8c}{\section{src/allocation-\/table.c File Reference}
-\label{allocation-table_8c}\index{src/allocation-\/table.\-c@{src/allocation-\/table.\-c}}
+\hypertarget{allocation-table_8c}{\section{/home/nim\-\_\-13512501/\-Documents/tubes 2 O\-S/poi/src/allocation-\/table.c File Reference}
+\label{allocation-table_8c}\index{/home/nim\-\_\-13512501/\-Documents/tubes 2 O\-S/poi/src/allocation-\/table.\-c@{/home/nim\-\_\-13512501/\-Documents/tubes 2 O\-S/poi/src/allocation-\/table.\-c}}
 }
+
+
+mengatur seluruh senarai berkait alokasi berkas.  
+
+
 {\ttfamily \#include \char`\"{}allocation-\/table.\-h\char`\"{}}\\*
-Include dependency graph for allocation-\/table.c\-:
-\nopagebreak
+Include dependency graph for allocation-\/table.c\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -32,14 +36,16 @@ void \hyperlink{allocation-table_8c_a986965542b07562f2f205f9d68043a9c}{truncate\
 \end{DoxyCompactItemize}
 
 
+\subsection{Detailed Description}
+mengatur seluruh senarai berkait alokasi berkas. \begin{DoxyAuthor}{Author}
+jang berikoetnja Memperhitungkan juga ruang kosong. Bila ingin aman dengan perhitungan ruang kosong, panggil ini dan tidak langsung ke \hyperlink{allocation-block-manager_8h}{allocation-\/block-\/manager.\-h} dalam hal manipulasi senarai. (dalam hal pengambilan saja, aman untuk mengambil langsung ke \hyperlink{allocation-block-manager_8h}{allocation-\/block-\/manager.\-h}) Menggunakan cache dari allocation-\/table dan volume-\/information. Setiap akhir manipulasi harus memanggil \hyperlink{allocation-table_8c_a20af25d3b441d1f25e4830ee2173480c}{save\-Alloc\-Table\-Caches()} 
+\end{DoxyAuthor}
+
+
 \subsection{Macro Definition Documentation}
 \hypertarget{allocation-table_8c_afc5318de31f175f755f75812b44051c6}{\index{allocation-\/table.\-c@{allocation-\/table.\-c}!allocation\-\_\-table\-\_\-c@{allocation\-\_\-table\-\_\-c}}
 \index{allocation\-\_\-table\-\_\-c@{allocation\-\_\-table\-\_\-c}!allocation-table.c@{allocation-\/table.\-c}}
 \subsubsection[{allocation\-\_\-table\-\_\-c}]{\setlength{\rightskip}{0pt plus 5cm}\#define allocation\-\_\-table\-\_\-c}}\label{allocation-table_8c_afc5318de31f175f755f75812b44051c6}
-
-
-Definition at line 2 of file allocation-\/table.\-c.
-
 
 
 \subsection{Function Documentation}
@@ -52,12 +58,7 @@ Definition at line 2 of file allocation-\/table.\-c.
 )}}\label{allocation-table_8c_a89ea9558bd50decb1bbbf85e569fe6c5}
 
 
-Definition at line 40 of file allocation-\/table.\-c.
-
-
-
-Here is the call graph for this function\-:
-\nopagebreak
+Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -68,8 +69,7 @@ Here is the call graph for this function\-:
 
 
 
-Here is the caller graph for this function\-:
-\nopagebreak
+Here is the caller graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -87,12 +87,7 @@ Here is the caller graph for this function\-:
 )}}\label{allocation-table_8c_a8d703df55ad80bb8fb1177a0542065b6}
 
 
-Definition at line 67 of file allocation-\/table.\-c.
-
-
-
-Here is the call graph for this function\-:
-\nopagebreak
+Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -103,8 +98,7 @@ Here is the call graph for this function\-:
 
 
 
-Here is the caller graph for this function\-:
-\nopagebreak
+Here is the caller graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -123,12 +117,7 @@ Here is the caller graph for this function\-:
 )}}\label{allocation-table_8c_a6de48f9bdf37e8005b9973a75d07633a}
 
 
-Definition at line 55 of file allocation-\/table.\-c.
-
-
-
-Here is the call graph for this function\-:
-\nopagebreak
+Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -139,8 +128,7 @@ Here is the call graph for this function\-:
 
 
 
-Here is the caller graph for this function\-:
-\nopagebreak
+Here is the caller graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -158,12 +146,7 @@ Here is the caller graph for this function\-:
 )}}\label{allocation-table_8c_ada2e09277dd8e97a2b2b75484b738126}
 
 
-Definition at line 25 of file allocation-\/table.\-c.
-
-
-
-Here is the call graph for this function\-:
-\nopagebreak
+Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -174,8 +157,7 @@ Here is the call graph for this function\-:
 
 
 
-Here is the caller graph for this function\-:
-\nopagebreak
+Here is the caller graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -193,12 +175,7 @@ Here is the caller graph for this function\-:
 )}}\label{allocation-table_8c_a20af25d3b441d1f25e4830ee2173480c}
 
 
-Definition at line 14 of file allocation-\/table.\-c.
-
-
-
-Here is the call graph for this function\-:
-\nopagebreak
+Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -209,8 +186,7 @@ Here is the call graph for this function\-:
 
 
 
-Here is the caller graph for this function\-:
-\nopagebreak
+Here is the caller graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -228,12 +204,7 @@ Here is the caller graph for this function\-:
 )}}\label{allocation-table_8c_a986965542b07562f2f205f9d68043a9c}
 
 
-Definition at line 91 of file allocation-\/table.\-c.
-
-
-
-Here is the call graph for this function\-:
-\nopagebreak
+Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -244,8 +215,7 @@ Here is the call graph for this function\-:
 
 
 
-Here is the caller graph for this function\-:
-\nopagebreak
+Here is the caller graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
