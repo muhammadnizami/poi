@@ -184,7 +184,6 @@ int poi_file_open (const char * path){
 	dotpoi_mounted_file = fopen(path,"r+");
 	if (dotpoi_mounted_file==NULL)
 		return errno;
-	//TODO bila Volume Information hendak dimuat di sini juga
 	return 1;
 }
 

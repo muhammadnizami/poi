@@ -24,7 +24,7 @@ Menggunakan cache dari allocation-table dan volume-information. Setiap akhir man
 void saveAllocTableCaches(){
 	savePoiVolinfoCache();
 	savePoiAllocationCache();
-	return;//TODO
+	return;
 }
 
 //membuat list baru berukuran 1

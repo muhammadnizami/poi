@@ -109,7 +109,7 @@ int getEntryRecursive(const char * path, directory_entry r, directory_entry * ge
 	}
 
 	return -ENOENT;
-	//TODO WOLOLO
+	//WOLOLO
 	
 }
 
@@ -162,10 +162,10 @@ int poi_getattr(const char *path, struct stat *statbuf)
 	else{
 		a = getEntryRecursive(path,getRootDirEntry(),&e);
 		if (a!=0) return a;
-		//TODO cek lagi nanti
+		//cek lagi nanti
 	}
 	char buf[22];
-	return directory_entry_to_struct_stat(e,statbuf);//TODO implementasi
+	return directory_entry_to_struct_stat(e,statbuf);//implementasi
 }
 
 /** Read directory
@@ -222,7 +222,7 @@ int poi_readdir(const char *path, void *buf, fuse_fill_dir_t filler, off_t offse
 
 		}
 	}
-	return a;//TODO implementasi
+	return a;//implementasi
 }
 
 int poi_insertentry(directory_entry * dst, directory_entry val){
@@ -352,7 +352,7 @@ int poi_mkdir (const char * path, mode_t mode){
 		free(parentDir);
 		return 0;
 	}
-	return -EPERM;//TODO implementasi
+	return -EPERM;//implementasi
 }
 
 
@@ -411,8 +411,8 @@ int poi_mknod (const char *path, mode_t mode, dev_t dev){
 		free(parentDir);
 		return 0;
 	}
-	return -EPERM;//TODO implementasi
-		//TODO dev_t
+	return -EPERM;//implementasi
+		//dev_t
 }
 
 /** Read data from an open file
@@ -461,11 +461,11 @@ int poi_mknod (const char *path, mode_t mode, dev_t dev){
 		if (in_block_offset+(mustbereadsize-totalread)>POI_BLOCK_SIZE){
 			memcpy(buf+totalread,blk.data+in_block_offset,POI_BLOCK_SIZE-in_block_offset);
 			totalread+=POI_BLOCK_SIZE-in_block_offset;
-			//TODO
+
 		}else{
 			memcpy(buf+totalread,blk.data+in_block_offset,mustbereadsize-totalread);
 			totalread=mustbereadsize;
-			//TODO
+
 		}
 		dataBlockIdx=getNextBlock(dataBlockIdx);
 		in_block_offset=0;
@@ -527,12 +527,12 @@ int poi_write (const char *path, const char *buf, size_t size, off_t offset,
 			memcpy(blk.data+in_block_offset,buf+totalwritten,POI_BLOCK_SIZE-in_block_offset);
 			totalwritten+=POI_BLOCK_SIZE-in_block_offset;
 			in_block_offset=POI_BLOCK_SIZE;
-			//TODO
+			
 		}else{
 			memcpy(blk.data+in_block_offset,buf+totalwritten,mustbereplacedsize-totalwritten);
 			in_block_offset+=mustbereplacedsize-totalwritten;
 			totalwritten=mustbereplacedsize;
-			//TODO
+			
 		}
 		opstat = poi_data_pool_write_block(blk,dataBlockIdx);
 		if (opstat<0) return opstat;
@@ -555,12 +555,12 @@ int poi_write (const char *path, const char *buf, size_t size, off_t offset,
 			memcpy(blk.data+in_block_offset,buf+totalwritten,POI_BLOCK_SIZE-in_block_offset);
 			totalwritten+=POI_BLOCK_SIZE-in_block_offset;
 			in_block_offset=POI_BLOCK_SIZE;
-			//TODO
+			
 		}else{
 			memcpy(blk.data+in_block_offset,buf+totalwritten,size-totalwritten);
 			in_block_offset+=size-totalwritten;
 			totalwritten=size;
-			//TODO
+			
 		}
 		opstat = poi_data_pool_write_block(blk,dataBlockIdx);
 		if (opstat<0) return opstat;		
@@ -577,7 +577,7 @@ int poi_write (const char *path, const char *buf, size_t size, off_t offset,
 	return totalwritten;
 
 
-	return -ENOSYS;//TODO implementasi
+	return -ENOSYS;//implementasi
 }
 
 int deleteEntry(poi_data_pool_block_idx_t dataBlockIdx, uint32_t offset){
@@ -744,7 +744,7 @@ int poi_rename (const char * path, const char * newpath){
 	setNama(&workentr,newname);
 
 
-	//TODO memasukkan entri
+	//memasukkan entri
 
 
 	if (newn==0){
@@ -773,7 +773,7 @@ int poi_rename (const char * path, const char * newpath){
 		return 0;
 	}
 
-	return ;//TODO implementasi
+	return ;//implementasi
 }
 
 /** Remove a file */
@@ -860,7 +860,7 @@ int poi_rmdir (const char * path){
 	return poi_unlink(path);
 }
 
-struct fuse_operations poi_oper = { //TODO tiap kali ada yang diimplementasi, diubah jadi bukan komentar
+struct fuse_operations poi_oper = { //tiap kali ada yang diimplementasi, diubah jadi bukan komentar
 	.getattr = poi_getattr,
 	.readdir = poi_readdir,
 	.mkdir = poi_mkdir,
