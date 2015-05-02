@@ -579,10 +579,6 @@ int deleteEntry(poi_data_pool_block_idx_t dataBlockIdx, uint32_t offset){
 
 
 
-/** Rename a file */
-int poi_rename (const char * path, const char * newpath){
-	return ;//TODO implementasi
-}
 
 /** Change the size of a file */
 int poi_truncate (const char * path, off_t offset){
@@ -639,6 +635,109 @@ int poi_truncate (const char * path, off_t offset){
 	return ;//TODO implementasi
 }
 
+
+/** Rename a file */
+int poi_rename (const char * path, const char * newpath){
+	fprintf(logfile,"poi_rename %s ke %s\n", path, newpath);
+	if (!strcmp(path,newpath))return 0;
+	int path_length=strlen(path);
+	int n = path_length;
+	while (path[n]!='/') n--;
+
+	int newpath_length=strlen(newpath);
+	int newn = newpath_length;
+	while (newpath[newn]!='/') newn--;
+
+	const char * name = path+n+1;
+	const char * newname = newpath+newn+1;
+	if (strlen(name)>21) return -ENOENT;
+	if (strlen(newname)>21) return -ENAMETOOLONG;
+	directory_entry buf;
+	if (getEntryRecursive(newpath,getRootDirEntry(),&buf)>=0) return -EEXIST;
+
+	directory_entry workentr;
+
+	//mengambil entri
+	poi_data_pool_block_idx_t yangdihapusidx;
+	uint32_t yangdihapusoff;
+	int opstat;
+	if (opstat=getEntryAndBlockOffset(path,getRootDirEntry(),&workentr,&yangdihapusidx,&yangdihapusoff)<0) return opstat;
+
+	fprintf(logfile,"\tcheck\n");
+
+	//menghapus dari tempat semula
+	directory_entry yangdimasuki;
+	if (n==0){//root
+		yangdimasuki=getRootDirEntry();
+		deleteEntry(yangdihapusidx,yangdihapusoff);
+		setFileSize(&yangdimasuki,getFileSize(yangdimasuki)-32);
+		if (getFileSize(yangdimasuki)%POI_BLOCK_SIZE==0 && getFileSize(yangdimasuki) !=0){
+			poi_data_pool_block_idx_t iter;
+			for (iter=getFirstDataBlockIdx(yangdimasuki);getNextBlock(getNextBlock(iter))!=0xFFFF;iter=getNextBlock(iter)){}
+			truncateList(iter);
+		}
+		setRootDirEntry(yangdimasuki);
+		saveAllocTableCaches();
+	}else{
+		char * parentDir = malloc(sizeof(char)*n);
+		if (parentDir==NULL) return -ENAMETOOLONG;
+		memcpy(parentDir,path,sizeof(char)*n); parentDir[n]='\0';
+		uint32_t offset;
+		poi_data_pool_block_idx_t dataBlockIdx;
+		int status_op = getEntryAndBlockOffset(parentDir,getRootDirEntry(),&yangdimasuki,&dataBlockIdx,&offset);
+		if (status_op!=0) return status_op;
+
+		deleteEntry(yangdihapusidx,yangdihapusoff);
+		setFileSize(&yangdimasuki,getFileSize(yangdimasuki)-32);
+		if (getFileSize(yangdimasuki)%POI_BLOCK_SIZE==0 && getFileSize(yangdimasuki) !=0){
+			poi_data_pool_block_idx_t iter;
+			for (iter=getFirstDataBlockIdx(yangdimasuki);getNextBlock(getNextBlock(iter))!=0xFFFF;iter=getNextBlock(iter)){}
+			truncateList(iter);
+		}
+
+		//memperbarui entri direktori induknya
+		poi_file_block blk=poi_data_pool_read_block(dataBlockIdx);
+		memcpy(blk.data+offset,yangdimasuki.bytearr,32);
+		poi_data_pool_write_block(blk,dataBlockIdx);
+		free(parentDir);
+		saveAllocTableCaches();
+	}
+
+	//mengubah nama entri
+	setNama(&workentr,newname);
+
+
+	//TODO memasukkan entri
+
+
+	if (newn==0){
+		yangdimasuki=getRootDirEntry();
+		int status_op=poi_insertentry(&yangdimasuki,workentr);
+		if (status_op!=0) return status_op;
+		setRootDirEntry(yangdimasuki);
+		savePoiVolinfoCache();
+		return 0;
+	}else{
+		poi_data_pool_block_idx_t dataBlockIdx;
+		uint32_t offset;
+		char * parentDir = malloc(sizeof(char)*newn);
+		if (parentDir==NULL) return -ENAMETOOLONG;
+		memcpy(parentDir,newpath,sizeof(char)*newn); parentDir[newn]='\0';
+		int status_op = getEntryAndBlockOffset(parentDir,getRootDirEntry(),&yangdimasuki,&dataBlockIdx,&offset);
+		if (status_op!=0) return status_op;
+		status_op = poi_insertentry(&yangdimasuki,workentr);
+		if (status_op!=0) return status_op;
+
+		//memperbarui entri direktori induknya
+		poi_file_block blk=poi_data_pool_read_block(dataBlockIdx);
+		memcpy(blk.data+offset,yangdimasuki.bytearr,32);
+		poi_data_pool_write_block(blk,dataBlockIdx);
+		free(parentDir);
+		return 0;
+	}
+
+	return ;//TODO implementasi
+}
 
 /** Remove a file */
 int poi_unlink (const char * path){
@@ -720,7 +819,7 @@ int poi_rmdir (const char * path){
 	int opstat;
 	if (opstat=getEntryRecursive(path,getRootDirEntry(),&yangdihapus)<0) return opstat;
 	if (getFileSize(yangdihapus)>0) return -ENOTEMPTY;
-	
+
 	return poi_unlink(path);
 }
 
@@ -732,7 +831,7 @@ struct fuse_operations poi_oper = { //TODO tiap kali ada yang diimplementasi, di
 	.read = poi_read,
 	.rmdir = poi_rmdir,
 	.unlink = poi_unlink,
-//	.rename = poi_rename,
+	.rename = poi_rename,
 	.write = poi_write,
 	.truncate = poi_truncate,
 };

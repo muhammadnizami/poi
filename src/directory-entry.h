@@ -34,6 +34,8 @@ uint16_t getFirstDataBlockIdx(directory_entry e);
 
 uint32_t getFileSize(directory_entry e);
 
+void setNama(directory_entry* e, const char * namabaru);
+
 void setattr(directory_entry* e, poi_attr_t attr);
 
 void setLastModifTime(directory_entry* e, JAM J);

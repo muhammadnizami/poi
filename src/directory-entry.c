@@ -78,7 +78,7 @@ uint32_t getFileSize(directory_entry e){
 		|(e.bytearr[0x1F]<<24);
 }
 
-void setnama(directory_entry* e, const char* nama){
+void setNama(directory_entry* e, const char* nama){
 	strncpy(e->bytearr,nama,21);
 }
 
@@ -149,7 +149,7 @@ void setFileSize(directory_entry* e, uint32_t size){
 
 directory_entry makeEntry(const char* nama, poi_attr_t atribut, JAM waktu, TANGGAL tanggal, uint16_t idx, uint32_t size){
 	directory_entry retval;
-	setnama(&retval,nama);
+	setNama(&retval,nama);
 	setattr(&retval,atribut);
 	setLastModifTime(&retval,waktu);
 	setLastModifDate(&retval,tanggal);
