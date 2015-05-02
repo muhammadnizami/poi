@@ -1,3 +1,5 @@
+
+
 #include <fuse.h>
 #include <fcntl.h>
 #include <string.h>
@@ -8,7 +10,15 @@
 #include "directory-entry.h"
 #include "volume-information.h"
 #include "data-pool-block-manager.h"
+
+//NLOG bila tidak mencatat ke berkas log. LOG bila mencatat.
+//
+#define NLOG 
+
+#ifdef LOG
 FILE * logfile;
+#endif
+
 int replaceEntry(directory_entry e, uint16_t dataBlockIdx, uint32_t offset){
 	poi_file_block blk=poi_data_pool_read_block(dataBlockIdx);
 	memcpy(blk.data+offset,e.bytearr,32);
@@ -134,7 +144,9 @@ int directory_entry_to_struct_stat(directory_entry e, struct stat * statbuf){
  */
 int poi_getattr(const char *path, struct stat *statbuf)
 {
+	#ifdef LOG
 	fprintf(logfile,"getattr('%s')\n",path);
+	#endif
         memset(statbuf, 0, sizeof(struct stat));
 	FILE * f = fopen("test","r+");
 	directory_entry e;
@@ -174,7 +186,9 @@ int poi_getattr(const char *path, struct stat *statbuf)
  */
 int poi_readdir(const char *path, void *buf, fuse_fill_dir_t filler, off_t offset, struct fuse_file_info *fi)
 {
-	fprintf(logfile,"readdir('%s')\n",path);
+	#ifdef LOG
+(logfile,"readdir('%s')\n",path);
+	#endif
 	directory_entry e;
 	int a=getEntryRecursive(path,getRootDirEntry(),&e);
 	if (a!=0) return a;
@@ -285,7 +299,9 @@ poi_attr_t mode_t_to_poi_attr_t(mode_t mode){
  * */
 
 int poi_mkdir (const char * path, mode_t mode){
-	fprintf(logfile,"mkdir('%s')\n",path);
+	#ifdef LOG
+(logfile,"mkdir('%s')\n",path);
+	#endif
 	directory_entry yangdimasuki;
 	if (getEntryRecursive(path,getRootDirEntry(),&yangdimasuki)==0) return -EEXIST;
 	mode = mode|S_IFDIR;
@@ -343,7 +359,9 @@ int poi_mkdir (const char * path, mode_t mode){
  * regular files that will be called instead.
  */
 int poi_mknod (const char *path, mode_t mode, dev_t dev){
-	fprintf(logfile,"mknod('%s')\n",path);
+	#ifdef LOG
+(logfile,"mknod('%s')\n",path);
+	#endif
 	directory_entry yangdimasuki;
 	if (getEntryRecursive(path,getRootDirEntry(),&yangdimasuki)==0) return -EEXIST;
 	int path_length=strlen(path);
@@ -404,7 +422,9 @@ int poi_mknod (const char *path, mode_t mode, dev_t dev){
  * Changed in version 2.2
  */
  poi_read (const char *path, char *buf, size_t size, off_t offset, struct fuse_file_info *fi){
-	fprintf(logfile,"read('%s')\n",path);
+	#ifdef LOG
+(logfile,"read('%s')\n",path);
+	#endif
 
 	directory_entry e;
 	int opstat = getEntryRecursive(path,getRootDirEntry(),&e);
@@ -460,8 +480,10 @@ int poi_mknod (const char *path, mode_t mode, dev_t dev){
  */
 int poi_write (const char *path, const char *buf, size_t size, off_t offset,
 	     struct fuse_file_info *fi){
-	//return -ENOSPC;
-	fprintf(logfile,"write('%s'). size: 0x%x\n",path,size);
+
+	#ifdef LOG
+(logfile,"write('%s'). size: 0x%x\n",path,size);
+	#endif
 
 	uint16_t entryblockidx;
 	uint32_t entryblockoff;
@@ -554,7 +576,10 @@ int poi_write (const char *path, const char *buf, size_t size, off_t offset,
 }
 
 int deleteEntry(poi_data_pool_block_idx_t dataBlockIdx, uint32_t offset){
-	fprintf(logfile,"\tdeleteEntry(0x%x,0x%x)\n",dataBlockIdx,offset);
+	#ifdef LOG
+(logfile,"\tdeleteEntry(0x%x,0x%x)\n",dataBlockIdx,offset);
+	#endif
+
 	poi_data_pool_block_idx_t dataBlockIdxNxt = dataBlockIdx;
 	poi_file_block blk,blknxt;
 	blknxt=poi_data_pool_read_block(dataBlockIdx);
@@ -582,8 +607,10 @@ int deleteEntry(poi_data_pool_block_idx_t dataBlockIdx, uint32_t offset){
 
 /** Change the size of a file */
 int poi_truncate (const char * path, off_t offset){
-	//return -ENOSPC;
-	fprintf(logfile,"truncate('%s'). offset: 0x%x\n",path,offset);
+
+	#ifdef LOG
+(logfile,"truncate('%s'). offset: 0x%x\n",path,offset);
+	#endif
 
 	uint16_t entryblockidx;
 	uint32_t entryblockoff;
@@ -632,13 +659,16 @@ int poi_truncate (const char * path, off_t offset){
 	savePoiVolinfoCache();
 	savePoiAllocationCache();
 	return 0;
-	return ;//TODO implementasi
+
 }
 
 
 /** Rename a file */
 int poi_rename (const char * path, const char * newpath){
-	fprintf(logfile,"poi_rename %s ke %s\n", path, newpath);
+	#ifdef LOG
+(logfile,"poi_rename %s ke %s\n", path, newpath);
+	#endif
+
 	if (!strcmp(path,newpath))return 0;
 	int path_length=strlen(path);
 	int n = path_length;
@@ -663,7 +693,9 @@ int poi_rename (const char * path, const char * newpath){
 	int opstat;
 	if (opstat=getEntryAndBlockOffset(path,getRootDirEntry(),&workentr,&yangdihapusidx,&yangdihapusoff)<0) return opstat;
 
-	fprintf(logfile,"\tcheck\n");
+	#ifdef LOG
+(logfile,"\tcheck\n");
+	#endif
 
 	//menghapus dari tempat semula
 	directory_entry yangdimasuki;
@@ -749,7 +781,10 @@ int poi_unlink (const char * path){
 
 
 
-	fprintf(logfile,"unlink('%s')\n",path);
+	#ifdef LOG
+(logfile,"unlink('%s')\n",path);
+	#endif
+
 	int opstat;
 	if (opstat=getEntryAndBlockOffset(path,getRootDirEntry(),&yangdihapus,&yangdihapusidx,&yangdihapusoff)<0) return opstat;
 	int path_length=strlen(path);
@@ -763,9 +798,6 @@ int poi_unlink (const char * path){
 	if (strlen(path+n+1)>21) return -ENOENT;
 
 	const char * name = path+n+1;
-	fprintf(logfile,"\tname: %s\n",name);
-	fprintf(logfile,"\tstring awal entri: %.21s\n",yangdihapus.bytearr);
-	fprintf(logfile,"\tyangdihapusidx: 0x%x\n",yangdihapusidx);
 	
 	char * parentDir;
 
@@ -837,7 +869,10 @@ struct fuse_operations poi_oper = { //TODO tiap kali ada yang diimplementasi, di
 };
 
 int main(int argc, char *argv[]){
+	#ifdef LOG
 	logfile = fopen("logfile","w");
+	#endif
+
 	if (argc==4)
 	if (!strcmp(argv[3],"-new")){
 		printf("%s",argv[2]);
@@ -850,8 +885,6 @@ int main(int argc, char *argv[]){
 		return;
 	}
 	poi_file_open(argv[2]);
-	printf("first free block: 0x%x\n",getFirstFreeBlockIdx());
-	printf("num free blocks: 0x%x\n",getNumFreeBlocks());
 	argc--;
 	int a = fuse_main(argc,argv,&poi_oper);
 }
