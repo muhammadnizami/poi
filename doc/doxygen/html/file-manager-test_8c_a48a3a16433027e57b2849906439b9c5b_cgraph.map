@@ -1,0 +1,15 @@
+<map id="test_poi_file_create_new" name="test_poi_file_create_new">
+<area shape="rect" id="node2" href="$file-manager_8c.html#a9a8111f4e7948ad43fef393e0e4e3247" title="poi_file_create_new" alt="" coords="222,183,359,209"/>
+<area shape="rect" id="node13" href="$file-manager_8c.html#ac286b940c82432a07288c7a9afdc884a" title="poi_file_open" alt="" coords="241,249,340,276"/>
+<area shape="rect" id="node14" href="$file-manager_8c.html#af091ab9b6704b6affa17ea12fd51e628" title="poi_file_validasi" alt="" coords="421,300,536,327"/>
+<area shape="rect" id="node3" href="$file-manager_8c.html#aa4d2e01426a89fe14e8c3a9fac2b61a0" title="set_poi_file_block\l_dword_little_endian" alt="" coords="409,66,549,107"/>
+<area shape="rect" id="node4" href="$directory-entry_8c.html#a9316a7dff46a87f98e3471031896670f" title="makeEntry" alt="" coords="436,132,521,159"/>
+<area shape="rect" id="node11" href="$file-manager_8c.html#aafd8b089a2a7b6c25cec6ec8c9504e5a" title="poi_file_write_block" alt="" coords="411,183,547,209"/>
+<area shape="rect" id="node12" href="$file-manager_8c.html#a8af78372c29561516b35df699039b85f" title="set_poi_file_block\l_word_little_endian" alt="" coords="412,234,545,275"/>
+<area shape="rect" id="node5" href="$directory-entry_8c.html#aaf2d59e38899c1a88c878a113355e68e" title="setNama" alt="" coords="633,5,708,32"/>
+<area shape="rect" id="node6" href="$directory-entry_8c.html#ab707665b70d7b489fea00097a365302b" title="setattr" alt="" coords="641,56,700,83"/>
+<area shape="rect" id="node7" href="$directory-entry_8c.html#a0dbc96b3055551072fccce217082e16a" title="setLastModifTime" alt="" coords="607,107,734,133"/>
+<area shape="rect" id="node8" href="$directory-entry_8c.html#a0d6184c06efca3bd8ee3e3314de4013d" title="setLastModifDate" alt="" coords="608,157,733,184"/>
+<area shape="rect" id="node9" href="$directory-entry_8c.html#a4275d4bb22d8095e6319637119694d9a" title="setFirstDataBlockIdx" alt="" coords="598,208,743,235"/>
+<area shape="rect" id="node10" href="$directory-entry_8c.html#a602a8f906599cd997e73640df620a514" title="setFileSize" alt="" coords="627,259,714,285"/>
+</map>

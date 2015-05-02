@@ -1,0 +1,5 @@
+<map id="saveAllocTableCaches" name="saveAllocTableCaches">
+<area shape="rect" id="node2" href="$volume-information_8c.html#a1411a8d39fd2b72db7e153f715662214" title="savePoiVolinfoCache" alt="" coords="220,5,367,32"/>
+<area shape="rect" id="node4" href="$allocation-block-manager_8c.html#aa62c7923af0be489b52b1dcdd7c04e23" title="savePoiAllocationCache" alt="" coords="211,56,375,83"/>
+<area shape="rect" id="node3" href="$file-manager_8c.html#aafd8b089a2a7b6c25cec6ec8c9504e5a" title="poi_file_write_block" alt="" coords="424,31,560,57"/>
+</map>

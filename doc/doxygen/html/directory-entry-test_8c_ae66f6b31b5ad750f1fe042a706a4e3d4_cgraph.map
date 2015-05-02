@@ -1,0 +1,16 @@
+<map id="main" name="main">
+<area shape="rect" id="node2" href="$directory-entry_8c.html#a9316a7dff46a87f98e3471031896670f" title="makeEntry" alt="" coords="139,157,224,184"/>
+<area shape="rect" id="node9" href="$directory-entry_8c.html#a227f567ee0e8d9841e899f0dec64d678" title="getattr" alt="" coords="152,208,211,235"/>
+<area shape="rect" id="node10" href="$directory-entry_8c.html#a0a7b4158bec0f7e95ad6df41314397cd" title="getNama" alt="" coords="144,259,219,285"/>
+<area shape="rect" id="node11" href="$directory-entry_8c.html#a470a6bf272a569acfa071474105e2317" title="getLastModifDateTime" alt="" coords="104,309,259,336"/>
+<area shape="rect" id="node14" href="$directory-entry_8c.html#ae2d5c0b699d98670b2d768bc747ee9c3" title="getFirstDataBlockIdx" alt="" coords="109,360,254,387"/>
+<area shape="rect" id="node15" href="$directory-entry_8c.html#a21ccf64e7638d962dba75f7c4b62ab69" title="getFileSize" alt="" coords="138,411,225,437"/>
+<area shape="rect" id="node3" href="$directory-entry_8c.html#aaf2d59e38899c1a88c878a113355e68e" title="setNama" alt="" coords="343,5,417,32"/>
+<area shape="rect" id="node4" href="$directory-entry_8c.html#ab707665b70d7b489fea00097a365302b" title="setattr" alt="" coords="351,56,409,83"/>
+<area shape="rect" id="node5" href="$directory-entry_8c.html#a0dbc96b3055551072fccce217082e16a" title="setLastModifTime" alt="" coords="317,107,443,133"/>
+<area shape="rect" id="node6" href="$directory-entry_8c.html#a0d6184c06efca3bd8ee3e3314de4013d" title="setLastModifDate" alt="" coords="317,157,443,184"/>
+<area shape="rect" id="node7" href="$directory-entry_8c.html#a4275d4bb22d8095e6319637119694d9a" title="setFirstDataBlockIdx" alt="" coords="307,208,453,235"/>
+<area shape="rect" id="node8" href="$directory-entry_8c.html#a602a8f906599cd997e73640df620a514" title="setFileSize" alt="" coords="337,259,423,285"/>
+<area shape="rect" id="node12" href="$directory-entry_8c.html#a40cef09c0fc8f91e59441578582e0b8e" title="getLastModifDate" alt="" coords="317,309,443,336"/>
+<area shape="rect" id="node13" href="$directory-entry_8c.html#aefc5e5fefc3001fa03539165440f4720" title="getLastModifTime" alt="" coords="317,360,443,387"/>
+</map>

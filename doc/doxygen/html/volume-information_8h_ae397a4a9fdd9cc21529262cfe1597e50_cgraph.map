@@ -1,0 +1,5 @@
+<map id="getNumFreeBlocks" name="getNumFreeBlocks">
+<area shape="rect" id="node2" href="$volume-information_8c.html#af6d08c2f02ba561e21c8aeef199e20f2" title="loadPoiVolinfoCache" alt="" coords="190,5,333,32"/>
+<area shape="rect" id="node4" href="$file-manager_8c.html#a9b3a4e41531820c25e3d2d9019c39cba" title="get_poi_file_block\l_dword_little_endian" alt="" coords="191,57,331,98"/>
+<area shape="rect" id="node3" href="$file-manager_8c.html#ac995e99a526073da84cd4fb1dab93a0a" title="poi_file_read_block" alt="" coords="381,5,515,32"/>
+</map>

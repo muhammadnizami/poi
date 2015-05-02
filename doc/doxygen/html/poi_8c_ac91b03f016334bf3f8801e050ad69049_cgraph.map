@@ -1,0 +1,8 @@
+<map id="directory_entry_to_struct_stat" name="directory_entry_to_struct_stat">
+<area shape="rect" id="node2" href="$directory-entry_8c.html#a227f567ee0e8d9841e899f0dec64d678" title="getattr" alt="" coords="233,5,292,32"/>
+<area shape="rect" id="node3" href="$directory-entry_8c.html#a21ccf64e7638d962dba75f7c4b62ab69" title="getFileSize" alt="" coords="219,56,306,83"/>
+<area shape="rect" id="node4" href="$directory-entry_8c.html#ac5adead83b794823faf9472d68a6ce23" title="getLastModifTimetime_t" alt="" coords="181,107,344,133"/>
+<area shape="rect" id="node5" href="$directory-entry_8c.html#a470a6bf272a569acfa071474105e2317" title="getLastModifDateTime" alt="" coords="392,107,547,133"/>
+<area shape="rect" id="node6" href="$directory-entry_8c.html#a40cef09c0fc8f91e59441578582e0b8e" title="getLastModifDate" alt="" coords="596,81,721,108"/>
+<area shape="rect" id="node7" href="$directory-entry_8c.html#aefc5e5fefc3001fa03539165440f4720" title="getLastModifTime" alt="" coords="595,132,722,159"/>
+</map>

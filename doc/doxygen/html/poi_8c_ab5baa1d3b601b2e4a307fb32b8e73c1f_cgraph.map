@@ -1,0 +1,13 @@
+<map id="getEntryRecursive" name="getEntryRecursive">
+<area shape="rect" id="node2" href="$directory-entry_8c.html#ae2d5c0b699d98670b2d768bc747ee9c3" title="getFirstDataBlockIdx" alt="" coords="185,5,330,32"/>
+<area shape="rect" id="node3" href="$directory-entry_8c.html#a21ccf64e7638d962dba75f7c4b62ab69" title="getFileSize" alt="" coords="214,56,301,83"/>
+<area shape="rect" id="node4" href="$data-pool-block-manager_8c.html#ac930ae4a4b3ca65a49d45c7654f15149" title="poi_data_pool_read\l_block" alt="" coords="393,97,527,138"/>
+<area shape="rect" id="node6" href="$directory-entry_8c.html#a0a7b4158bec0f7e95ad6df41314397cd" title="getNama" alt="" coords="220,157,295,184"/>
+<area shape="rect" id="node7" href="$allocation-block-manager_8c.html#a0843a74a7e1cc7c50dbfa521e4ea1cc8" title="getNextBlock" alt="" coords="207,212,308,239"/>
+<area shape="rect" id="node5" href="$file-manager_8c.html#ac995e99a526073da84cd4fb1dab93a0a" title="poi_file_read_block" alt="" coords="605,133,739,160"/>
+<area shape="rect" id="node8" href="$allocation-block-manager_8c.html#a451dec2ee6d7a7241ab5fbc0a2ad0259" title="getPointerBlockLocation" alt="" coords="379,163,541,189"/>
+<area shape="rect" id="node9" href="$allocation-block-manager_8c.html#a2d77f886ffa0a0d025a6a521cc6cf294" title="loadPoiAllocationCache" alt="" coords="380,213,540,240"/>
+<area shape="rect" id="node12" href="$file-manager_8c.html#ab2141a18a18420ac6e71f85341fda8ba" title="get_poi_file_block\l_word_little_endian" alt="" coords="393,265,527,306"/>
+<area shape="rect" id="node10" href="$allocation-block-manager_8c.html#aa62c7923af0be489b52b1dcdd7c04e23" title="savePoiAllocationCache" alt="" coords="590,213,754,240"/>
+<area shape="rect" id="node11" href="$file-manager_8c.html#aafd8b089a2a7b6c25cec6ec8c9504e5a" title="poi_file_write_block" alt="" coords="803,213,939,240"/>
+</map>

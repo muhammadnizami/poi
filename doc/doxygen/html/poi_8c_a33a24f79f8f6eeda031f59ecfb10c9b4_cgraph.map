@@ -1,0 +1,16 @@
+<map id="poi_read" name="poi_read">
+<area shape="rect" id="node2" href="$poi_8c.html#ab5baa1d3b601b2e4a307fb32b8e73c1f" title="getEntryRecursive" alt="" coords="125,109,256,136"/>
+<area shape="rect" id="node3" href="$directory-entry_8c.html#ae2d5c0b699d98670b2d768bc747ee9c3" title="getFirstDataBlockIdx" alt="" coords="305,5,450,32"/>
+<area shape="rect" id="node4" href="$directory-entry_8c.html#a21ccf64e7638d962dba75f7c4b62ab69" title="getFileSize" alt="" coords="334,56,421,83"/>
+<area shape="rect" id="node5" href="$data-pool-block-manager_8c.html#ac930ae4a4b3ca65a49d45c7654f15149" title="poi_data_pool_read\l_block" alt="" coords="310,158,445,199"/>
+<area shape="rect" id="node8" href="$allocation-block-manager_8c.html#a0843a74a7e1cc7c50dbfa521e4ea1cc8" title="getNextBlock" alt="" coords="327,275,428,301"/>
+<area shape="rect" id="node14" href="$volume-information_8c.html#a32c12de0ce0f231386676aca679e459e" title="getRootDirEntry" alt="" coords="133,217,249,244"/>
+<area shape="rect" id="node7" href="$directory-entry_8c.html#a0a7b4158bec0f7e95ad6df41314397cd" title="getNama" alt="" coords="340,107,415,133"/>
+<area shape="rect" id="node6" href="$file-manager_8c.html#ac995e99a526073da84cd4fb1dab93a0a" title="poi_file_read_block" alt="" coords="725,216,859,243"/>
+<area shape="rect" id="node9" href="$allocation-block-manager_8c.html#a451dec2ee6d7a7241ab5fbc0a2ad0259" title="getPointerBlockLocation" alt="" coords="499,267,661,293"/>
+<area shape="rect" id="node10" href="$allocation-block-manager_8c.html#a2d77f886ffa0a0d025a6a521cc6cf294" title="loadPoiAllocationCache" alt="" coords="500,384,660,411"/>
+<area shape="rect" id="node13" href="$file-manager_8c.html#ab2141a18a18420ac6e71f85341fda8ba" title="get_poi_file_block\l_word_little_endian" alt="" coords="513,318,647,359"/>
+<area shape="rect" id="node11" href="$allocation-block-manager_8c.html#aa62c7923af0be489b52b1dcdd7c04e23" title="savePoiAllocationCache" alt="" coords="710,384,874,411"/>
+<area shape="rect" id="node12" href="$file-manager_8c.html#aafd8b089a2a7b6c25cec6ec8c9504e5a" title="poi_file_write_block" alt="" coords="923,384,1059,411"/>
+<area shape="rect" id="node15" href="$volume-information_8c.html#af6d08c2f02ba561e21c8aeef199e20f2" title="loadPoiVolinfoCache" alt="" coords="509,216,651,243"/>
+</map>

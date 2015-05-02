@@ -1,0 +1,256 @@
+\hypertarget{allocation-table_8c}{\section{src/allocation-\/table.c File Reference}
+\label{allocation-table_8c}\index{src/allocation-\/table.\-c@{src/allocation-\/table.\-c}}
+}
+{\ttfamily \#include \char`\"{}allocation-\/table.\-h\char`\"{}}\\*
+Include dependency graph for allocation-\/table.c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{allocation-table_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{allocation-table_8c_afc5318de31f175f755f75812b44051c6}{allocation\-\_\-table\-\_\-c}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{allocation-table_8c_a20af25d3b441d1f25e4830ee2173480c}{save\-Alloc\-Table\-Caches} ()
+\item 
+int32\-\_\-t \hyperlink{allocation-table_8c_ada2e09277dd8e97a2b2b75484b738126}{new\-List} (\hyperlink{data-pool-block-manager_8h_a87e19ab8290bcd76be1c7db1e90cc6f6}{poi\-\_\-data\-\_\-pool\-\_\-block\-\_\-idx\-\_\-t} $\ast$\hyperlink{allocation-table-test_8c_a24010dade8ebab3f87a48022772cd975}{n})
+\item 
+int32\-\_\-t \hyperlink{allocation-table_8c_a89ea9558bd50decb1bbbf85e569fe6c5}{allocate\-After} (\hyperlink{data-pool-block-manager_8h_a87e19ab8290bcd76be1c7db1e90cc6f6}{poi\-\_\-data\-\_\-pool\-\_\-block\-\_\-idx\-\_\-t} \hyperlink{allocation-table-test_8c_a24010dade8ebab3f87a48022772cd975}{n})
+\item 
+int32\-\_\-t \hyperlink{allocation-table_8c_a6de48f9bdf37e8005b9973a75d07633a}{insert\-After} (\hyperlink{data-pool-block-manager_8h_a87e19ab8290bcd76be1c7db1e90cc6f6}{poi\-\_\-data\-\_\-pool\-\_\-block\-\_\-idx\-\_\-t} \hyperlink{allocation-table-test_8c_a24010dade8ebab3f87a48022772cd975}{n}, \hyperlink{structpoi__file__block}{poi\-\_\-file\-\_\-block} blk)
+\item 
+void \hyperlink{allocation-table_8c_a8d703df55ad80bb8fb1177a0542065b6}{delete\-List\-Of\-Block} (\hyperlink{data-pool-block-manager_8h_a87e19ab8290bcd76be1c7db1e90cc6f6}{poi\-\_\-data\-\_\-pool\-\_\-block\-\_\-idx\-\_\-t} \hyperlink{allocation-table-test_8c_a24010dade8ebab3f87a48022772cd975}{n})
+\item 
+void \hyperlink{allocation-table_8c_a986965542b07562f2f205f9d68043a9c}{truncate\-List} (\hyperlink{data-pool-block-manager_8h_a87e19ab8290bcd76be1c7db1e90cc6f6}{poi\-\_\-data\-\_\-pool\-\_\-block\-\_\-idx\-\_\-t} \hyperlink{allocation-table-test_8c_a24010dade8ebab3f87a48022772cd975}{n})
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{allocation-table_8c_afc5318de31f175f755f75812b44051c6}{\index{allocation-\/table.\-c@{allocation-\/table.\-c}!allocation\-\_\-table\-\_\-c@{allocation\-\_\-table\-\_\-c}}
+\index{allocation\-\_\-table\-\_\-c@{allocation\-\_\-table\-\_\-c}!allocation-table.c@{allocation-\/table.\-c}}
+\subsubsection[{allocation\-\_\-table\-\_\-c}]{\setlength{\rightskip}{0pt plus 5cm}\#define allocation\-\_\-table\-\_\-c}}\label{allocation-table_8c_afc5318de31f175f755f75812b44051c6}
+
+
+Definition at line 2 of file allocation-\/table.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{allocation-table_8c_a89ea9558bd50decb1bbbf85e569fe6c5}{\index{allocation-\/table.\-c@{allocation-\/table.\-c}!allocate\-After@{allocate\-After}}
+\index{allocate\-After@{allocate\-After}!allocation-table.c@{allocation-\/table.\-c}}
+\subsubsection[{allocate\-After}]{\setlength{\rightskip}{0pt plus 5cm}int32\-\_\-t allocate\-After (
+\begin{DoxyParamCaption}
+\item[{{\bf poi\-\_\-data\-\_\-pool\-\_\-block\-\_\-idx\-\_\-t}}]{n}
+\end{DoxyParamCaption}
+)}}\label{allocation-table_8c_a89ea9558bd50decb1bbbf85e569fe6c5}
+
+
+Definition at line 40 of file allocation-\/table.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{allocation-table_8c_a89ea9558bd50decb1bbbf85e569fe6c5_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{allocation-table_8c_a89ea9558bd50decb1bbbf85e569fe6c5_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{allocation-table_8c_a8d703df55ad80bb8fb1177a0542065b6}{\index{allocation-\/table.\-c@{allocation-\/table.\-c}!delete\-List\-Of\-Block@{delete\-List\-Of\-Block}}
+\index{delete\-List\-Of\-Block@{delete\-List\-Of\-Block}!allocation-table.c@{allocation-\/table.\-c}}
+\subsubsection[{delete\-List\-Of\-Block}]{\setlength{\rightskip}{0pt plus 5cm}void delete\-List\-Of\-Block (
+\begin{DoxyParamCaption}
+\item[{{\bf poi\-\_\-data\-\_\-pool\-\_\-block\-\_\-idx\-\_\-t}}]{n}
+\end{DoxyParamCaption}
+)}}\label{allocation-table_8c_a8d703df55ad80bb8fb1177a0542065b6}
+
+
+Definition at line 67 of file allocation-\/table.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{allocation-table_8c_a8d703df55ad80bb8fb1177a0542065b6_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{allocation-table_8c_a8d703df55ad80bb8fb1177a0542065b6_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{allocation-table_8c_a6de48f9bdf37e8005b9973a75d07633a}{\index{allocation-\/table.\-c@{allocation-\/table.\-c}!insert\-After@{insert\-After}}
+\index{insert\-After@{insert\-After}!allocation-table.c@{allocation-\/table.\-c}}
+\subsubsection[{insert\-After}]{\setlength{\rightskip}{0pt plus 5cm}int32\-\_\-t insert\-After (
+\begin{DoxyParamCaption}
+\item[{{\bf poi\-\_\-data\-\_\-pool\-\_\-block\-\_\-idx\-\_\-t}}]{n, }
+\item[{{\bf poi\-\_\-file\-\_\-block}}]{blk}
+\end{DoxyParamCaption}
+)}}\label{allocation-table_8c_a6de48f9bdf37e8005b9973a75d07633a}
+
+
+Definition at line 55 of file allocation-\/table.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{allocation-table_8c_a6de48f9bdf37e8005b9973a75d07633a_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=334pt]{allocation-table_8c_a6de48f9bdf37e8005b9973a75d07633a_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{allocation-table_8c_ada2e09277dd8e97a2b2b75484b738126}{\index{allocation-\/table.\-c@{allocation-\/table.\-c}!new\-List@{new\-List}}
+\index{new\-List@{new\-List}!allocation-table.c@{allocation-\/table.\-c}}
+\subsubsection[{new\-List}]{\setlength{\rightskip}{0pt plus 5cm}int32\-\_\-t new\-List (
+\begin{DoxyParamCaption}
+\item[{{\bf poi\-\_\-data\-\_\-pool\-\_\-block\-\_\-idx\-\_\-t} $\ast$}]{n}
+\end{DoxyParamCaption}
+)}}\label{allocation-table_8c_ada2e09277dd8e97a2b2b75484b738126}
+
+
+Definition at line 25 of file allocation-\/table.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{allocation-table_8c_ada2e09277dd8e97a2b2b75484b738126_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{allocation-table_8c_ada2e09277dd8e97a2b2b75484b738126_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{allocation-table_8c_a20af25d3b441d1f25e4830ee2173480c}{\index{allocation-\/table.\-c@{allocation-\/table.\-c}!save\-Alloc\-Table\-Caches@{save\-Alloc\-Table\-Caches}}
+\index{save\-Alloc\-Table\-Caches@{save\-Alloc\-Table\-Caches}!allocation-table.c@{allocation-\/table.\-c}}
+\subsubsection[{save\-Alloc\-Table\-Caches}]{\setlength{\rightskip}{0pt plus 5cm}void save\-Alloc\-Table\-Caches (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{allocation-table_8c_a20af25d3b441d1f25e4830ee2173480c}
+
+
+Definition at line 14 of file allocation-\/table.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{allocation-table_8c_a20af25d3b441d1f25e4830ee2173480c_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{allocation-table_8c_a20af25d3b441d1f25e4830ee2173480c_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{allocation-table_8c_a986965542b07562f2f205f9d68043a9c}{\index{allocation-\/table.\-c@{allocation-\/table.\-c}!truncate\-List@{truncate\-List}}
+\index{truncate\-List@{truncate\-List}!allocation-table.c@{allocation-\/table.\-c}}
+\subsubsection[{truncate\-List}]{\setlength{\rightskip}{0pt plus 5cm}void truncate\-List (
+\begin{DoxyParamCaption}
+\item[{{\bf poi\-\_\-data\-\_\-pool\-\_\-block\-\_\-idx\-\_\-t}}]{n}
+\end{DoxyParamCaption}
+)}}\label{allocation-table_8c_a986965542b07562f2f205f9d68043a9c}
+
+
+Definition at line 91 of file allocation-\/table.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{allocation-table_8c_a986965542b07562f2f205f9d68043a9c_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=346pt]{allocation-table_8c_a986965542b07562f2f205f9d68043a9c_icgraph}
+\end{center}
+\end{figure}
+
+

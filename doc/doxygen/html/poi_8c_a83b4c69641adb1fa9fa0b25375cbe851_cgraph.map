@@ -1,0 +1,6 @@
+<map id="replaceEntry" name="replaceEntry">
+<area shape="rect" id="node2" href="$data-pool-block-manager_8c.html#ac930ae4a4b3ca65a49d45c7654f15149" title="poi_data_pool_read\l_block" alt="" coords="151,5,286,46"/>
+<area shape="rect" id="node4" href="$data-pool-block-manager_8c.html#a10624f1cbc61dd0a8a03aa94d8502567" title="poi_data_pool_write\l_block" alt="" coords="150,70,287,111"/>
+<area shape="rect" id="node3" href="$file-manager_8c.html#ac995e99a526073da84cd4fb1dab93a0a" title="poi_file_read_block" alt="" coords="337,12,471,39"/>
+<area shape="rect" id="node5" href="$file-manager_8c.html#aafd8b089a2a7b6c25cec6ec8c9504e5a" title="poi_file_write_block" alt="" coords="336,77,472,104"/>
+</map>

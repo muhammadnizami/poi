@@ -1,0 +1,9 @@
+<map id="getEntryRecursive" name="getEntryRecursive">
+<area shape="rect" id="node2" href="$poi_8c.html#a5ad740416ca293699d847841c7f2e2de" title="poi_getattr" alt="" coords="188,5,271,32"/>
+<area shape="rect" id="node3" href="$poi_8c.html#a2780aa1096e4e171abbd079fed25bd97" title="poi_readdir" alt="" coords="187,56,272,83"/>
+<area shape="rect" id="node4" href="$poi_8c.html#ad5142050bb36b094a9d752f4459d8884" title="poi_mkdir" alt="" coords="190,107,269,133"/>
+<area shape="rect" id="node5" href="$poi_8c.html#a2da6e63134c6ca1cf467a8cb81460dad" title="poi_mknod" alt="" coords="187,157,272,184"/>
+<area shape="rect" id="node6" href="$poi_8c.html#a33a24f79f8f6eeda031f59ecfb10c9b4" title="poi_read" alt="" coords="194,208,265,235"/>
+<area shape="rect" id="node7" href="$poi_8c.html#aa04c342fe153226c224be62aae9075c5" title="poi_rename" alt="" coords="185,259,274,285"/>
+<area shape="rect" id="node8" href="$poi_8c.html#a6097c210a3653eaaaa28821de8cad867" title="poi_rmdir" alt="" coords="192,309,267,336"/>
+</map>

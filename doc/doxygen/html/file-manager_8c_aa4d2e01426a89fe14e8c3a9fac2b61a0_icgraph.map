@@ -1,0 +1,31 @@
+<map id="set_poi_file_block_dword_little_endian" name="set_poi_file_block_dword_little_endian">
+<area shape="rect" id="node2" href="$file-manager-test_8c.html#a8d5dcc4b44c52164b17db995438894ca" title="test_set_poi_file_block\l_dword_little_endian" alt="" coords="195,19,349,61"/>
+<area shape="rect" id="node4" href="$file-manager_8h.html#a9a8111f4e7948ad43fef393e0e4e3247" title="poi_file_create_new" alt="" coords="203,107,341,133"/>
+<area shape="rect" id="node9" href="$volume-information_8h.html#a6a0ecaeeea8bd2cbfc8c261d9c53d912" title="setTotalSize" alt="" coords="225,157,319,184"/>
+<area shape="rect" id="node10" href="$volume-information_8h.html#a3cd233d6e37f47da727985bf59d25578" title="setNumFreeBlocks" alt="" coords="205,259,339,285"/>
+<area shape="rect" id="node30" href="$volume-information_8h.html#ac32f884b498264f15c77ee76f1a7ca1a" title="setFirstFreeBlockIdx" alt="" coords="201,208,343,235"/>
+<area shape="rect" id="node3" href="$file-manager-test_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="664,5,715,32"/>
+<area shape="rect" id="node5" href="$allocation-block-manager-test_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="456,107,507,133"/>
+<area shape="rect" id="node6" href="$data-pool-block-manager-test_8c.html#a75323f97b259a6284370855087fb48ff" title="testReadWrite" alt="" coords="428,157,535,184"/>
+<area shape="rect" id="node8" href="$file-manager-test_8c.html#a48a3a16433027e57b2849906439b9c5b" title="test_poi_file_create_new" alt="" coords="398,56,565,83"/>
+<area shape="rect" id="node7" href="$data-pool-block-manager-test_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="664,56,715,83"/>
+<area shape="rect" id="node11" href="$allocation-table_8h.html#ada2e09277dd8e97a2b2b75484b738126" title="newList" alt="" coords="448,208,515,235"/>
+<area shape="rect" id="node25" href="$allocation-table_8h.html#a8d703df55ad80bb8fb1177a0542065b6" title="deleteListOfBlock" alt="" coords="419,417,544,444"/>
+<area shape="rect" id="node12" href="$allocation-table-test_8c.html#ae0bde2314239fb8dbf38c13fee0a68fe" title="newListTest" alt="" coords="1041,157,1135,184"/>
+<area shape="rect" id="node14" href="$allocation-table-test_8c.html#a9126bcf052408b8d8f30110d1a6c7627" title="allocateAfterBanyakTest" alt="" coords="813,259,979,285"/>
+<area shape="rect" id="node15" href="$allocation-table_8h.html#a89ea9558bd50decb1bbbf85e569fe6c5" title="allocateAfter" alt="" coords="642,360,737,387"/>
+<area shape="rect" id="node20" href="$poi_8c.html#ad5142050bb36b094a9d752f4459d8884" title="poi_mkdir" alt="" coords="1049,411,1127,437"/>
+<area shape="rect" id="node21" href="$poi_8c.html#a2da6e63134c6ca1cf467a8cb81460dad" title="poi_mknod" alt="" coords="1045,360,1131,387"/>
+<area shape="rect" id="node13" href="$allocation-table-test_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="1197,309,1248,336"/>
+<area shape="rect" id="node16" href="$allocation-table-test_8c.html#a57b7cb9823d22ea55528c91e219b7dae" title="allocateAfterTest" alt="" coords="1027,461,1149,488"/>
+<area shape="rect" id="node17" href="$allocation-table_8h.html#a6de48f9bdf37e8005b9973a75d07633a" title="insertAfter" alt="" coords="855,309,937,336"/>
+<area shape="rect" id="node19" href="$poi_8c.html#aca8d3bb4c0075ecae78118b5bce0df31" title="poi_insertentry" alt="" coords="843,461,949,488"/>
+<area shape="rect" id="node23" href="$poi_8c.html#a4015d7cbf472a666a5afec6a3cabbb35" title="poi_write" alt="" coords="859,411,933,437"/>
+<area shape="rect" id="node24" href="$poi_8c.html#a916c54fa22cdda50d516a667840bc957" title="poi_truncate" alt="" coords="849,512,943,539"/>
+<area shape="rect" id="node18" href="$allocation-table-test_8c.html#ae8700eb5d460019b20c7bdf4d0b5880b" title="insertAfterTest" alt="" coords="1034,309,1142,336"/>
+<area shape="rect" id="node22" href="$poi_8c.html#aa04c342fe153226c224be62aae9075c5" title="poi_rename" alt="" coords="1043,537,1133,564"/>
+<area shape="rect" id="node26" href="$allocation-table-test_8c.html#ace8f7db6e87db1e1e06efbc9437e58f1" title="deleteListOfBlockTest" alt="" coords="614,581,765,608"/>
+<area shape="rect" id="node27" href="$allocation-table_8h.html#a986965542b07562f2f205f9d68043a9c" title="truncateList" alt="" coords="644,519,735,545"/>
+<area shape="rect" id="node28" href="$poi_8c.html#a6d1c73ddb2c9e75dd516f2995a121c84" title="poi_unlink" alt="" coords="856,664,936,691"/>
+<area shape="rect" id="node29" href="$poi_8c.html#a6097c210a3653eaaaa28821de8cad867" title="poi_rmdir" alt="" coords="1051,664,1125,691"/>
+</map>

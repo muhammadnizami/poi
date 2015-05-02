@@ -1,0 +1,11 @@
+<map id="poi_file_validasi" name="poi_file_validasi">
+<area shape="rect" id="node2" href="$file-manager-test_8c.html#a9a65ce90a5f89301cfabe93522750d72" title="test_poi_file_validasi" alt="" coords="169,5,311,32"/>
+<area shape="rect" id="node4" href="$file-manager-test_8c.html#a48a3a16433027e57b2849906439b9c5b" title="test_poi_file_create_new" alt="" coords="361,56,527,83"/>
+<area shape="rect" id="node5" href="$file-manager_8h.html#ac286b940c82432a07288c7a9afdc884a" title="poi_file_open" alt="" coords="191,107,289,133"/>
+<area shape="rect" id="node10" href="$poi_8c.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="215,157,265,184"/>
+<area shape="rect" id="node3" href="$file-manager-test_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="576,56,627,83"/>
+<area shape="rect" id="node6" href="$allocation-block-manager-test_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="419,107,469,133"/>
+<area shape="rect" id="node7" href="$data-pool-block-manager-test_8c.html#a75323f97b259a6284370855087fb48ff" title="testReadWrite" alt="" coords="391,224,497,251"/>
+<area shape="rect" id="node9" href="$file-manager-test_8c.html#a15832d194153478fa3939dc1e3d83add" title="test_poi_file_read\l_write_block" alt="" coords="382,158,506,199"/>
+<area shape="rect" id="node8" href="$data-pool-block-manager-test_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="576,224,627,251"/>
+</map>

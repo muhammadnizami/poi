@@ -1,0 +1,9 @@
+<map id="savePoiVolinfoCache" name="savePoiVolinfoCache">
+<area shape="rect" id="node2" href="$allocation-table_8h.html#a20af25d3b441d1f25e4830ee2173480c" title="saveAllocTableCaches" alt="" coords="201,5,357,32"/>
+<area shape="rect" id="node3" href="$poi_8c.html#ad5142050bb36b094a9d752f4459d8884" title="poi_mkdir" alt="" coords="239,56,318,83"/>
+<area shape="rect" id="node4" href="$poi_8c.html#a2da6e63134c6ca1cf467a8cb81460dad" title="poi_mknod" alt="" coords="236,107,321,133"/>
+<area shape="rect" id="node5" href="$poi_8c.html#a4015d7cbf472a666a5afec6a3cabbb35" title="poi_write" alt="" coords="241,157,316,184"/>
+<area shape="rect" id="node6" href="$poi_8c.html#a916c54fa22cdda50d516a667840bc957" title="poi_truncate" alt="" coords="232,208,325,235"/>
+<area shape="rect" id="node7" href="$poi_8c.html#aa04c342fe153226c224be62aae9075c5" title="poi_rename" alt="" coords="234,259,323,285"/>
+<area shape="rect" id="node8" href="$volume-information-test_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="253,309,304,336"/>
+</map>

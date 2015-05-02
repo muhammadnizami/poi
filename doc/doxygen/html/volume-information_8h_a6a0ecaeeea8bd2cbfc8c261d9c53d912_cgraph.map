@@ -1,0 +1,5 @@
+<map id="setTotalSize" name="setTotalSize">
+<area shape="rect" id="node2" href="$volume-information_8c.html#af6d08c2f02ba561e21c8aeef199e20f2" title="loadPoiVolinfoCache" alt="" coords="150,5,293,32"/>
+<area shape="rect" id="node4" href="$file-manager_8c.html#aa4d2e01426a89fe14e8c3a9fac2b61a0" title="set_poi_file_block\l_dword_little_endian" alt="" coords="151,57,291,98"/>
+<area shape="rect" id="node3" href="$file-manager_8c.html#ac995e99a526073da84cd4fb1dab93a0a" title="poi_file_read_block" alt="" coords="341,5,475,32"/>
+</map>

@@ -1,0 +1,16 @@
+<map id="getFirstDataBlockIdx" name="getFirstDataBlockIdx">
+<area shape="rect" id="node2" href="$directory-entry-test_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="256,5,307,32"/>
+<area shape="rect" id="node3" href="$poi_8c.html#a8554e27a6a1d82e6585497418f678db3" title="getEntryAndBlockOffset" alt="" coords="200,157,363,184"/>
+<area shape="rect" id="node6" href="$poi_8c.html#a4015d7cbf472a666a5afec6a3cabbb35" title="poi_write" alt="" coords="420,56,495,83"/>
+<area shape="rect" id="node7" href="$poi_8c.html#a916c54fa22cdda50d516a667840bc957" title="poi_truncate" alt="" coords="411,208,504,235"/>
+<area shape="rect" id="node8" href="$poi_8c.html#aa04c342fe153226c224be62aae9075c5" title="poi_rename" alt="" coords="413,259,502,285"/>
+<area shape="rect" id="node9" href="$poi_8c.html#a6d1c73ddb2c9e75dd516f2995a121c84" title="poi_unlink" alt="" coords="417,309,497,336"/>
+<area shape="rect" id="node11" href="$poi_8c.html#ab5baa1d3b601b2e4a307fb32b8e73c1f" title="getEntryRecursive" alt="" coords="216,360,347,387"/>
+<area shape="rect" id="node13" href="$poi_8c.html#a2780aa1096e4e171abbd079fed25bd97" title="poi_readdir" alt="" coords="415,461,500,488"/>
+<area shape="rect" id="node14" href="$poi_8c.html#a33a24f79f8f6eeda031f59ecfb10c9b4" title="poi_read" alt="" coords="422,512,493,539"/>
+<area shape="rect" id="node15" href="$poi_8c.html#aca8d3bb4c0075ecae78118b5bce0df31" title="poi_insertentry" alt="" coords="228,107,335,133"/>
+<area shape="rect" id="node4" href="$poi_8c.html#ad5142050bb36b094a9d752f4459d8884" title="poi_mkdir" alt="" coords="418,107,497,133"/>
+<area shape="rect" id="node5" href="$poi_8c.html#a2da6e63134c6ca1cf467a8cb81460dad" title="poi_mknod" alt="" coords="415,157,500,184"/>
+<area shape="rect" id="node10" href="$poi_8c.html#a6097c210a3653eaaaa28821de8cad867" title="poi_rmdir" alt="" coords="552,335,627,361"/>
+<area shape="rect" id="node12" href="$poi_8c.html#a5ad740416ca293699d847841c7f2e2de" title="poi_getattr" alt="" coords="416,411,499,437"/>
+</map>

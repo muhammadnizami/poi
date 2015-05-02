@@ -1,0 +1,35 @@
+<map id="poi_write" name="poi_write">
+<area shape="rect" id="node2" href="$poi_8c.html#a8554e27a6a1d82e6585497418f678db3" title="getEntryAndBlockOffset" alt="" coords="128,175,291,202"/>
+<area shape="rect" id="node3" href="$directory-entry_8c.html#ae2d5c0b699d98670b2d768bc747ee9c3" title="getFirstDataBlockIdx" alt="" coords="339,47,485,74"/>
+<area shape="rect" id="node4" href="$directory-entry_8c.html#a21ccf64e7638d962dba75f7c4b62ab69" title="getFileSize" alt="" coords="369,98,455,124"/>
+<area shape="rect" id="node5" href="$data-pool-block-manager_8c.html#ac930ae4a4b3ca65a49d45c7654f15149" title="poi_data_pool_read\l_block" alt="" coords="345,250,479,292"/>
+<area shape="rect" id="node8" href="$allocation-block-manager_8c.html#a0843a74a7e1cc7c50dbfa521e4ea1cc8" title="getNextBlock" alt="" coords="940,551,1041,578"/>
+<area shape="rect" id="node11" href="$allocation-block-manager_8c.html#aa62c7923af0be489b52b1dcdd7c04e23" title="savePoiAllocationCache" alt="" coords="1323,631,1487,658"/>
+<area shape="rect" id="node14" href="$volume-information_8c.html#a32c12de0ce0f231386676aca679e459e" title="getRootDirEntry" alt="" coords="151,432,267,459"/>
+<area shape="rect" id="node16" href="$data-pool-block-manager_8c.html#a10624f1cbc61dd0a8a03aa94d8502567" title="poi_data_pool_write\l_block" alt="" coords="343,316,481,357"/>
+<area shape="rect" id="node17" href="$allocation-table_8c.html#a89ea9558bd50decb1bbbf85e569fe6c5" title="allocateAfter" alt="" coords="162,559,257,586"/>
+<area shape="rect" id="node29" href="$directory-entry_8c.html#a602a8f906599cd997e73640df620a514" title="setFileSize" alt="" coords="166,835,253,862"/>
+<area shape="rect" id="node30" href="$directory-entry_8c.html#afa6f9ebace0db1160a2b1b53dcf6bff0" title="setLastModifDateTime" alt="" coords="132,886,287,912"/>
+<area shape="rect" id="node33" href="$poi_8c.html#a83b4c69641adb1fa9fa0b25375cbe851" title="replaceEntry" alt="" coords="162,280,257,307"/>
+<area shape="rect" id="node34" href="$volume-information_8c.html#a1411a8d39fd2b72db7e153f715662214" title="savePoiVolinfoCache" alt="" coords="917,68,1064,95"/>
+<area shape="rect" id="node7" href="$directory-entry_8c.html#a0a7b4158bec0f7e95ad6df41314397cd" title="getNama" alt="" coords="375,148,449,175"/>
+<area shape="rect" id="node6" href="$file-manager_8c.html#ac995e99a526073da84cd4fb1dab93a0a" title="poi_file_read_block" alt="" coords="1339,448,1472,475"/>
+<area shape="rect" id="node9" href="$allocation-block-manager_8c.html#a451dec2ee6d7a7241ab5fbc0a2ad0259" title="getPointerBlockLocation" alt="" coords="1112,580,1275,607"/>
+<area shape="rect" id="node10" href="$allocation-block-manager_8c.html#a2d77f886ffa0a0d025a6a521cc6cf294" title="loadPoiAllocationCache" alt="" coords="1113,631,1273,658"/>
+<area shape="rect" id="node13" href="$file-manager_8c.html#ab2141a18a18420ac6e71f85341fda8ba" title="get_poi_file_block\l_word_little_endian" alt="" coords="1127,514,1260,556"/>
+<area shape="rect" id="node12" href="$file-manager_8c.html#aafd8b089a2a7b6c25cec6ec8c9504e5a" title="poi_file_write_block" alt="" coords="1536,266,1672,292"/>
+<area shape="rect" id="node15" href="$volume-information_8c.html#af6d08c2f02ba561e21c8aeef199e20f2" title="loadPoiVolinfoCache" alt="" coords="726,448,869,475"/>
+<area shape="rect" id="node18" href="$allocation-table_8c.html#ada2e09277dd8e97a2b2b75484b738126" title="newList" alt="" coords="379,559,445,586"/>
+<area shape="rect" id="node22" href="$allocation-block-manager_8c.html#a7387272862663d2af1af9d5c21cddc84" title="setNextBlock" alt="" coords="555,686,656,712"/>
+<area shape="rect" id="node19" href="$volume-information_8c.html#ae397a4a9fdd9cc21529262cfe1597e50" title="getNumFreeBlocks" alt="" coords="538,584,673,611"/>
+<area shape="rect" id="node21" href="$volume-information_8c.html#aff9dadb573d07c60c0281c3441ba3881" title="getFirstFreeBlockIdx" alt="" coords="534,534,677,560"/>
+<area shape="rect" id="node24" href="$volume-information_8c.html#a0fb677f67435306a93428db283b03f94" title="setFirstFreeBlockIdx" alt="" coords="534,483,677,510"/>
+<area shape="rect" id="node26" href="$allocation-block-manager_8c.html#ab352dc84382d70f0044e92c52165c2cc" title="getNextEmpty" alt="" coords="552,635,659,662"/>
+<area shape="rect" id="node28" href="$volume-information_8c.html#a449879e861486007ba0d9b0881b804b1" title="setNumFreeBlocks" alt="" coords="538,382,673,408"/>
+<area shape="rect" id="node20" href="$file-manager_8c.html#a9b3a4e41531820c25e3d2d9019c39cba" title="get_poi_file_block\l_dword_little_endian" alt="" coords="727,500,867,541"/>
+<area shape="rect" id="node23" href="$file-manager_8c.html#a8af78372c29561516b35df699039b85f" title="set_poi_file_block\l_word_little_endian" alt="" coords="731,668,864,709"/>
+<area shape="rect" id="node25" href="$file-manager_8c.html#aa4d2e01426a89fe14e8c3a9fac2b61a0" title="set_poi_file_block\l_dword_little_endian" alt="" coords="727,382,867,424"/>
+<area shape="rect" id="node27" href="$allocation-block-manager_8c.html#a4b553c2a61827a60738c9323e6082903" title="isEmpty" alt="" coords="762,566,833,592"/>
+<area shape="rect" id="node31" href="$directory-entry_8c.html#a0d6184c06efca3bd8ee3e3314de4013d" title="setLastModifDate" alt="" coords="349,860,475,887"/>
+<area shape="rect" id="node32" href="$directory-entry_8c.html#a0dbc96b3055551072fccce217082e16a" title="setLastModifTime" alt="" coords="349,911,475,938"/>
+</map>

@@ -1,0 +1,8 @@
+<map id="setLastModifDateTime" name="setLastModifDateTime">
+<area shape="rect" id="node2" href="$poi_8c.html#aca8d3bb4c0075ecae78118b5bce0df31" title="poi_insertentry" alt="" coords="208,56,315,83"/>
+<area shape="rect" id="node6" href="$poi_8c.html#a4015d7cbf472a666a5afec6a3cabbb35" title="poi_write" alt="" coords="224,107,299,133"/>
+<area shape="rect" id="node7" href="$poi_8c.html#a916c54fa22cdda50d516a667840bc957" title="poi_truncate" alt="" coords="215,157,308,184"/>
+<area shape="rect" id="node3" href="$poi_8c.html#ad5142050bb36b094a9d752f4459d8884" title="poi_mkdir" alt="" coords="369,5,447,32"/>
+<area shape="rect" id="node4" href="$poi_8c.html#a2da6e63134c6ca1cf467a8cb81460dad" title="poi_mknod" alt="" coords="365,56,451,83"/>
+<area shape="rect" id="node5" href="$poi_8c.html#aa04c342fe153226c224be62aae9075c5" title="poi_rename" alt="" coords="363,107,453,133"/>
+</map>

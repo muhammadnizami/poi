@@ -1,0 +1,19 @@
+<map id="testReadWrite" name="testReadWrite">
+<area shape="rect" id="node2" href="$file-manager_8c.html#a9a8111f4e7948ad43fef393e0e4e3247" title="poi_file_create_new" alt="" coords="161,191,298,217"/>
+<area shape="rect" id="node13" href="$file-manager_8c.html#ac286b940c82432a07288c7a9afdc884a" title="poi_file_open" alt="" coords="180,308,279,335"/>
+<area shape="rect" id="node15" href="$data-pool-block-manager_8c.html#a10624f1cbc61dd0a8a03aa94d8502567" title="poi_data_pool_write\l_block" alt="" coords="161,242,298,283"/>
+<area shape="rect" id="node16" href="$data-pool-block-manager_8c.html#ac930ae4a4b3ca65a49d45c7654f15149" title="poi_data_pool_read\l_block" alt="" coords="162,359,297,401"/>
+<area shape="rect" id="node18" href="$file-manager_8c.html#a873cfe2d99ac7a57ff0a391d87c825dd" title="poi_file_close" alt="" coords="179,425,280,452"/>
+<area shape="rect" id="node3" href="$file-manager_8c.html#aa4d2e01426a89fe14e8c3a9fac2b61a0" title="set_poi_file_block\l_dword_little_endian" alt="" coords="347,66,487,107"/>
+<area shape="rect" id="node4" href="$directory-entry_8c.html#a9316a7dff46a87f98e3471031896670f" title="makeEntry" alt="" coords="375,132,460,159"/>
+<area shape="rect" id="node11" href="$file-manager_8c.html#aafd8b089a2a7b6c25cec6ec8c9504e5a" title="poi_file_write_block" alt="" coords="349,249,485,276"/>
+<area shape="rect" id="node12" href="$file-manager_8c.html#a8af78372c29561516b35df699039b85f" title="set_poi_file_block\l_word_little_endian" alt="" coords="351,183,484,225"/>
+<area shape="rect" id="node5" href="$directory-entry_8c.html#aaf2d59e38899c1a88c878a113355e68e" title="setNama" alt="" coords="572,5,647,32"/>
+<area shape="rect" id="node6" href="$directory-entry_8c.html#ab707665b70d7b489fea00097a365302b" title="setattr" alt="" coords="580,56,639,83"/>
+<area shape="rect" id="node7" href="$directory-entry_8c.html#a0dbc96b3055551072fccce217082e16a" title="setLastModifTime" alt="" coords="546,107,673,133"/>
+<area shape="rect" id="node8" href="$directory-entry_8c.html#a0d6184c06efca3bd8ee3e3314de4013d" title="setLastModifDate" alt="" coords="547,157,672,184"/>
+<area shape="rect" id="node9" href="$directory-entry_8c.html#a4275d4bb22d8095e6319637119694d9a" title="setFirstDataBlockIdx" alt="" coords="537,208,682,235"/>
+<area shape="rect" id="node10" href="$directory-entry_8c.html#a602a8f906599cd997e73640df620a514" title="setFileSize" alt="" coords="566,259,653,285"/>
+<area shape="rect" id="node14" href="$file-manager_8c.html#af091ab9b6704b6affa17ea12fd51e628" title="poi_file_validasi" alt="" coords="360,308,475,335"/>
+<area shape="rect" id="node17" href="$file-manager_8c.html#ac995e99a526073da84cd4fb1dab93a0a" title="poi_file_read_block" alt="" coords="351,367,484,393"/>
+</map>

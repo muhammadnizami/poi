@@ -1,0 +1,8 @@
+<map id="makeEntry" name="makeEntry">
+<area shape="rect" id="node2" href="$directory-entry_8c.html#aaf2d59e38899c1a88c878a113355e68e" title="setNama" alt="" coords="175,5,249,32"/>
+<area shape="rect" id="node3" href="$directory-entry_8c.html#ab707665b70d7b489fea00097a365302b" title="setattr" alt="" coords="183,56,241,83"/>
+<area shape="rect" id="node4" href="$directory-entry_8c.html#a0dbc96b3055551072fccce217082e16a" title="setLastModifTime" alt="" coords="149,107,275,133"/>
+<area shape="rect" id="node5" href="$directory-entry_8c.html#a0d6184c06efca3bd8ee3e3314de4013d" title="setLastModifDate" alt="" coords="149,157,275,184"/>
+<area shape="rect" id="node6" href="$directory-entry_8c.html#a4275d4bb22d8095e6319637119694d9a" title="setFirstDataBlockIdx" alt="" coords="139,208,285,235"/>
+<area shape="rect" id="node7" href="$directory-entry_8c.html#a602a8f906599cd997e73640df620a514" title="setFileSize" alt="" coords="169,259,255,285"/>
+</map>

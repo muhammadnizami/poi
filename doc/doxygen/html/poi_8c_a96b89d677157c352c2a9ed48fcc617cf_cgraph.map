@@ -1,0 +1,11 @@
+<map id="deleteEntry" name="deleteEntry">
+<area shape="rect" id="node2" href="$data-pool-block-manager_8c.html#ac930ae4a4b3ca65a49d45c7654f15149" title="poi_data_pool_read\l_block" alt="" coords="142,5,277,46"/>
+<area shape="rect" id="node4" href="$allocation-block-manager_8c.html#a0843a74a7e1cc7c50dbfa521e4ea1cc8" title="getNextBlock" alt="" coords="159,92,260,119"/>
+<area shape="rect" id="node10" href="$data-pool-block-manager_8c.html#a10624f1cbc61dd0a8a03aa94d8502567" title="poi_data_pool_write\l_block" alt="" coords="550,174,687,215"/>
+<area shape="rect" id="node3" href="$file-manager_8c.html#ac995e99a526073da84cd4fb1dab93a0a" title="poi_file_read_block" alt="" coords="552,67,685,93"/>
+<area shape="rect" id="node5" href="$allocation-block-manager_8c.html#a451dec2ee6d7a7241ab5fbc0a2ad0259" title="getPointerBlockLocation" alt="" coords="325,41,488,68"/>
+<area shape="rect" id="node6" href="$allocation-block-manager_8c.html#a2d77f886ffa0a0d025a6a521cc6cf294" title="loadPoiAllocationCache" alt="" coords="327,92,487,119"/>
+<area shape="rect" id="node9" href="$file-manager_8c.html#ab2141a18a18420ac6e71f85341fda8ba" title="get_poi_file_block\l_word_little_endian" alt="" coords="340,143,473,185"/>
+<area shape="rect" id="node7" href="$allocation-block-manager_8c.html#aa62c7923af0be489b52b1dcdd7c04e23" title="savePoiAllocationCache" alt="" coords="537,119,701,145"/>
+<area shape="rect" id="node8" href="$file-manager_8c.html#aafd8b089a2a7b6c25cec6ec8c9504e5a" title="poi_file_write_block" alt="" coords="749,151,885,177"/>
+</map>

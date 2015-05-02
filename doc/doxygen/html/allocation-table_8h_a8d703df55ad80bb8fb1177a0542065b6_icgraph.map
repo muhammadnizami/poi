@@ -1,0 +1,10 @@
+<map id="deleteListOfBlock" name="deleteListOfBlock">
+<area shape="rect" id="node2" href="$allocation-table-test_8c.html#ace8f7db6e87db1e1e06efbc9437e58f1" title="deleteListOfBlockTest" alt="" coords="186,5,337,32"/>
+<area shape="rect" id="node4" href="$allocation-table-test_8c.html#a9126bcf052408b8d8f30110d1a6c7627" title="allocateAfterBanyakTest" alt="" coords="179,56,344,83"/>
+<area shape="rect" id="node5" href="$allocation-table_8h.html#a986965542b07562f2f205f9d68043a9c" title="truncateList" alt="" coords="216,107,307,133"/>
+<area shape="rect" id="node8" href="$poi_8c.html#a6d1c73ddb2c9e75dd516f2995a121c84" title="poi_unlink" alt="" coords="399,157,479,184"/>
+<area shape="rect" id="node3" href="$allocation-table-test_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="413,5,464,32"/>
+<area shape="rect" id="node6" href="$poi_8c.html#a916c54fa22cdda50d516a667840bc957" title="poi_truncate" alt="" coords="392,56,485,83"/>
+<area shape="rect" id="node7" href="$poi_8c.html#aa04c342fe153226c224be62aae9075c5" title="poi_rename" alt="" coords="394,107,483,133"/>
+<area shape="rect" id="node9" href="$poi_8c.html#a6097c210a3653eaaaa28821de8cad867" title="poi_rmdir" alt="" coords="533,157,608,184"/>
+</map>

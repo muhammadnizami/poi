@@ -1,0 +1,501 @@
+\hypertarget{file-manager_8c}{\section{src/file-\/manager.c File Reference}
+\label{file-manager_8c}\index{src/file-\/manager.\-c@{src/file-\/manager.\-c}}
+}
+{\ttfamily \#include \char`\"{}file-\/manager.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}directory-\/entry.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$assert.\-h$>$}\\*
+Include dependency graph for file-\/manager.c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{file-manager_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{file-manager_8c_a4cf8a8494b61cb9b9cbadc130d35f662}{file\-\_\-manager\-\_\-c}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint8\-\_\-t \hyperlink{file-manager_8c_aa7ddf45147d5fd749f48262bfa3f7596}{get\-\_\-poi\-\_\-file\-\_\-block\-\_\-byte} (const \hyperlink{structpoi__file__block}{poi\-\_\-file\-\_\-block} $\ast$fb, uint32\-\_\-t offset)
+\item 
+uint16\-\_\-t \hyperlink{file-manager_8c_aa1b3406849e894d98c44ac9eaeb5fe4c}{get\-\_\-poi\-\_\-file\-\_\-block\-\_\-word\-\_\-terurut} (const \hyperlink{structpoi__file__block}{poi\-\_\-file\-\_\-block} $\ast$fb, uint32\-\_\-t offset)
+\item 
+uint16\-\_\-t \hyperlink{file-manager_8c_ab2141a18a18420ac6e71f85341fda8ba}{get\-\_\-poi\-\_\-file\-\_\-block\-\_\-word\-\_\-little\-\_\-endian} (const \hyperlink{structpoi__file__block}{poi\-\_\-file\-\_\-block} $\ast$fb, uint32\-\_\-t offset)
+\item 
+uint32\-\_\-t \hyperlink{file-manager_8c_a013cf45a7073cdb61f54758f4271100f}{get\-\_\-poi\-\_\-file\-\_\-block\-\_\-dword\-\_\-terurut} (const \hyperlink{structpoi__file__block}{poi\-\_\-file\-\_\-block} $\ast$fb, uint32\-\_\-t offset)
+\item 
+uint32\-\_\-t \hyperlink{file-manager_8c_a9b3a4e41531820c25e3d2d9019c39cba}{get\-\_\-poi\-\_\-file\-\_\-block\-\_\-dword\-\_\-little\-\_\-endian} (const \hyperlink{structpoi__file__block}{poi\-\_\-file\-\_\-block} $\ast$fb, uint32\-\_\-t offset)
+\item 
+uint8\-\_\-t $\ast$ \hyperlink{file-manager_8c_a1620d168cca553a51e54bc807ded7d70}{get\-\_\-pointer\-\_\-to\-\_\-data} (\hyperlink{structpoi__file__block}{poi\-\_\-file\-\_\-block} $\ast$fb)
+\item 
+void \hyperlink{file-manager_8c_ae7dadc1287f969a24815c62ad80f4d08}{set\-\_\-poi\-\_\-file\-\_\-block\-\_\-byte} (\hyperlink{structpoi__file__block}{poi\-\_\-file\-\_\-block} $\ast$fb, uint32\-\_\-t offset, uint8\-\_\-t data)
+\item 
+void \hyperlink{file-manager_8c_a871a513295bd0a2c63e531d17cb23c54}{set\-\_\-poi\-\_\-file\-\_\-block\-\_\-word\-\_\-terurut} (\hyperlink{structpoi__file__block}{poi\-\_\-file\-\_\-block} $\ast$fb, uint32\-\_\-t offset, uint16\-\_\-t data)
+\item 
+void \hyperlink{file-manager_8c_a8af78372c29561516b35df699039b85f}{set\-\_\-poi\-\_\-file\-\_\-block\-\_\-word\-\_\-little\-\_\-endian} (\hyperlink{structpoi__file__block}{poi\-\_\-file\-\_\-block} $\ast$fb, uint32\-\_\-t offset, uint16\-\_\-t data)
+\item 
+void \hyperlink{file-manager_8c_a384e9cca8b36bc32ca1b92ac410bb7ed}{set\-\_\-poi\-\_\-file\-\_\-block\-\_\-dword\-\_\-terurut} (\hyperlink{structpoi__file__block}{poi\-\_\-file\-\_\-block} $\ast$fb, uint32\-\_\-t offset, uint32\-\_\-t data)
+\item 
+void \hyperlink{file-manager_8c_aa4d2e01426a89fe14e8c3a9fac2b61a0}{set\-\_\-poi\-\_\-file\-\_\-block\-\_\-dword\-\_\-little\-\_\-endian} (\hyperlink{structpoi__file__block}{poi\-\_\-file\-\_\-block} $\ast$fb, uint32\-\_\-t offset, uint32\-\_\-t data)
+\item 
+int \hyperlink{file-manager_8c_af091ab9b6704b6affa17ea12fd51e628}{poi\-\_\-file\-\_\-validasi} (const char $\ast$path)
+\item 
+int \hyperlink{file-manager_8c_ac286b940c82432a07288c7a9afdc884a}{poi\-\_\-file\-\_\-open} (const char $\ast$path)
+\item 
+int \hyperlink{file-manager_8c_a873cfe2d99ac7a57ff0a391d87c825dd}{poi\-\_\-file\-\_\-close} ()
+\item 
+int \hyperlink{file-manager_8c_a9a8111f4e7948ad43fef393e0e4e3247}{poi\-\_\-file\-\_\-create\-\_\-new} (const char $\ast$path)
+\item 
+\hyperlink{structpoi__file__block}{poi\-\_\-file\-\_\-block} \hyperlink{file-manager_8c_ac995e99a526073da84cd4fb1dab93a0a}{poi\-\_\-file\-\_\-read\-\_\-block} (\hyperlink{file-manager_8h_aef709af8fc6566dcaf55b656bb9f8881}{poi\-\_\-file\-\_\-block\-\_\-num\-\_\-t} \hyperlink{allocation-table-test_8c_a24010dade8ebab3f87a48022772cd975}{n})
+\item 
+int \hyperlink{file-manager_8c_aafd8b089a2a7b6c25cec6ec8c9504e5a}{poi\-\_\-file\-\_\-write\-\_\-block} (\hyperlink{structpoi__file__block}{poi\-\_\-file\-\_\-block} b, \hyperlink{file-manager_8h_aef709af8fc6566dcaf55b656bb9f8881}{poi\-\_\-file\-\_\-block\-\_\-num\-\_\-t} \hyperlink{allocation-table-test_8c_a24010dade8ebab3f87a48022772cd975}{n})
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{file-manager_8c_a4cf8a8494b61cb9b9cbadc130d35f662}{\index{file-\/manager.\-c@{file-\/manager.\-c}!file\-\_\-manager\-\_\-c@{file\-\_\-manager\-\_\-c}}
+\index{file\-\_\-manager\-\_\-c@{file\-\_\-manager\-\_\-c}!file-manager.c@{file-\/manager.\-c}}
+\subsubsection[{file\-\_\-manager\-\_\-c}]{\setlength{\rightskip}{0pt plus 5cm}\#define file\-\_\-manager\-\_\-c}}\label{file-manager_8c_a4cf8a8494b61cb9b9cbadc130d35f662}
+
+
+Definition at line 2 of file file-\/manager.\-c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{file-manager_8c_aa7ddf45147d5fd749f48262bfa3f7596}{\index{file-\/manager.\-c@{file-\/manager.\-c}!get\-\_\-poi\-\_\-file\-\_\-block\-\_\-byte@{get\-\_\-poi\-\_\-file\-\_\-block\-\_\-byte}}
+\index{get\-\_\-poi\-\_\-file\-\_\-block\-\_\-byte@{get\-\_\-poi\-\_\-file\-\_\-block\-\_\-byte}!file-manager.c@{file-\/manager.\-c}}
+\subsubsection[{get\-\_\-poi\-\_\-file\-\_\-block\-\_\-byte}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t get\-\_\-poi\-\_\-file\-\_\-block\-\_\-byte (
+\begin{DoxyParamCaption}
+\item[{const {\bf poi\-\_\-file\-\_\-block} $\ast$}]{fb, }
+\item[{uint32\-\_\-t}]{offset}
+\end{DoxyParamCaption}
+)}}\label{file-manager_8c_aa7ddf45147d5fd749f48262bfa3f7596}
+
+
+Definition at line 19 of file file-\/manager.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{file-manager_8c_aa7ddf45147d5fd749f48262bfa3f7596_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{file-manager_8c_a9b3a4e41531820c25e3d2d9019c39cba}{\index{file-\/manager.\-c@{file-\/manager.\-c}!get\-\_\-poi\-\_\-file\-\_\-block\-\_\-dword\-\_\-little\-\_\-endian@{get\-\_\-poi\-\_\-file\-\_\-block\-\_\-dword\-\_\-little\-\_\-endian}}
+\index{get\-\_\-poi\-\_\-file\-\_\-block\-\_\-dword\-\_\-little\-\_\-endian@{get\-\_\-poi\-\_\-file\-\_\-block\-\_\-dword\-\_\-little\-\_\-endian}!file-manager.c@{file-\/manager.\-c}}
+\subsubsection[{get\-\_\-poi\-\_\-file\-\_\-block\-\_\-dword\-\_\-little\-\_\-endian}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t get\-\_\-poi\-\_\-file\-\_\-block\-\_\-dword\-\_\-little\-\_\-endian (
+\begin{DoxyParamCaption}
+\item[{const {\bf poi\-\_\-file\-\_\-block} $\ast$}]{fb, }
+\item[{uint32\-\_\-t}]{offset}
+\end{DoxyParamCaption}
+)}}\label{file-manager_8c_a9b3a4e41531820c25e3d2d9019c39cba}
+
+
+Definition at line 54 of file file-\/manager.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{file-manager_8c_a9b3a4e41531820c25e3d2d9019c39cba_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{file-manager_8c_a013cf45a7073cdb61f54758f4271100f}{\index{file-\/manager.\-c@{file-\/manager.\-c}!get\-\_\-poi\-\_\-file\-\_\-block\-\_\-dword\-\_\-terurut@{get\-\_\-poi\-\_\-file\-\_\-block\-\_\-dword\-\_\-terurut}}
+\index{get\-\_\-poi\-\_\-file\-\_\-block\-\_\-dword\-\_\-terurut@{get\-\_\-poi\-\_\-file\-\_\-block\-\_\-dword\-\_\-terurut}!file-manager.c@{file-\/manager.\-c}}
+\subsubsection[{get\-\_\-poi\-\_\-file\-\_\-block\-\_\-dword\-\_\-terurut}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t get\-\_\-poi\-\_\-file\-\_\-block\-\_\-dword\-\_\-terurut (
+\begin{DoxyParamCaption}
+\item[{const {\bf poi\-\_\-file\-\_\-block} $\ast$}]{fb, }
+\item[{uint32\-\_\-t}]{offset}
+\end{DoxyParamCaption}
+)}}\label{file-manager_8c_a013cf45a7073cdb61f54758f4271100f}
+
+
+Definition at line 40 of file file-\/manager.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{file-manager_8c_a013cf45a7073cdb61f54758f4271100f_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{file-manager_8c_ab2141a18a18420ac6e71f85341fda8ba}{\index{file-\/manager.\-c@{file-\/manager.\-c}!get\-\_\-poi\-\_\-file\-\_\-block\-\_\-word\-\_\-little\-\_\-endian@{get\-\_\-poi\-\_\-file\-\_\-block\-\_\-word\-\_\-little\-\_\-endian}}
+\index{get\-\_\-poi\-\_\-file\-\_\-block\-\_\-word\-\_\-little\-\_\-endian@{get\-\_\-poi\-\_\-file\-\_\-block\-\_\-word\-\_\-little\-\_\-endian}!file-manager.c@{file-\/manager.\-c}}
+\subsubsection[{get\-\_\-poi\-\_\-file\-\_\-block\-\_\-word\-\_\-little\-\_\-endian}]{\setlength{\rightskip}{0pt plus 5cm}uint16\-\_\-t get\-\_\-poi\-\_\-file\-\_\-block\-\_\-word\-\_\-little\-\_\-endian (
+\begin{DoxyParamCaption}
+\item[{const {\bf poi\-\_\-file\-\_\-block} $\ast$}]{fb, }
+\item[{uint32\-\_\-t}]{offset}
+\end{DoxyParamCaption}
+)}}\label{file-manager_8c_ab2141a18a18420ac6e71f85341fda8ba}
+
+
+Definition at line 32 of file file-\/manager.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{file-manager_8c_ab2141a18a18420ac6e71f85341fda8ba_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{file-manager_8c_aa1b3406849e894d98c44ac9eaeb5fe4c}{\index{file-\/manager.\-c@{file-\/manager.\-c}!get\-\_\-poi\-\_\-file\-\_\-block\-\_\-word\-\_\-terurut@{get\-\_\-poi\-\_\-file\-\_\-block\-\_\-word\-\_\-terurut}}
+\index{get\-\_\-poi\-\_\-file\-\_\-block\-\_\-word\-\_\-terurut@{get\-\_\-poi\-\_\-file\-\_\-block\-\_\-word\-\_\-terurut}!file-manager.c@{file-\/manager.\-c}}
+\subsubsection[{get\-\_\-poi\-\_\-file\-\_\-block\-\_\-word\-\_\-terurut}]{\setlength{\rightskip}{0pt plus 5cm}uint16\-\_\-t get\-\_\-poi\-\_\-file\-\_\-block\-\_\-word\-\_\-terurut (
+\begin{DoxyParamCaption}
+\item[{const {\bf poi\-\_\-file\-\_\-block} $\ast$}]{fb, }
+\item[{uint32\-\_\-t}]{offset}
+\end{DoxyParamCaption}
+)}}\label{file-manager_8c_aa1b3406849e894d98c44ac9eaeb5fe4c}
+
+
+Definition at line 24 of file file-\/manager.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{file-manager_8c_aa1b3406849e894d98c44ac9eaeb5fe4c_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{file-manager_8c_a1620d168cca553a51e54bc807ded7d70}{\index{file-\/manager.\-c@{file-\/manager.\-c}!get\-\_\-pointer\-\_\-to\-\_\-data@{get\-\_\-pointer\-\_\-to\-\_\-data}}
+\index{get\-\_\-pointer\-\_\-to\-\_\-data@{get\-\_\-pointer\-\_\-to\-\_\-data}!file-manager.c@{file-\/manager.\-c}}
+\subsubsection[{get\-\_\-pointer\-\_\-to\-\_\-data}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t$\ast$ get\-\_\-pointer\-\_\-to\-\_\-data (
+\begin{DoxyParamCaption}
+\item[{{\bf poi\-\_\-file\-\_\-block} $\ast$}]{fb}
+\end{DoxyParamCaption}
+)}}\label{file-manager_8c_a1620d168cca553a51e54bc807ded7d70}
+
+
+Definition at line 68 of file file-\/manager.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{file-manager_8c_a1620d168cca553a51e54bc807ded7d70_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{file-manager_8c_a873cfe2d99ac7a57ff0a391d87c825dd}{\index{file-\/manager.\-c@{file-\/manager.\-c}!poi\-\_\-file\-\_\-close@{poi\-\_\-file\-\_\-close}}
+\index{poi\-\_\-file\-\_\-close@{poi\-\_\-file\-\_\-close}!file-manager.c@{file-\/manager.\-c}}
+\subsubsection[{poi\-\_\-file\-\_\-close}]{\setlength{\rightskip}{0pt plus 5cm}int poi\-\_\-file\-\_\-close (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{file-manager_8c_a873cfe2d99ac7a57ff0a391d87c825dd}
+
+
+Definition at line 186 of file file-\/manager.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{file-manager_8c_a873cfe2d99ac7a57ff0a391d87c825dd_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{file-manager_8c_a9a8111f4e7948ad43fef393e0e4e3247}{\index{file-\/manager.\-c@{file-\/manager.\-c}!poi\-\_\-file\-\_\-create\-\_\-new@{poi\-\_\-file\-\_\-create\-\_\-new}}
+\index{poi\-\_\-file\-\_\-create\-\_\-new@{poi\-\_\-file\-\_\-create\-\_\-new}!file-manager.c@{file-\/manager.\-c}}
+\subsubsection[{poi\-\_\-file\-\_\-create\-\_\-new}]{\setlength{\rightskip}{0pt plus 5cm}int poi\-\_\-file\-\_\-create\-\_\-new (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{path}
+\end{DoxyParamCaption}
+)}}\label{file-manager_8c_a9a8111f4e7948ad43fef393e0e4e3247}
+
+
+Definition at line 205 of file file-\/manager.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{file-manager_8c_a9a8111f4e7948ad43fef393e0e4e3247_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{file-manager_8c_a9a8111f4e7948ad43fef393e0e4e3247_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{file-manager_8c_ac286b940c82432a07288c7a9afdc884a}{\index{file-\/manager.\-c@{file-\/manager.\-c}!poi\-\_\-file\-\_\-open@{poi\-\_\-file\-\_\-open}}
+\index{poi\-\_\-file\-\_\-open@{poi\-\_\-file\-\_\-open}!file-manager.c@{file-\/manager.\-c}}
+\subsubsection[{poi\-\_\-file\-\_\-open}]{\setlength{\rightskip}{0pt plus 5cm}int poi\-\_\-file\-\_\-open (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{path}
+\end{DoxyParamCaption}
+)}}\label{file-manager_8c_ac286b940c82432a07288c7a9afdc884a}
+
+
+Definition at line 173 of file file-\/manager.\-c.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=276pt]{file-manager_8c_ac286b940c82432a07288c7a9afdc884a_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{file-manager_8c_ac286b940c82432a07288c7a9afdc884a_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{file-manager_8c_ac995e99a526073da84cd4fb1dab93a0a}{\index{file-\/manager.\-c@{file-\/manager.\-c}!poi\-\_\-file\-\_\-read\-\_\-block@{poi\-\_\-file\-\_\-read\-\_\-block}}
+\index{poi\-\_\-file\-\_\-read\-\_\-block@{poi\-\_\-file\-\_\-read\-\_\-block}!file-manager.c@{file-\/manager.\-c}}
+\subsubsection[{poi\-\_\-file\-\_\-read\-\_\-block}]{\setlength{\rightskip}{0pt plus 5cm}{\bf poi\-\_\-file\-\_\-block} poi\-\_\-file\-\_\-read\-\_\-block (
+\begin{DoxyParamCaption}
+\item[{{\bf poi\-\_\-file\-\_\-block\-\_\-num\-\_\-t}}]{n}
+\end{DoxyParamCaption}
+)}}\label{file-manager_8c_ac995e99a526073da84cd4fb1dab93a0a}
+
+
+Definition at line 248 of file file-\/manager.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{file-manager_8c_ac995e99a526073da84cd4fb1dab93a0a_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{file-manager_8c_af091ab9b6704b6affa17ea12fd51e628}{\index{file-\/manager.\-c@{file-\/manager.\-c}!poi\-\_\-file\-\_\-validasi@{poi\-\_\-file\-\_\-validasi}}
+\index{poi\-\_\-file\-\_\-validasi@{poi\-\_\-file\-\_\-validasi}!file-manager.c@{file-\/manager.\-c}}
+\subsubsection[{poi\-\_\-file\-\_\-validasi}]{\setlength{\rightskip}{0pt plus 5cm}int poi\-\_\-file\-\_\-validasi (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{path}
+\end{DoxyParamCaption}
+)}}\label{file-manager_8c_af091ab9b6704b6affa17ea12fd51e628}
+
+
+Definition at line 139 of file file-\/manager.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{file-manager_8c_af091ab9b6704b6affa17ea12fd51e628_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{file-manager_8c_aafd8b089a2a7b6c25cec6ec8c9504e5a}{\index{file-\/manager.\-c@{file-\/manager.\-c}!poi\-\_\-file\-\_\-write\-\_\-block@{poi\-\_\-file\-\_\-write\-\_\-block}}
+\index{poi\-\_\-file\-\_\-write\-\_\-block@{poi\-\_\-file\-\_\-write\-\_\-block}!file-manager.c@{file-\/manager.\-c}}
+\subsubsection[{poi\-\_\-file\-\_\-write\-\_\-block}]{\setlength{\rightskip}{0pt plus 5cm}int poi\-\_\-file\-\_\-write\-\_\-block (
+\begin{DoxyParamCaption}
+\item[{{\bf poi\-\_\-file\-\_\-block}}]{b, }
+\item[{{\bf poi\-\_\-file\-\_\-block\-\_\-num\-\_\-t}}]{n}
+\end{DoxyParamCaption}
+)}}\label{file-manager_8c_aafd8b089a2a7b6c25cec6ec8c9504e5a}
+
+
+Definition at line 257 of file file-\/manager.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{file-manager_8c_aafd8b089a2a7b6c25cec6ec8c9504e5a_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{file-manager_8c_ae7dadc1287f969a24815c62ad80f4d08}{\index{file-\/manager.\-c@{file-\/manager.\-c}!set\-\_\-poi\-\_\-file\-\_\-block\-\_\-byte@{set\-\_\-poi\-\_\-file\-\_\-block\-\_\-byte}}
+\index{set\-\_\-poi\-\_\-file\-\_\-block\-\_\-byte@{set\-\_\-poi\-\_\-file\-\_\-block\-\_\-byte}!file-manager.c@{file-\/manager.\-c}}
+\subsubsection[{set\-\_\-poi\-\_\-file\-\_\-block\-\_\-byte}]{\setlength{\rightskip}{0pt plus 5cm}void set\-\_\-poi\-\_\-file\-\_\-block\-\_\-byte (
+\begin{DoxyParamCaption}
+\item[{{\bf poi\-\_\-file\-\_\-block} $\ast$}]{fb, }
+\item[{uint32\-\_\-t}]{offset, }
+\item[{uint8\-\_\-t}]{data}
+\end{DoxyParamCaption}
+)}}\label{file-manager_8c_ae7dadc1287f969a24815c62ad80f4d08}
+
+
+Definition at line 73 of file file-\/manager.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{file-manager_8c_ae7dadc1287f969a24815c62ad80f4d08_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{file-manager_8c_aa4d2e01426a89fe14e8c3a9fac2b61a0}{\index{file-\/manager.\-c@{file-\/manager.\-c}!set\-\_\-poi\-\_\-file\-\_\-block\-\_\-dword\-\_\-little\-\_\-endian@{set\-\_\-poi\-\_\-file\-\_\-block\-\_\-dword\-\_\-little\-\_\-endian}}
+\index{set\-\_\-poi\-\_\-file\-\_\-block\-\_\-dword\-\_\-little\-\_\-endian@{set\-\_\-poi\-\_\-file\-\_\-block\-\_\-dword\-\_\-little\-\_\-endian}!file-manager.c@{file-\/manager.\-c}}
+\subsubsection[{set\-\_\-poi\-\_\-file\-\_\-block\-\_\-dword\-\_\-little\-\_\-endian}]{\setlength{\rightskip}{0pt plus 5cm}void set\-\_\-poi\-\_\-file\-\_\-block\-\_\-dword\-\_\-little\-\_\-endian (
+\begin{DoxyParamCaption}
+\item[{{\bf poi\-\_\-file\-\_\-block} $\ast$}]{fb, }
+\item[{uint32\-\_\-t}]{offset, }
+\item[{uint32\-\_\-t}]{data}
+\end{DoxyParamCaption}
+)}}\label{file-manager_8c_aa4d2e01426a89fe14e8c3a9fac2b61a0}
+
+
+Definition at line 105 of file file-\/manager.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{file-manager_8c_aa4d2e01426a89fe14e8c3a9fac2b61a0_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{file-manager_8c_a384e9cca8b36bc32ca1b92ac410bb7ed}{\index{file-\/manager.\-c@{file-\/manager.\-c}!set\-\_\-poi\-\_\-file\-\_\-block\-\_\-dword\-\_\-terurut@{set\-\_\-poi\-\_\-file\-\_\-block\-\_\-dword\-\_\-terurut}}
+\index{set\-\_\-poi\-\_\-file\-\_\-block\-\_\-dword\-\_\-terurut@{set\-\_\-poi\-\_\-file\-\_\-block\-\_\-dword\-\_\-terurut}!file-manager.c@{file-\/manager.\-c}}
+\subsubsection[{set\-\_\-poi\-\_\-file\-\_\-block\-\_\-dword\-\_\-terurut}]{\setlength{\rightskip}{0pt plus 5cm}void set\-\_\-poi\-\_\-file\-\_\-block\-\_\-dword\-\_\-terurut (
+\begin{DoxyParamCaption}
+\item[{{\bf poi\-\_\-file\-\_\-block} $\ast$}]{fb, }
+\item[{uint32\-\_\-t}]{offset, }
+\item[{uint32\-\_\-t}]{data}
+\end{DoxyParamCaption}
+)}}\label{file-manager_8c_a384e9cca8b36bc32ca1b92ac410bb7ed}
+
+
+Definition at line 95 of file file-\/manager.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{file-manager_8c_a384e9cca8b36bc32ca1b92ac410bb7ed_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{file-manager_8c_a8af78372c29561516b35df699039b85f}{\index{file-\/manager.\-c@{file-\/manager.\-c}!set\-\_\-poi\-\_\-file\-\_\-block\-\_\-word\-\_\-little\-\_\-endian@{set\-\_\-poi\-\_\-file\-\_\-block\-\_\-word\-\_\-little\-\_\-endian}}
+\index{set\-\_\-poi\-\_\-file\-\_\-block\-\_\-word\-\_\-little\-\_\-endian@{set\-\_\-poi\-\_\-file\-\_\-block\-\_\-word\-\_\-little\-\_\-endian}!file-manager.c@{file-\/manager.\-c}}
+\subsubsection[{set\-\_\-poi\-\_\-file\-\_\-block\-\_\-word\-\_\-little\-\_\-endian}]{\setlength{\rightskip}{0pt plus 5cm}void set\-\_\-poi\-\_\-file\-\_\-block\-\_\-word\-\_\-little\-\_\-endian (
+\begin{DoxyParamCaption}
+\item[{{\bf poi\-\_\-file\-\_\-block} $\ast$}]{fb, }
+\item[{uint32\-\_\-t}]{offset, }
+\item[{uint16\-\_\-t}]{data}
+\end{DoxyParamCaption}
+)}}\label{file-manager_8c_a8af78372c29561516b35df699039b85f}
+
+
+Definition at line 87 of file file-\/manager.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{file-manager_8c_a8af78372c29561516b35df699039b85f_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{file-manager_8c_a871a513295bd0a2c63e531d17cb23c54}{\index{file-\/manager.\-c@{file-\/manager.\-c}!set\-\_\-poi\-\_\-file\-\_\-block\-\_\-word\-\_\-terurut@{set\-\_\-poi\-\_\-file\-\_\-block\-\_\-word\-\_\-terurut}}
+\index{set\-\_\-poi\-\_\-file\-\_\-block\-\_\-word\-\_\-terurut@{set\-\_\-poi\-\_\-file\-\_\-block\-\_\-word\-\_\-terurut}!file-manager.c@{file-\/manager.\-c}}
+\subsubsection[{set\-\_\-poi\-\_\-file\-\_\-block\-\_\-word\-\_\-terurut}]{\setlength{\rightskip}{0pt plus 5cm}void set\-\_\-poi\-\_\-file\-\_\-block\-\_\-word\-\_\-terurut (
+\begin{DoxyParamCaption}
+\item[{{\bf poi\-\_\-file\-\_\-block} $\ast$}]{fb, }
+\item[{uint32\-\_\-t}]{offset, }
+\item[{uint16\-\_\-t}]{data}
+\end{DoxyParamCaption}
+)}}\label{file-manager_8c_a871a513295bd0a2c63e531d17cb23c54}
+
+
+Definition at line 79 of file file-\/manager.\-c.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{file-manager_8c_a871a513295bd0a2c63e531d17cb23c54_icgraph}
+\end{center}
+\end{figure}
+
+

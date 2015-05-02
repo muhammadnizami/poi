@@ -1,0 +1,5 @@
+<map id="loadPoiAllocationCache" name="loadPoiAllocationCache">
+<area shape="rect" id="node2" href="$file-manager_8c.html#ac995e99a526073da84cd4fb1dab93a0a" title="poi_file_read_block" alt="" coords="229,5,363,32"/>
+<area shape="rect" id="node3" href="$allocation-block-manager_8c.html#aa62c7923af0be489b52b1dcdd7c04e23" title="savePoiAllocationCache" alt="" coords="214,56,378,83"/>
+<area shape="rect" id="node4" href="$file-manager_8c.html#aafd8b089a2a7b6c25cec6ec8c9504e5a" title="poi_file_write_block" alt="" coords="427,56,563,83"/>
+</map>

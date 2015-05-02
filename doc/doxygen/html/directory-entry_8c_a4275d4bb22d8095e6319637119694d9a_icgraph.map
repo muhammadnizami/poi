@@ -1,0 +1,12 @@
+<map id="setFirstDataBlockIdx" name="setFirstDataBlockIdx">
+<area shape="rect" id="node2" href="$directory-entry_8h.html#a9316a7dff46a87f98e3471031896670f" title="makeEntry" alt="" coords="200,81,285,108"/>
+<area shape="rect" id="node3" href="$directory-entry-test_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="377,5,428,32"/>
+<area shape="rect" id="node4" href="$file-manager_8h.html#a9a8111f4e7948ad43fef393e0e4e3247" title="poi_file_create_new" alt="" coords="334,56,471,83"/>
+<area shape="rect" id="node10" href="$poi_8c.html#ad5142050bb36b094a9d752f4459d8884" title="poi_mkdir" alt="" coords="363,107,442,133"/>
+<area shape="rect" id="node11" href="$poi_8c.html#a2da6e63134c6ca1cf467a8cb81460dad" title="poi_mknod" alt="" coords="360,157,445,184"/>
+<area shape="rect" id="node5" href="$allocation-block-manager-test_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="579,5,629,32"/>
+<area shape="rect" id="node6" href="$data-pool-block-manager-test_8c.html#a75323f97b259a6284370855087fb48ff" title="testReadWrite" alt="" coords="551,56,657,83"/>
+<area shape="rect" id="node8" href="$file-manager-test_8c.html#a48a3a16433027e57b2849906439b9c5b" title="test_poi_file_create_new" alt="" coords="521,107,687,133"/>
+<area shape="rect" id="node7" href="$data-pool-block-manager-test_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="736,56,787,83"/>
+<area shape="rect" id="node9" href="$file-manager-test_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="736,107,787,133"/>
+</map>

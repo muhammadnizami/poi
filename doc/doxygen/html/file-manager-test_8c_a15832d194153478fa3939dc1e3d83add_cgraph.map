@@ -1,0 +1,7 @@
+<map id="test_poi_file_read_write_block" name="test_poi_file_read_write_block">
+<area shape="rect" id="node2" href="$file-manager_8c.html#ac286b940c82432a07288c7a9afdc884a" title="poi_file_open" alt="" coords="197,5,296,32"/>
+<area shape="rect" id="node4" href="$file-manager_8c.html#ac995e99a526073da84cd4fb1dab93a0a" title="poi_file_read_block" alt="" coords="180,56,313,83"/>
+<area shape="rect" id="node5" href="$file-manager_8c.html#aafd8b089a2a7b6c25cec6ec8c9504e5a" title="poi_file_write_block" alt="" coords="179,107,315,133"/>
+<area shape="rect" id="node6" href="$file-manager_8c.html#a873cfe2d99ac7a57ff0a391d87c825dd" title="poi_file_close" alt="" coords="196,157,297,184"/>
+<area shape="rect" id="node3" href="$file-manager_8c.html#af091ab9b6704b6affa17ea12fd51e628" title="poi_file_validasi" alt="" coords="363,5,477,32"/>
+</map>
