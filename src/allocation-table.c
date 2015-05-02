@@ -92,7 +92,6 @@ void deleteListOfBlock(poi_data_pool_block_idx_t n){
 	}
 	setNumFreeBlocks(getNumFreeBlocks()+numfreed);
 	
-	return 0;//TODO
 }
 
 
