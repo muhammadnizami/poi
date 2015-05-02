@@ -72,7 +72,7 @@ void deleteListOfBlock(poi_data_pool_block_idx_t n){
 		poi_data_pool_block_idx_t prev = iter;
 		iter = getNextBlock(iter);
 		setNextBlock(prev,0x0000);
-
+		
 		//cek getFirstFreeBlockIdx
 		if (prev < getFirstFreeBlockIdx())
 			setFirstFreeBlockIdx(prev);
