@@ -209,7 +209,7 @@ int poi_file_create_new ( const char * path){
 	set_poi_file_block_dword_little_endian(&volinfo,9,POI_DATA_POOL_BLOCKS_NUM);
 	set_poi_file_block_dword_little_endian(&volinfo,10,POI_DATA_POOL_BLOCKS_NUM-1);
 	set_poi_file_block_dword_little_endian(&volinfo,11,0x0001);
-	poi_attr_t root_attr = {.x=0,.w=1,.r=1,.d=1};
+	poi_attr_t root_attr = {.x=1,.w=1,.r=1,.d=1};
 	WAKTU curTime = GetCurrentTime();
 	directory_entry e = makeEntry("",root_attr,GetJam(curTime),GetTanggal(curTime),0,0x0000);
 	memcpy(volinfo.data+0x30,e.bytearr,32);
