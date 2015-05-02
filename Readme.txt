@@ -26,14 +26,33 @@
 
 			      oleh
 			jang berikoetnja
+			    13512501
+			    13513051
+			    13513061
+
+			       ||
+			       ||
+			       ||
+			       ||
+			       ||
+			       ||
 
 
 /////////////////////////////////////////////////////////////////
 ////////////////////////////README///////////////////////////////
 /////////////////////////////////////////////////////////////////
 
+////I. STRUKTUR DIREKTORI////////////////////////////////////////
+ -----------------------------------
+|dir	isi			    |
+ -----------------------------------
+|/bin	eksekutabel		    |
+|/doc	dokumentasi dan laporan	    |
+|/obj	berkas objek hasil kompilasi|
+|/src	berkas sumber		    |
+ -----------------------------------
 
-////I. PEMBANGUNAN///////////////////////////////////////////////
+////II. PEMBANGUNAN//////////////////////////////////////////////
 
 Berikut ini adalah langkah-langkah untuk membangun poi-fs:
 1. masuk ke direktori poi
@@ -47,7 +66,7 @@ setelah langkah-langkah ini, poi-fs ada di bin/poifs
 
 
 
-////II. PENGGUNAAN///////////////////////////////////////////////
+////III. PENGGUNAAN//////////////////////////////////////////////
 
 Menunggangi berkas .poi yang sudah ada
 	./poifs TITIK-TUNGGANG BERKASPOI
