@@ -1,3 +1,10 @@
+/**
+@file file-manager-test.c
+@author jang berikoetnja
+@brief poros penggerak uji untuk file-manager
+
+*/
+
 #include "file-manager.h"
 #include <assert.h>
 #include <stdlib.h>

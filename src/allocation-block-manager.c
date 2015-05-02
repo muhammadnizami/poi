@@ -1,3 +1,13 @@
+/**
+@file allocation-block-manager.c
+@author jang berikoetnja
+@brief mengambil dan menyimpan pointer to next di allocation table.
+
+Tidak memperhitungkan free space.
+Memiliki cache. Setiap akhir manipulasi harus memanggil savePoiAllocationCache()
+
+*/
+
 #ifndef allocation_manager_c
 #define allocation_manager_c
 

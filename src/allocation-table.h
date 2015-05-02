@@ -1,3 +1,13 @@
+/**
+@file allocation-table.h
+@author jang berikoetnja
+@brief mengatur seluruh senarai berkait alokasi berkas.
+
+Memperhitungkan juga ruang kosong. Bila ingin aman dengan perhitungan ruang kosong, panggil ini dan tidak langsung ke allocation-block-manager.h dalam hal manipulasi senarai. (dalam hal pengambilan saja, aman untuk mengambil langsung ke allocation-block-manager.h)
+Menggunakan cache dari allocation-table dan volume-information. Setiap akhir manipulasi harus memanggil saveAllocTableCaches()
+
+*/
+
 #ifndef allocation_table_h
 #define allocation_table_h
 

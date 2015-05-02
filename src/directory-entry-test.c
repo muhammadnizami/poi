@@ -1,3 +1,10 @@
+/**
+@file directory-entry-test.c
+@author jang berikoetnja
+@brief poros penggerak uji untuk directory-entry
+
+*/
+
 #include "directory-entry.h"
 
 #include <stdio.h>

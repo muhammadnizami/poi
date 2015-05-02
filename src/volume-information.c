@@ -1,3 +1,13 @@
+/**
+
+@file volume-information.h
+@author jang berikoetnja
+@brief mengatur informasi volume
+
+Modul ini bertugas untuk membaca dan menulis informasi volume pada blok pertama berkas .poi. Modul ini memiliki cache, sehingga setiap akhir manipulasi, savePoiVolinfoCache() harus dipanggil.
+
+*/
+
 #ifndef volume_information_c
 #define volume_information_c
 

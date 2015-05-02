@@ -1,3 +1,10 @@
+/**
+@file data-pool-block-manager.c
+@author jang berikoetnja
+@brief mengatur pembacaan dan penulisan blok kantong data
+
+*/
+
 #ifndef data_pool_block_manager_c
 #define data_pool_block_manager_c
 

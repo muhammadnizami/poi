@@ -1,4 +1,9 @@
+/**
+@file poi.c
+@author jang berikoetnja
+@brief berisi implementasi inerface ke fuse dan main program
 
+*/
 
 #include <fuse.h>
 #include <fcntl.h>

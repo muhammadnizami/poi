@@ -1,3 +1,12 @@
+/**
+@file file-manager.c
+@author jang berikoetnja
+@brief manajer berkas dan blok
+
+Modul ini mengatur seluruh masukan-luaran (i/o) langsung kepada berkas .poi yang ditunggangi. Seluruh modul lain HARUS menggunakan modul ini untuk masukan-luaran ke berkas .poi yang ditunggangi
+
+*/
+
 #ifndef file_manager_c
 #define file_manager_c
 

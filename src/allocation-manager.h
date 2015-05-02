@@ -1,3 +1,9 @@
+/**
+@file allocation-manager.h
+@author jang berikoetnja
+@brief berkas sampah
+*/
+
 #ifndef allocation_manager_h
 #define allocation_manager_h
 

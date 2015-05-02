@@ -1,3 +1,13 @@
+/**
+@file directory-entry.c
+@author jang berikoetnja
+@brief struktur data entri direktori
+
+Ini adalah struktur data entri direktori yang sudah dalam bentuk array of byte. Untuk menulis, tinggal disalin ke array of byte lain lalu ditulis.
+penyalinan array of byte dapat menggunakan memcpy langsung ke directory_entry.bytearr
+
+*/
+
 #ifndef directory_entry_c
 #define directory_entry_c
 
