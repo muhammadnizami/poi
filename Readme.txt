@@ -1,0 +1,73 @@
+
+
+       #      #       #    #                  #       ######   
+      ####### #       #   ########       ##########            
+     #     #         #   #    #              #    # ########## 
+    # #   #         #   #    #     #####     #    #      #     
+       ###        ##        #               #     #      #     
+      ##        ##         #               #   # #      #      
+    ##        ##          #               #     #     ##       
+
+
+
+ ===============================================================
+(								}
+|	 _______  _______ _________     _______  _______	}
+|	(  ____ )(  ___  )\__   __/    (  ____ \(  ____ \	}
+|	| (    )|| (   ) |   ) (       | (    \/| (    \/	}
+|	| (____)|| |   | |   | | _____ | (__    | (_____ 	}
+|	|  _____)| |   | |   | |(_____)|  __)   (_____  )	}
+|	| (      | |   | |   | |       | (            ) |	}
+|	| )      | (___) |___) (___    | )      /\____) |	}
+|	|/       (_______)\_______/    |/       \_______)	}
+|								}
+(								}
+ ===============================================================
+
+			      oleh
+			jang berikoetnja
+
+
+/////////////////////////////////////////////////////////////////
+////////////////////////////README///////////////////////////////
+/////////////////////////////////////////////////////////////////
+
+
+////I. PEMBANGUNAN///////////////////////////////////////////////
+
+Berikut ini adalah langkah-langkah untuk membangun poi-fs:
+1. masuk ke direktori poi
+2. pastikan ada direktori bin. bila tidak ada, buat direktori
+bin dengan cara berikut:
+	mkdir bin
+3. lakukan perintah berikut:
+	make
+
+setelah langkah-langkah ini, poi-fs ada di bin/poifs
+
+
+
+////II. PENGGUNAAN///////////////////////////////////////////////
+
+Menunggangi berkas .poi yang sudah ada
+	./poifs TITIK-TUNGGANG BERKASPOI
+	contoh:
+	./poifs a a.poi
+
+Membuat dan menunggangi berkas .poi
+	./poifs TITIK-TUNGGANG BERKASPOI -new
+	contoh:
+	./poifs a a.poi
+
+
+Sebelum menunggangi, pastikan TITIK-TUNGGANG ada dan kosong.
+untuk membuat TITIK-TUNGGANG:
+	mkdir TITIK-TUNGGANG
+untuk mengosonkan TITIK-TUNGGANG: (berbahaya)
+	rm TITIK-TUNGGANG/* -r
+
+
+Berhenti menunggangi
+	fusermount -u TITIK-TUNGGANG
+	contoh:
+	fusermount -u a
