@@ -11,14 +11,16 @@ void saveAllocTableCaches();
 //perhatikan numfreeblocks dari volinfo
 	poi_data_pool_block_idx_t n,m;
 void newListTest(){
-
+	printf("////newListTest////\n");
+	int i;
 	newList(&n);
 	printf("new list 0x%x. next: 0x%x\n",n,getNextBlock(n));
 	printf("ffb: 0x%x,\tnfb: 0x%x\n",getFirstFreeBlockIdx(),getNumFreeBlocks());
-	poi_file_close("testfile.poi");
+	for (i=0;i<0xf;i++) printf("next of 0x%x: 0x%x\n",i,getNextBlock(i));
 	newList(&m);
 	printf("new list 0x%x. next: 0x%x\n",m,getNextBlock(m));
 	printf("ffb: 0x%x,\tnfb: 0x%x\n",getFirstFreeBlockIdx(),getNumFreeBlocks());
+	for (i=0;i<0xf;i++) printf("next of 0x%x: 0x%x\n",i,getNextBlock(i));
 
 	
 }
@@ -30,12 +32,19 @@ void newListTest(){
 //perhatikan numfreeblocks dari volinfo
 //F.S. getNext(n) sudah dialokasi
 void allocateAfterTest(){
+	printf("////allocateAfterTest////\n");
+	int i;
 	allocateAfter(n);
 	printf("allocate after 0x%x: 0x%x\n",n,getNextBlock(n));
 	printf("ffb: 0x%x,\tnfb: 0x%x\n",getFirstFreeBlockIdx(),getNumFreeBlocks());
+	for (i=0;i<0xf;i++) printf("next of 0x%x: 0x%x\n",i,getNextBlock(i));
+
 	allocateAfter(m);
-	printf("allocate after 0x%x: 0x%x\n",n,getNextBlock(m));
+	printf("allocate after 0x%x: 0x%x\n",m,getNextBlock(m));
 	printf("ffb: 0x%x,\tnfb: 0x%x\n",getFirstFreeBlockIdx(),getNumFreeBlocks());
+
+
+	for (i=0;i<0xf;i++) printf("next of 0x%x: 0x%x\n",i,getNextBlock(i));
 }
 
 //test fungsi insertAfter, seharusnya insertAfter:
@@ -77,25 +86,28 @@ void deleteListOfBlockTest(){
 	printf("delete list 0x%x. next: 0x%x\n",n,getNextBlock(n));
 	printf("ffb: 0x%x,\tnfb: 0x%x\n",getFirstFreeBlockIdx(),getNumFreeBlocks());
 
-	newList(&n);
-	printf("new list 0x%x. next: 0x%x\n",n,getNextBlock(n));
-	printf("ffb: 0x%x,\tnfb: 0x%x\n",getFirstFreeBlockIdx(),getNumFreeBlocks());
-	newList(&n);
-	printf("new list 0x%x. next: 0x%x\n",n,getNextBlock(n));
-	printf("ffb: 0x%x,\tnfb: 0x%x\n",getFirstFreeBlockIdx(),getNumFreeBlocks());
-	newList(&n);
-	printf("new list 0x%x. next: 0x%x\n",n,getNextBlock(n));
-	printf("ffb: 0x%x,\tnfb: 0x%x\n",getFirstFreeBlockIdx(),getNumFreeBlocks());
 }
 
 void allocateAfterBanyakTest(){
-	int i;
-	for (i=0;i<0xfe;i++){
+	uint32_t i;
+	for (i=0;i<0xfff;i++){
+		if (!isEmpty(i)){printf("delete 0x%x\n",i); deleteListOfBlock(i);} //else printf("0x%x empty. next: 0x%x\n",i);
+	}
+	newList(&n);
+	printf("new list 0x%x. next: 0x%x\n",n,getNextBlock(n));
+	printf("ffb: 0x%x,\tnfb: 0x%x\n",getFirstFreeBlockIdx(),getNumFreeBlocks());
+	for (i=0;i<0xfff;i++){
 		allocateAfter(n);
 		printf("allocate after 0x%x: 0x%x\n",n,getNextBlock(n));
 		printf("ffb: 0x%x,\tnfb: 0x%x\n",getFirstFreeBlockIdx(),getNumFreeBlocks());
 		n=getNextBlock(n);
 	}
+	for (i=0x00;i<0x10;i++)
+		printf("check next 0x%x: 0x%x\n",i,getNextBlock(i));
+	for (i=0x100;i<0x110;i++)
+		printf("check next 0x%x: 0x%x\n",i,getNextBlock(i));
+	for (i=0x3200;i<0x3210;i++)
+		printf("check next 0x%x: 0x%x\n",i,getNextBlock(i));
 
 }
 

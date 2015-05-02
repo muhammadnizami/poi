@@ -41,7 +41,7 @@ int32_t allocateAfter(poi_data_pool_block_idx_t n){
 	poi_data_pool_block_idx_t next;
 	int32_t retval = newList(&next);
 	if (retval < 0) return retval;
-	setNextBlock(next,getNextBlock(n));
+	setNextBlock(next,0xffff);
 	setNextBlock(n,next);
 	return retval;
 }
@@ -80,7 +80,7 @@ void deleteListOfBlock(poi_data_pool_block_idx_t n){
 		//track jumlah
 		numfreed++;
 	}
-	setNumFreeBlocks(getNumFreeBlocks()-numfreed);
+	setNumFreeBlocks(getNumFreeBlocks()+numfreed);
 	
 	return 0;//TODO
 }

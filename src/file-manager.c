@@ -86,6 +86,7 @@ void set_poi_file_block_word_terurut(poi_file_block * fb, uint32_t offset, uint1
 
 void set_poi_file_block_word_little_endian(poi_file_block * fb, uint32_t offset, uint16_t data){
 	assert(0<=offset && offset<POI_BLOCK_SIZE/2);
+
 	fb->data[offset*2]=(data&0x00ff);
 	fb->data[offset*2+1]=(data&0xff00)>>8;
 	return;

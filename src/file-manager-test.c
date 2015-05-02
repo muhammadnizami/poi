@@ -92,11 +92,15 @@ void test_set_poi_file_block_word_terurut(){
 void test_set_poi_file_block_word_little_endian(){
 	poi_file_block test;
 	set_poi_file_block_word_little_endian(&test,0,0x0102);
+	set_poi_file_block_word_little_endian(&test,1,0xffff);
 	set_poi_file_block_word_little_endian(&test,POI_BLOCK_WORD_NUM-1,0x1112);
 	assert(test.data[1]==0x01);
 	assert(test.data[0]==0x02);
 	assert(test.data[POI_BLOCK_SIZE-1]==0x11);
 	assert(test.data[POI_BLOCK_SIZE-2]==0x12);
+	set_poi_file_block_word_little_endian(&test,0xff,0x2122);
+	assert(test.data[1]==0x01);
+	assert(test.data[0]==0x02);
 }
 void test_set_poi_file_block_dword_terurut(){
 	poi_file_block test;
@@ -163,6 +167,16 @@ void test_poi_file_read_write_block(){
 
 	poi_file_block awal = poi_file_read_block(0);
 	assert(memcmp("poi!",awal.data,4)==0);
+	poi_file_block blk2in;
+	poi_file_block blk3sblmwrt = poi_file_read_block(2);
+	blk2in.data[0]=23;
+	blk2in.data[511]=24;
+	poi_file_write_block(blk2in,1);
+	poi_file_block blk2out = poi_file_read_block(1);
+	assert(blk2in.data[0]==blk2out.data[0]);
+	poi_file_block blk3ssdhwrite = poi_file_read_block(2);
+	assert(blk3ssdhwrite.data[0]==blk3sblmwrt.data[0]);
+
 	poi_file_close();
 }
 

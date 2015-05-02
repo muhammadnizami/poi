@@ -29,10 +29,16 @@ int main(){
 		printf("%x ", get_poi_file_block_word_little_endian(&blk,i));
 	}
 	for (i=0;i<20;i++){
-		printf("check %d: 0x%x\n",i,getNextBlock(i));
+		printf("check 0x%x: 0x%x\n",i,getNextBlock(i));
 		setNextBlock(i,0xffff);
 		printf("\tdiganti jadi 0xffff: 0x%x\n",getNextBlock(i));
 		fflush(stdout);
 		//assert(isEmpty(i));
 	}
+
+	setNextBlock(0x300,0x0000);
+	printf("check 0x%x: 0x%x\n",0,getNextBlock(0));
+	printf("check 0x%x: 0x%x\n",0x300,getNextBlock(0x300));
+	printf("check 0x%x: 0x%x\n",0,getNextBlock(0));
+	printf("check 0x%x: 0x%x\n",0x300,getNextBlock(0x300));
 }

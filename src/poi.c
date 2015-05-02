@@ -460,6 +460,7 @@ int poi_mknod (const char *path, mode_t mode, dev_t dev){
  */
 int poi_write (const char *path, const char *buf, size_t size, off_t offset,
 	     struct fuse_file_info *fi){
+	//return -ENOSPC;
 	fprintf(logfile,"write('%s'). size: 0x%x\n",path,size);
 
 	uint16_t entryblockidx;
