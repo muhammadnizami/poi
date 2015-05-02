@@ -11,6 +11,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/stat.h>
+#include "allocation-table.h"
 #include "file-manager.h"
 #include "directory-entry.h"
 #include "volume-information.h"
