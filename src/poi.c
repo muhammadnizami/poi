@@ -3,6 +3,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <sys/stat.h>
 #include "file-manager.h"
 #include "directory-entry.h"
 #include "volume-information.h"
@@ -102,11 +103,11 @@ int directory_entry_to_struct_stat(directory_entry e, struct stat * statbuf){
 	statbuf->st_mode=0;
 	poi_attr_t attr=getattr(e);
 	if (attr.x)
-		statbuf->st_mode = statbuf->st_mode | S_IEXEC;
+		statbuf->st_mode = statbuf->st_mode | S_IEXEC | S_IXGRP | S_IXOTH;
 	if (attr.r)
-		statbuf->st_mode = statbuf->st_mode | S_IREAD;
+		statbuf->st_mode = statbuf->st_mode | S_IREAD | S_IRGRP | S_IROTH;
 	if (attr.w)
-		statbuf->st_mode = statbuf->st_mode | S_IWRITE;
+		statbuf->st_mode = statbuf->st_mode | S_IWRITE | S_IWGRP | S_IWOTH;
 	if (attr.d)
 		statbuf->st_mode = statbuf->st_mode | S_IFDIR;
 	else	statbuf->st_mode = statbuf->st_mode | S_IFREG;
@@ -260,13 +261,13 @@ int poi_insertentry(directory_entry * dst, directory_entry val){
 
 poi_attr_t mode_t_to_poi_attr_t(mode_t mode){
 	poi_attr_t attr;
-	if (mode & S_IEXEC)
+	if (mode & (S_IEXEC | S_IXGRP | S_IXOTH))
 		attr.x = true;
 	else	attr.x = false;
-	if (mode & S_IREAD)
+	if (mode & (S_IREAD | S_IRGRP | S_IROTH))
 		attr.r = true;
 	else	attr.r = false;
-	if (mode & S_IWRITE)
+	if (mode & (S_IWRITE | S_IWGRP | S_IWOTH))
 		attr.w = true;
 	else	attr.w = false;
 	if (mode & S_IFDIR)
@@ -552,20 +553,24 @@ int poi_write (const char *path, const char *buf, size_t size, off_t offset,
 }
 
 int deleteEntry(uint16_t dataBlockIdx, uint32_t offset){
+	fprintf(logfile,"\tdeleteEntry(0x%x,0x%x)\n",dataBlockIdx,offset);
+	poi_data_pool_block_idx_t dataBlockIdxNxt = dataBlockIdx;
 	poi_file_block blk,blknxt;
 	blknxt=poi_data_pool_read_block(dataBlockIdx);
 	do{
+		dataBlockIdx = dataBlockIdxNxt;
 		blk = blknxt;
 		while (offset+32<POI_BLOCK_SIZE){
 			memcpy(&blk.data[offset],&blk.data[offset+32],32);
 			offset += 32;
 		}
-		dataBlockIdx=getNextBlock(dataBlockIdx);
-		if (dataBlockIdx!=0xffff){
-			blknxt = poi_data_pool_read_block(dataBlockIdx);
+		dataBlockIdxNxt=getNextBlock(dataBlockIdx);
+		if (dataBlockIdxNxt!=0xffff){
+			blknxt = poi_data_pool_read_block(dataBlockIdxNxt);
 			memcpy(&blk.data[offset],&blknxt.data,32);
 			offset=0;
 		}
+		poi_data_pool_write_block(blk,dataBlockIdx);
 
 	}while(dataBlockIdx!=0xffff);
 	return 0;
@@ -576,7 +581,8 @@ int poi_unlink (const char * path){
 
 	fprintf(logfile,"unlink('%s')\n",path);
 	directory_entry yangdimasuki;
-	if (getEntryRecursive(path,getRootDirEntry(),&yangdimasuki)!=0) return -ENOENT;
+	int opstat;
+	if (opstat=getEntryRecursive(path,getRootDirEntry(),&yangdimasuki)<0) return opstat;
 	int path_length=strlen(path);
 	int n = path_length;
 	while (path[n]!='/') n--;
@@ -587,6 +593,7 @@ int poi_unlink (const char * path){
 	if (strlen(path+n+1)>21) return -ENOENT;
 
 	const char * name = path+n+1;
+	fprintf(logfile,"\tname: %s\n",name);
 	
 	setNextBlock(getFirstFreeBlockIdx(),0xffff);
 	setFirstFreeBlockIdx(getNextEmpty(getFirstFreeBlockIdx()));
@@ -601,22 +608,30 @@ int poi_unlink (const char * path){
 	uint32_t yangdihapusoff;
 	poi_data_pool_block_idx_t yangdihapusidx;
 
-	poi_data_pool_block_idx_t iter;
 
 	if (n==0){
 		yangdimasuki=getRootDirEntry();
 		status_op = getEntryAndBlockOffset(name,yangdimasuki,&yangdihapus,&yangdihapusidx,&yangdihapusoff);
 		if (status_op!=0) return status_op;
+		char buf[22];
+		//fprintf(logfile,"\tgetNamaFile(yangdihapus): %s\n",getNama(buf,yangdihapus));
 		deleteEntry(yangdihapusidx,yangdihapusoff);
 		deleteListOfBlock(getFirstDataBlockIdx(yangdihapus));
 		setFileSize(&yangdimasuki,getFileSize(yangdimasuki)-32);
-		if ((unsigned long)getFileSize(yangdimasuki)%POI_FILE_SIZE==0){
-			//TODO bebaskan blok terakhir
+		if (getFileSize(yangdimasuki)%POI_FILE_SIZE==0&&getFileSize(yangdimasuki)!=0){
+			//bebaskan blok terakhir
+			poi_data_pool_block_idx_t iter = getFirstDataBlockIdx(yangdimasuki);
+			while (getNextBlock(getNextBlock(iter))!=0xFFFF){
+				iter=getNextBlock(iter);
+			}
+			fprintf(logfile,"\\tpotong: %x\n",iter);
+			truncateList(iter);
 		}
 		setRootDirEntry(yangdimasuki);
 		savePoiVolinfoCache();
 		return 0;
 	}else{
+		return -ENOSYS;
 		parentDir = malloc(sizeof(char)*n);
 		if (parentDir==NULL) return -ENAMETOOLONG;
 		memcpy(parentDir,path,sizeof(char)*n); parentDir[n]='\0';
@@ -652,6 +667,56 @@ int poi_rename (const char * path, const char * newpath){
 
 /** Change the size of a file */
 int poi_truncate (const char * path, off_t offset){
+	//return -ENOSPC;
+	fprintf(logfile,"truncate('%s'). offset: 0x%x\n",path,offset);
+
+	uint16_t entryblockidx;
+	uint32_t entryblockoff;
+	directory_entry e;
+	int opstat = getEntryAndBlockOffset(path,getRootDirEntry(),&e,&entryblockidx,&entryblockoff);
+	if (opstat!=0) return opstat;
+
+	uint16_t dataBlockIdx = getFirstDataBlockIdx(e);
+	uint16_t prev;
+	uint32_t fsize = getFileSize(e);
+
+	uint32_t totalskipped = 0;
+
+
+	while (totalskipped < (long)offset-(long)POI_BLOCK_SIZE && totalskipped < fsize){
+		totalskipped += POI_BLOCK_SIZE;
+		dataBlockIdx=getNextBlock(dataBlockIdx);
+	}
+
+	if (totalskipped==fsize){
+		uint32_t totalBlock = (offset + POI_BLOCK_SIZE - 1) / POI_BLOCK_SIZE;//pembagian roundup
+		uint32_t allocatedBlock = (fsize + POI_BLOCK_SIZE - 1) / POI_BLOCK_SIZE;//pembagian roundup
+		if (totalBlock-allocatedBlock > getNumFreeBlocks())
+			return -ENOSPC;
+		while (allocatedBlock<totalBlock){
+			allocateAfter(dataBlockIdx);
+			dataBlockIdx = getNextBlock(dataBlockIdx);
+			allocatedBlock++;
+		}
+		
+	}
+	else{
+
+		uint32_t in_block_offset = offset-totalskipped;
+		totalskipped = offset;
+
+		truncateList(dataBlockIdx);
+	}
+
+	//update file entry
+	setFileSize(&e,offset);
+	setLastModifDateTime(&e,GetCurrentTime());
+	replaceEntry(e,entryblockidx,entryblockoff);
+
+	//simpan yang diubah
+	savePoiVolinfoCache();
+	savePoiAllocationCache();
+	return 0;
 	return ;//TODO implementasi
 }
 
@@ -666,7 +731,7 @@ struct fuse_operations poi_oper = { //TODO tiap kali ada yang diimplementasi, di
 //	.unlink = poi_unlink,
 //	.rename = poi_rename,
 	.write = poi_write,
-//	.truncate = poi_truncate,
+	.truncate = poi_truncate,
 };
 
 int main(int argc, char *argv[]){
