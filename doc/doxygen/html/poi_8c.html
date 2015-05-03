@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>POI-FS: /home/nim_13512501/Documents/tubes 2 OS/poi/src/poi.c File Reference</title>
+<title>My Project: src/poi.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">POI-FS
+   <div id="projectname">My Project
    </div>
   </td>
  </tr>
@@ -100,6 +100,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &lt;stdio.h&gt;</code><br/>
 <code>#include &lt;stdlib.h&gt;</code><br/>
 <code>#include &lt;sys/stat.h&gt;</code><br/>
+<code>#include &quot;<a class="el" href="allocation-table_8h_source.html">allocation-table.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="file-manager_8h_source.html">file-manager.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="directory-entry_8h_source.html">directory-entry.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="volume-information_8h_source.html">volume-information.h</a>&quot;</code><br/>
@@ -107,9 +108,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for poi.c:</div>
 <div class="dyncontent">
-<div class="center"><img src="poi_8c__incl.png" border="0" usemap="#_2home_2nim__13512501_2_documents_2tubes_012_01_o_s_2poi_2src_2poi_8c" alt=""/></div>
-<map name="_2home_2nim__13512501_2_documents_2tubes_012_01_o_s_2poi_2src_2poi_8c" id="_2home_2nim__13512501_2_documents_2tubes_012_01_o_s_2poi_2src_2poi_8c">
-<area shape="rect" id="node8" href="file-manager_8h.html" title="manajer berkas dan blok " alt="" coords="579,184,683,211"/><area shape="rect" id="node11" href="directory-entry_8h.html" title="struktur data entri direktori " alt="" coords="778,184,893,211"/><area shape="rect" id="node15" href="volume-information_8h.html" title="mengatur informasi volume " alt="" coords="754,109,896,136"/><area shape="rect" id="node16" href="data-pool-block-manager_8h.html" title="mengatur pembacaan dan penulisan blok kantong data " alt="" coords="555,109,729,136"/></map>
+<div class="center"><img src="poi_8c__incl.png" border="0" usemap="#src_2poi_8c" alt=""/></div>
+<map name="src_2poi_8c" id="src_2poi_8c">
+<area shape="rect" id="node8" href="allocation-table_8h.html" title="mengatur seluruh senarai berkait alokasi berkas. " alt="" coords="453,80,573,107"/><area shape="rect" id="node10" href="file-manager_8h.html" title="manajer berkas dan blok " alt="" coords="429,304,533,331"/><area shape="rect" id="node13" href="data-pool-block-manager_8h.html" title="mengatur pembacaan dan penulisan blok kantong data " alt="" coords="363,229,537,256"/><area shape="rect" id="node15" href="volume-information_8h.html" title="mengatur informasi volume " alt="" coords="666,155,808,181"/><area shape="rect" id="node16" href="directory-entry_8h.html" title="struktur data entri direktori " alt="" coords="715,229,831,256"/><area shape="rect" id="node9" href="allocation-block-manager_8h.html" title="mengambil dan menyimpan pointer to next di allocation table. " alt="" coords="465,155,641,181"/></map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
@@ -975,23 +976,23 @@ Here is the caller graph for this function:</div>
 <div class="line">    .write = <a class="code" href="poi_8c.html#a4015d7cbf472a666a5afec6a3cabbb35">poi_write</a>,</div>
 <div class="line">    .truncate = <a class="code" href="poi_8c.html#a916c54fa22cdda50d516a667840bc957">poi_truncate</a>,</div>
 <div class="line">}</div>
-<div class="ttc" id="poi_8c_html_a2780aa1096e4e171abbd079fed25bd97"><div class="ttname"><a href="poi_8c.html#a2780aa1096e4e171abbd079fed25bd97">poi_readdir</a></div><div class="ttdeci">int poi_readdir(const char *path, void *buf, fuse_fill_dir_t filler, off_t offset, struct fuse_file_info *fi)</div><div class="ttdef"><b>Definition:</b> poi.c:192</div></div>
-<div class="ttc" id="poi_8c_html_a6097c210a3653eaaaa28821de8cad867"><div class="ttname"><a href="poi_8c.html#a6097c210a3653eaaaa28821de8cad867">poi_rmdir</a></div><div class="ttdeci">int poi_rmdir(const char *path)</div><div class="ttdef"><b>Definition:</b> poi.c:854</div></div>
-<div class="ttc" id="poi_8c_html_a916c54fa22cdda50d516a667840bc957"><div class="ttname"><a href="poi_8c.html#a916c54fa22cdda50d516a667840bc957">poi_truncate</a></div><div class="ttdeci">int poi_truncate(const char *path, off_t offset)</div><div class="ttdef"><b>Definition:</b> poi.c:614</div></div>
-<div class="ttc" id="poi_8c_html_a33a24f79f8f6eeda031f59ecfb10c9b4"><div class="ttname"><a href="poi_8c.html#a33a24f79f8f6eeda031f59ecfb10c9b4">poi_read</a></div><div class="ttdeci">poi_read(const char *path, char *buf, size_t size, off_t offset, struct fuse_file_info *fi)</div><div class="ttdef"><b>Definition:</b> poi.c:429</div></div>
-<div class="ttc" id="poi_8c_html_a2da6e63134c6ca1cf467a8cb81460dad"><div class="ttname"><a href="poi_8c.html#a2da6e63134c6ca1cf467a8cb81460dad">poi_mknod</a></div><div class="ttdeci">int poi_mknod(const char *path, mode_t mode, dev_t dev)</div><div class="ttdef"><b>Definition:</b> poi.c:366</div></div>
-<div class="ttc" id="poi_8c_html_a4015d7cbf472a666a5afec6a3cabbb35"><div class="ttname"><a href="poi_8c.html#a4015d7cbf472a666a5afec6a3cabbb35">poi_write</a></div><div class="ttdeci">int poi_write(const char *path, const char *buf, size_t size, off_t offset, struct fuse_file_info *fi)</div><div class="ttdef"><b>Definition:</b> poi.c:486</div></div>
-<div class="ttc" id="poi_8c_html_ad5142050bb36b094a9d752f4459d8884"><div class="ttname"><a href="poi_8c.html#ad5142050bb36b094a9d752f4459d8884">poi_mkdir</a></div><div class="ttdeci">int poi_mkdir(const char *path, mode_t mode)</div><div class="ttdef"><b>Definition:</b> poi.c:306</div></div>
-<div class="ttc" id="poi_8c_html_a5ad740416ca293699d847841c7f2e2de"><div class="ttname"><a href="poi_8c.html#a5ad740416ca293699d847841c7f2e2de">poi_getattr</a></div><div class="ttdeci">int poi_getattr(const char *path, struct stat *statbuf)</div><div class="ttdef"><b>Definition:</b> poi.c:150</div></div>
-<div class="ttc" id="poi_8c_html_aa04c342fe153226c224be62aae9075c5"><div class="ttname"><a href="poi_8c.html#aa04c342fe153226c224be62aae9075c5">poi_rename</a></div><div class="ttdeci">int poi_rename(const char *path, const char *newpath)</div><div class="ttdef"><b>Definition:</b> poi.c:672</div></div>
-<div class="ttc" id="poi_8c_html_a6d1c73ddb2c9e75dd516f2995a121c84"><div class="ttname"><a href="poi_8c.html#a6d1c73ddb2c9e75dd516f2995a121c84">poi_unlink</a></div><div class="ttdeci">int poi_unlink(const char *path)</div><div class="ttdef"><b>Definition:</b> poi.c:780</div></div>
+<div class="ttc" id="poi_8c_html_a2780aa1096e4e171abbd079fed25bd97"><div class="ttname"><a href="poi_8c.html#a2780aa1096e4e171abbd079fed25bd97">poi_readdir</a></div><div class="ttdeci">int poi_readdir(const char *path, void *buf, fuse_fill_dir_t filler, off_t offset, struct fuse_file_info *fi)</div><div class="ttdef"><b>Definition:</b> poi.c:193</div></div>
+<div class="ttc" id="poi_8c_html_a6097c210a3653eaaaa28821de8cad867"><div class="ttname"><a href="poi_8c.html#a6097c210a3653eaaaa28821de8cad867">poi_rmdir</a></div><div class="ttdeci">int poi_rmdir(const char *path)</div><div class="ttdef"><b>Definition:</b> poi.c:855</div></div>
+<div class="ttc" id="poi_8c_html_a916c54fa22cdda50d516a667840bc957"><div class="ttname"><a href="poi_8c.html#a916c54fa22cdda50d516a667840bc957">poi_truncate</a></div><div class="ttdeci">int poi_truncate(const char *path, off_t offset)</div><div class="ttdef"><b>Definition:</b> poi.c:615</div></div>
+<div class="ttc" id="poi_8c_html_a33a24f79f8f6eeda031f59ecfb10c9b4"><div class="ttname"><a href="poi_8c.html#a33a24f79f8f6eeda031f59ecfb10c9b4">poi_read</a></div><div class="ttdeci">poi_read(const char *path, char *buf, size_t size, off_t offset, struct fuse_file_info *fi)</div><div class="ttdef"><b>Definition:</b> poi.c:430</div></div>
+<div class="ttc" id="poi_8c_html_a2da6e63134c6ca1cf467a8cb81460dad"><div class="ttname"><a href="poi_8c.html#a2da6e63134c6ca1cf467a8cb81460dad">poi_mknod</a></div><div class="ttdeci">int poi_mknod(const char *path, mode_t mode, dev_t dev)</div><div class="ttdef"><b>Definition:</b> poi.c:367</div></div>
+<div class="ttc" id="poi_8c_html_a4015d7cbf472a666a5afec6a3cabbb35"><div class="ttname"><a href="poi_8c.html#a4015d7cbf472a666a5afec6a3cabbb35">poi_write</a></div><div class="ttdeci">int poi_write(const char *path, const char *buf, size_t size, off_t offset, struct fuse_file_info *fi)</div><div class="ttdef"><b>Definition:</b> poi.c:487</div></div>
+<div class="ttc" id="poi_8c_html_ad5142050bb36b094a9d752f4459d8884"><div class="ttname"><a href="poi_8c.html#ad5142050bb36b094a9d752f4459d8884">poi_mkdir</a></div><div class="ttdeci">int poi_mkdir(const char *path, mode_t mode)</div><div class="ttdef"><b>Definition:</b> poi.c:307</div></div>
+<div class="ttc" id="poi_8c_html_a5ad740416ca293699d847841c7f2e2de"><div class="ttname"><a href="poi_8c.html#a5ad740416ca293699d847841c7f2e2de">poi_getattr</a></div><div class="ttdeci">int poi_getattr(const char *path, struct stat *statbuf)</div><div class="ttdef"><b>Definition:</b> poi.c:151</div></div>
+<div class="ttc" id="poi_8c_html_aa04c342fe153226c224be62aae9075c5"><div class="ttname"><a href="poi_8c.html#aa04c342fe153226c224be62aae9075c5">poi_rename</a></div><div class="ttdeci">int poi_rename(const char *path, const char *newpath)</div><div class="ttdef"><b>Definition:</b> poi.c:673</div></div>
+<div class="ttc" id="poi_8c_html_a6d1c73ddb2c9e75dd516f2995a121c84"><div class="ttname"><a href="poi_8c.html#a6d1c73ddb2c9e75dd516f2995a121c84">poi_unlink</a></div><div class="ttdeci">int poi_unlink(const char *path)</div><div class="ttdef"><b>Definition:</b> poi.c:781</div></div>
 </div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 3 2015 06:30:46 for POI-FS by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 3 2015 06:46:33 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -1,7 +1,8 @@
-<map id="/home/nim_13512501/Documents/tubes 2 OS/poi/src/allocation&#45;block&#45;manager.h" name="/home/nim_13512501/Documents/tubes 2 OS/poi/src/allocation&#45;block&#45;manager.h">
-<area shape="rect" id="node2" href="$allocation-block-manager-test_8c.html" title="berkas driver uji untuk allocation&#45;block&#45;manager.c " alt="" coords="5,126,168,197"/>
-<area shape="rect" id="node3" href="$allocation-block-manager_8c.html" title="mengambil dan menyimpan pointer to next di allocation table. " alt="" coords="192,126,355,197"/>
-<area shape="rect" id="node4" href="$allocation-table_8h.html" title="mengatur seluruh senarai berkait alokasi berkas. " alt="" coords="379,133,545,189"/>
-<area shape="rect" id="node5" href="$allocation-table-test_8c.html" title="berkas penggerak uji untuk allocation&#45;table&#45;test.c " alt="" coords="287,246,449,317"/>
-<area shape="rect" id="node6" href="$allocation-table_8c.html" title="mengatur seluruh senarai berkait alokasi berkas. " alt="" coords="474,253,640,309"/>
+<map id="src/allocation&#45;block&#45;manager.h" name="src/allocation&#45;block&#45;manager.h">
+<area shape="rect" id="node2" href="$allocation-block-manager-test_8c.html" title="berkas driver uji untuk allocation&#45;block&#45;manager.c " alt="" coords="5,97,139,138"/>
+<area shape="rect" id="node3" href="$allocation-block-manager_8c.html" title="mengambil dan menyimpan pointer to next di allocation table. " alt="" coords="163,97,297,138"/>
+<area shape="rect" id="node4" href="$allocation-table_8h.html" title="mengatur seluruh senarai berkait alokasi berkas. " alt="" coords="322,104,464,131"/>
+<area shape="rect" id="node5" href="$allocation-table-test_8c.html" title="berkas penggerak uji untuk allocation&#45;table&#45;test.c " alt="" coords="168,187,297,229"/>
+<area shape="rect" id="node6" href="$allocation-table_8c.html" title="mengatur seluruh senarai berkait alokasi berkas. " alt="" coords="322,195,464,221"/>
+<area shape="rect" id="node7" href="$poi_8c.html" title="berisi implementasi inerface ke fuse dan main program " alt="" coords="489,195,561,221"/>
 </map>

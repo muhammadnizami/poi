@@ -1,7 +1,7 @@
-<map id="/home/nim_13512501/Documents/tubes 2 OS/poi/src/allocation&#45;table.h" name="/home/nim_13512501/Documents/tubes 2 OS/poi/src/allocation&#45;table.h">
-<area shape="rect" id="node2" href="$allocation-block-manager_8h.html" title="mengambil dan menyimpan pointer to next di allocation table. " alt="" coords="130,109,307,136"/>
-<area shape="rect" id="node7" href="$data-pool-block-manager_8h.html" title="mengatur pembacaan dan penulisan blok kantong data " alt="" coords="5,184,179,211"/>
-<area shape="rect" id="node9" href="$volume-information_8h.html" title="mengatur informasi volume " alt="" coords="331,109,473,136"/>
-<area shape="rect" id="node3" href="$file-manager_8h.html" title="manajer berkas dan blok " alt="" coords="136,259,240,285"/>
-<area shape="rect" id="node10" href="$directory-entry_8h.html" title="struktur data entri direktori " alt="" coords="357,184,472,211"/>
+<map id="src/allocation&#45;table.h" name="src/allocation&#45;table.h">
+<area shape="rect" id="node2" href="$allocation-block-manager_8h.html" title="mengambil dan menyimpan pointer to next di allocation table. " alt="" coords="130,80,307,107"/>
+<area shape="rect" id="node7" href="$data-pool-block-manager_8h.html" title="mengatur pembacaan dan penulisan blok kantong data " alt="" coords="5,155,179,181"/>
+<area shape="rect" id="node9" href="$volume-information_8h.html" title="mengatur informasi volume " alt="" coords="331,80,473,107"/>
+<area shape="rect" id="node3" href="$file-manager_8h.html" title="manajer berkas dan blok " alt="" coords="136,229,240,256"/>
+<area shape="rect" id="node10" href="$directory-entry_8h.html" title="struktur data entri direktori " alt="" coords="357,155,472,181"/>
 </map>
