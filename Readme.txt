@@ -82,7 +82,7 @@ Membuat dan menunggangi berkas .poi
 Sebelum menunggangi, pastikan TITIK-TUNGGANG ada dan kosong.
 untuk membuat TITIK-TUNGGANG:
 	mkdir TITIK-TUNGGANG
-untuk mengosonkan TITIK-TUNGGANG: (berbahaya)
+untuk mengosongkan TITIK-TUNGGANG: (berbahaya)
 	rm TITIK-TUNGGANG/* -r
 
 
