@@ -90,3 +90,28 @@ Berhenti menunggangi
 	fusermount -u TITIK-TUNGGANG
 	contoh:
 	fusermount -u a
+
+////IV. PENGUJIAN////////////////////////////////////////////////
+1. getattr
+	stat NAMA-BERKAS/NAMA-DIREKTORI
+2. readdir
+	ls
+3. mkdir
+	mkdir	
+4. mknod
+	echo "" > NAMA-BERKAS
+5. read
+	cat NAMA-BERKAS
+6. rmdir
+	rmdir NAMA-DIREKTORI
+7. unlink
+	rm NAMA-BERKAS
+8. rename
+	mv JALUR JALUR-BARU
+9. write
+	echo ISI > NAMA-BERKAS
+	echo ISI-TAMBAHAN >> NAMA-BERKAS
+10. truncate
+	truncate -s UKURAN-BARU NAMA-BERKAS
+11. chmod
+	chmod ug[+/-][wrx]
