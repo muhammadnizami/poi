@@ -321,7 +321,7 @@ int poi_mkdir (const char * path, mode_t mode){
 	WAKTU waktu_buat = GetCurrentTime();
 	if (strlen(path+n+1)>21) return -ENAMETOOLONG;
 	poi_data_pool_block_idx_t firstblock;
-	status_op = newList(&firstblock);
+	if (status_op = newList(&firstblock)< 0) return status_op;
 	directory_entry yangdimasukkan = makeEntry(path+n+1, attr, GetJam(waktu_buat), GetTanggal(waktu_buat), firstblock, 0);
 	char * parentDir;
 
@@ -380,7 +380,7 @@ int poi_mknod (const char *path, mode_t mode, dev_t dev){
 	WAKTU waktu_buat = GetCurrentTime();
 	if (strlen(path+n+1)>21) return -ENAMETOOLONG;
 	poi_data_pool_block_idx_t firstblock;
-	status_op = newList(&firstblock);
+	if (status_op = newList(&firstblock)< 0) return status_op;
 	directory_entry yangdimasukkan = makeEntry(path+n+1, attr, GetJam(waktu_buat), GetTanggal(waktu_buat), firstblock, 0);
 	char * parentDir;
 
