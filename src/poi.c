@@ -861,6 +861,18 @@ int poi_rmdir (const char * path){
 	return poi_unlink(path);
 }
 
+/** Change the permission bits of a file*/
+int poi_chmod(const char * path, mode_t mode){
+	directory_entry e;
+	poi_data_pool_block_idx_t dataBlockIdx;
+	uint32_t offset;
+	int opstat=getEntryAndBlockOffset(path,getRootDirEntry(),&e,&dataBlockIdx,&offset);
+	if (opstat < 0) return opstat;
+	setattr(&e, mode_t_to_poi_attr_t(mode));
+	opstat=replaceEntry(e,dataBlockIdx,offset);
+	return (opstat<0)?opstat:0;
+}
+
 struct fuse_operations poi_oper = { //tiap kali ada yang diimplementasi, diubah jadi bukan komentar
 	.getattr = poi_getattr,
 	.readdir = poi_readdir,
@@ -872,6 +884,7 @@ struct fuse_operations poi_oper = { //tiap kali ada yang diimplementasi, diubah 
 	.rename = poi_rename,
 	.write = poi_write,
 	.truncate = poi_truncate,
+	.chmod = poi_chmod,
 };
 
 int main(int argc, char *argv[]){
