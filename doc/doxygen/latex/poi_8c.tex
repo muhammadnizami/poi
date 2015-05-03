@@ -66,6 +66,8 @@ int \hyperlink{poi_8c_a6d1c73ddb2c9e75dd516f2995a121c84}{poi\-\_\-unlink} (const
 \item 
 int \hyperlink{poi_8c_a6097c210a3653eaaaa28821de8cad867}{poi\-\_\-rmdir} (const char $\ast$path)
 \item 
+int \hyperlink{poi_8c_a1dbeeaa55b524d82044a7be4fd2a6a51}{poi\-\_\-chmod} (const char $\ast$path, mode\-\_\-t mode)
+\item 
 int \hyperlink{poi_8c_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
 \end{DoxyCompactItemize}
 \subsection*{Variables}
@@ -172,7 +174,8 @@ Here is the call graph for this function\-:\nopagebreak
 
 
 
-Here is the caller graph for this function\-:\nopagebreak
+Here is the caller graph for this function\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -240,11 +243,32 @@ Here is the call graph for this function\-:\nopagebreak
 )}}\label{poi_8c_a8d4ce6ea7cee09093a1a61bac12456a6}
 
 
-Here is the caller graph for this function\-:\nopagebreak
+Here is the caller graph for this function\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=288pt]{poi_8c_a8d4ce6ea7cee09093a1a61bac12456a6_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{poi_8c_a1dbeeaa55b524d82044a7be4fd2a6a51}{\index{poi.\-c@{poi.\-c}!poi\-\_\-chmod@{poi\-\_\-chmod}}
+\index{poi\-\_\-chmod@{poi\-\_\-chmod}!poi.c@{poi.\-c}}
+\subsubsection[{poi\-\_\-chmod}]{\setlength{\rightskip}{0pt plus 5cm}int poi\-\_\-chmod (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{path, }
+\item[{mode\-\_\-t}]{mode}
+\end{DoxyParamCaption}
+)}}\label{poi_8c_a1dbeeaa55b524d82044a7be4fd2a6a51}
+Change the permission bits of a file 
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{poi_8c_a1dbeeaa55b524d82044a7be4fd2a6a51_cgraph}
 \end{center}
 \end{figure}
 
@@ -534,7 +558,8 @@ Here is the call graph for this function\-:\nopagebreak
 
 
 
-Here is the caller graph for this function\-:\nopagebreak
+Here is the caller graph for this function\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -562,5 +587,6 @@ Here is the caller graph for this function\-:\nopagebreak
     .rename = \hyperlink{poi_8c_aa04c342fe153226c224be62aae9075c5}{poi\_rename},
     .write = \hyperlink{poi_8c_a4015d7cbf472a666a5afec6a3cabbb35}{poi\_write},
     .truncate = \hyperlink{poi_8c_a916c54fa22cdda50d516a667840bc957}{poi\_truncate},
+    .chmod = \hyperlink{poi_8c_a1dbeeaa55b524d82044a7be4fd2a6a51}{poi\_chmod},
 \}
 \end{DoxyCode}

@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['poi_5fchmod',['poi_chmod',['../poi_8c.html#a1dbeeaa55b524d82044a7be4fd2a6a51',1,'poi.c']]],
   ['poi_5fdata_5fpool_5fget_5fnext_5fempty',['poi_data_pool_get_next_empty',['../data-pool-block-manager_8h.html#ae02f040d4e0f458f0d63751bc09f55b7',1,'data-pool-block-manager.h']]],
   ['poi_5fdata_5fpool_5fread_5fblock',['poi_data_pool_read_block',['../data-pool-block-manager_8c.html#ac930ae4a4b3ca65a49d45c7654f15149',1,'poi_data_pool_read_block(poi_data_pool_block_idx_t n):&#160;data-pool-block-manager.c'],['../data-pool-block-manager_8h.html#ac930ae4a4b3ca65a49d45c7654f15149',1,'poi_data_pool_read_block(poi_data_pool_block_idx_t n):&#160;data-pool-block-manager.c']]],
   ['poi_5fdata_5fpool_5fwrite_5fblock',['poi_data_pool_write_block',['../data-pool-block-manager_8c.html#a10624f1cbc61dd0a8a03aa94d8502567',1,'poi_data_pool_write_block(poi_file_block b, poi_data_pool_block_idx_t n):&#160;data-pool-block-manager.c'],['../data-pool-block-manager_8h.html#a10624f1cbc61dd0a8a03aa94d8502567',1,'poi_data_pool_write_block(poi_file_block b, poi_data_pool_block_idx_t n):&#160;data-pool-block-manager.c']]],

@@ -11,6 +11,7 @@ var searchData=
   ['poi_5fblock_5fnum_5fmin',['POI_BLOCK_NUM_MIN',['../file-manager_8h.html#ab2fc50553048b34a8582e052c6aa916f',1,'file-manager.h']]],
   ['poi_5fblock_5fsize',['POI_BLOCK_SIZE',['../file-manager_8h.html#afb59af7070cf0cd010913eef940ffbbd',1,'file-manager.h']]],
   ['poi_5fblock_5fword_5fnum',['POI_BLOCK_WORD_NUM',['../file-manager_8h.html#a1323091f8cdc771e2fc912aa8168bd39',1,'file-manager.h']]],
+  ['poi_5fchmod',['poi_chmod',['../poi_8c.html#a1dbeeaa55b524d82044a7be4fd2a6a51',1,'poi.c']]],
   ['poi_5fdata_5fpool_5fblock_5fidx_5ft',['poi_data_pool_block_idx_t',['../data-pool-block-manager_8h.html#a87e19ab8290bcd76be1c7db1e90cc6f6',1,'data-pool-block-manager.h']]],
   ['poi_5fdata_5fpool_5fblocks_5fnum',['POI_DATA_POOL_BLOCKS_NUM',['../file-manager_8h.html#a6e4b52d19d492676f83a8576aba19a34',1,'file-manager.h']]],
   ['poi_5fdata_5fpool_5fget_5fnext_5fempty',['poi_data_pool_get_next_empty',['../data-pool-block-manager_8h.html#ae02f040d4e0f458f0d63751bc09f55b7',1,'data-pool-block-manager.h']]],
